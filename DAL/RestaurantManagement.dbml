@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RestaurantManagement" Class="RestaurantManagementDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=RestaurantManagement;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="RestaurantManagementConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblAccounts" Member="tblAccounts">
+    <Type Name="tblAccount">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTables" Member="tblTables">
+    <Type Name="tblTable">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblTable_tblBill" Member="tblBills" ThisKey="ID" OtherKey="TableID" Type="tblBill" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBillInfo" Member="tblBillInfos">
+    <Type Name="tblBillInfo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblBill_tblBillInfo" Member="tblBill" ThisKey="BillID" OtherKey="ID" Type="tblBill" IsForeignKey="true" />
+      <Association Name="tblFood_tblBillInfo" Member="tblFood" ThisKey="FoodID" OtherKey="ID" Type="tblFood" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBills" Member="tblBills">
+    <Type Name="tblBill">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CheckInDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CheckOutDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="TableID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tblBill_tblBillInfo" Member="tblBillInfos" ThisKey="ID" OtherKey="BillID" Type="tblBillInfo" />
+      <Association Name="tblTable_tblBill" Member="tblTable" ThisKey="TableID" OtherKey="ID" Type="tblTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCategory" Member="tblCategories">
+    <Type Name="tblCategory">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="tblCategory_tblFood" Member="tblFoods" ThisKey="ID" OtherKey="CategoryID" Type="tblFood" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFoods" Member="tblFoods">
+    <Type Name="tblFood">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="tblFood_tblBillInfo" Member="tblBillInfos" ThisKey="ID" OtherKey="FoodID" Type="tblBillInfo" />
+      <Association Name="tblCategory_tblFood" Member="tblCategory" ThisKey="CategoryID" OtherKey="ID" Type="tblCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spAddCategory" Method="spAddCategory">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateTable" Method="spUpdateTable">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spAddFood" Method="spAddFood">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="categoryId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="price" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spAddTable" Method="spAddTable">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetBillInfo" Method="spGetBillInfo">
+    <ElementType Name="spGetBillInfoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BillID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetBills" Method="spGetBills">
+    <ElementType Name="spGetBillsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CheckInDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CheckOutDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="TableID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetCategory" Method="spGetCategory">
+    <ElementType Name="spGetCategoryResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetFoods" Method="spGetFoods">
+    <ElementType Name="spGetFoodsResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spGetTables" Method="spGetTables">
+    <ElementType Name="spGetTablesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateCategory" Method="spUpdateCategory">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateFood" Method="spUpdateFood">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="categoryId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="price" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
