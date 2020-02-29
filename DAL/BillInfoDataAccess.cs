@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class CategoryDataAccess
+    public class BillInfoDataAccess
     {
         RestaurantManagementDataContext _dataContext = new RestaurantManagementDataContext();
 
-        public List<tblCategory> GetCategories()
+        public List<tblBillInfo> GetBillInfos()
         {
             try
             {
-                return _dataContext.tblCategories.ToList();
+                return _dataContext.tblBillInfos.ToList();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneCategory(tblCategory newCategory)
+        public bool AddOneBillInfo(tblBillInfo newBillInfo)
         {
             try
             {
-                _dataContext.tblCategories.InsertOnSubmit(newCategory);
+                _dataContext.tblBillInfos.InsertOnSubmit(newBillInfo);
                 _dataContext.SubmitChanges();
                 return true;
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneCategory(int idCategoryToDelete)
+        public bool DeleteOneBillInfo(int idBillInfoToDelete)
         {
             try
             {
-                tblCategory categoryToDelete = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == idCategoryToDelete);
+                tblBillInfo billInfoToDelete = _dataContext.tblBillInfos
+                    .FirstOrDefault(b => b.ID == idBillInfoToDelete);
 
-                if (categoryToDelete != null)
+                if (billInfoToDelete != null)
                 {
-                    _dataContext.tblCategories.DeleteOnSubmit(categoryToDelete);
+                    _dataContext.tblBillInfos.DeleteOnSubmit(billInfoToDelete);
                     _dataContext.SubmitChanges();
                     return true;
                 }
@@ -48,17 +48,19 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneCategory(tblCategory pendingCategory)
+        public bool UpdateOneBillInfo(tblBillInfo pendingBillInfo)
         {
             try
             {
-                tblCategory categoryToUpdate = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == pendingCategory.ID);
+                tblBillInfo billInfoToUpdate = _dataContext.tblBillInfos
+                    .FirstOrDefault(c => c.ID == pendingBillInfo.ID);
 
-                if (categoryToUpdate != null)
+                if (billInfoToUpdate != null)
                 {
-                    categoryToUpdate.Name = pendingCategory.Name;
-                    
+                    billInfoToUpdate.BillID = pendingBillInfo.ID;
+                    billInfoToUpdate.FoodID = pendingBillInfo.FoodID;
+                    billInfoToUpdate.Count = pendingBillInfo.Count;
+
                     _dataContext.SubmitChanges();
                     return true;
                 }

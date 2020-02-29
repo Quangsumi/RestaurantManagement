@@ -45,6 +45,7 @@
     <Compile Include="CategoryDataLogic.cs" />
     <Compile Include="CategoryDisplayLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

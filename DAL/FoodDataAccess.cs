@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class CategoryDataAccess
+    public class FoodDataAccess
     {
         RestaurantManagementDataContext _dataContext = new RestaurantManagementDataContext();
 
-        public List<tblCategory> GetCategories()
+        public List<tblFood> GetFoods()
         {
             try
             {
-                return _dataContext.tblCategories.ToList();
+                return _dataContext.tblFoods.ToList();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneCategory(tblCategory newCategory)
+        public bool AddOneFood(tblFood newFood)
         {
             try
             {
-                _dataContext.tblCategories.InsertOnSubmit(newCategory);
+                _dataContext.tblFoods.InsertOnSubmit(newFood);
                 _dataContext.SubmitChanges();
                 return true;
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneCategory(int idCategoryToDelete)
+        public bool DeleteOneFood(int idFoodToDelete)
         {
             try
             {
-                tblCategory categoryToDelete = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == idCategoryToDelete);
+                tblFood foodToDelete = _dataContext.tblFoods
+                    .FirstOrDefault(f => f.ID == idFoodToDelete);
 
-                if (categoryToDelete != null)
+                if(foodToDelete != null)
                 {
-                    _dataContext.tblCategories.DeleteOnSubmit(categoryToDelete);
+                    _dataContext.tblFoods.DeleteOnSubmit(foodToDelete);
                     _dataContext.SubmitChanges();
                     return true;
                 }
@@ -48,17 +48,19 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneCategory(tblCategory pendingCategory)
+        public bool UpdateOneFood(tblFood pendingFood)
         {
             try
             {
-                tblCategory categoryToUpdate = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == pendingCategory.ID);
+                tblFood foodToUpdate = _dataContext.tblFoods
+                    .FirstOrDefault(f => f.ID == pendingFood.ID);
 
-                if (categoryToUpdate != null)
+                if(foodToUpdate != null)
                 {
-                    categoryToUpdate.Name = pendingCategory.Name;
-                    
+                    foodToUpdate.Name = pendingFood.Name;
+                    foodToUpdate.Price = pendingFood.Price;
+                    foodToUpdate.CategoryID = pendingFood.CategoryID;
+
                     _dataContext.SubmitChanges();
                     return true;
                 }

@@ -102,7 +102,7 @@ namespace BLL
 
             try
             {
-                if (_categoryDataLogic.UpdateACategory(newCategory))
+                if (_categoryDataLogic.UpdateOneCategory(newCategory))
                     MessageBox.Show("Add Successfully!");
                 else
                     MessageBox.Show("Add Failed!");

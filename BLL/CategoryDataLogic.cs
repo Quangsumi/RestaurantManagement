@@ -48,11 +48,11 @@ namespace BLL
             }
         }
 
-        public bool UpdateACategory(tblCategory newCategory)
+        public bool UpdateOneCategory(tblCategory newCategory)
         {
             try
             {
-                return _categoryDataAccess.UpdateACategory(newCategory);
+                return _categoryDataAccess.UpdateOneCategory(newCategory);
             }
             catch (Exception ex)
             {
