@@ -37,7 +37,7 @@ namespace DAL
                 tblFood foodToDelete = _dataContext.tblFoods
                     .FirstOrDefault(f => f.ID == idFoodToDelete);
 
-                if(foodToDelete != null)
+                if (foodToDelete != null)
                 {
                     _dataContext.tblFoods.DeleteOnSubmit(foodToDelete);
                     _dataContext.SubmitChanges();
@@ -55,16 +55,25 @@ namespace DAL
                 tblFood foodToUpdate = _dataContext.tblFoods
                     .FirstOrDefault(f => f.ID == pendingFood.ID);
 
-                if(foodToUpdate != null)
+                if (foodToUpdate != null)
                 {
                     foodToUpdate.Name = pendingFood.Name;
                     foodToUpdate.Price = pendingFood.Price;
-                    foodToUpdate.CategoryID = pendingFood.CategoryID;
+                    foodToUpdate.tblCategory = _dataContext.tblCategories.Single(t => t.ID == pendingFood.CategoryID);
 
                     _dataContext.SubmitChanges();
                     return true;
                 }
                 return false;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public List<tblCategory> GetCategoryOfFood()
+        {
+            try
+            {
+                return _dataContext.tblCategories.ToList();
             }
             catch (Exception ex) { throw ex; }
         }

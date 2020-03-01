@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using BLL.DataLogic;
 
-namespace BLL
+namespace BLL.DisplayLogic
 {
     public class CategoryDisplayLogic
     {
@@ -16,7 +17,7 @@ namespace BLL
         TextBox _txtCategoryID;
         TextBox _txtCategoryName;
 
-        public void TransferObject(TextBox txtCategoryID, TextBox txtCategoryName, DataGridView dgvCategories)
+        public void TransferObject(DataGridView dgvCategories, TextBox txtCategoryID, TextBox txtCategoryName)
         {
             _txtCategoryID = txtCategoryID;
             _txtCategoryName = txtCategoryName;
@@ -45,10 +46,15 @@ namespace BLL
             }
         }
 
-        public void ClearTextBox()
+        private void ClearTextBox()
         {
             _txtCategoryID.Text = "";
             _txtCategoryName.Text = "";
+        }
+
+        public void ClickClearCategory()
+        {
+            ClearTextBox();
         }
 
         public void ClickAddCategory()
@@ -96,13 +102,13 @@ namespace BLL
 
         public void ClickUpdateCategory()
         {
-            tblCategory newCategory = new tblCategory();
-            newCategory.ID = Convert.ToInt32(_txtCategoryID.Text);
-            newCategory.Name = _txtCategoryName.Text;
+            tblCategory categoryToUpdate = new tblCategory();
+            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
+            categoryToUpdate.Name = _txtCategoryName.Text;
 
             try
             {
-                if (_categoryDataLogic.UpdateOneCategory(newCategory))
+                if (_categoryDataLogic.UpdateOneCategory(categoryToUpdate))
                     MessageBox.Show("Add Successfully!");
                 else
                     MessageBox.Show("Add Failed!");

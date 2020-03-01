@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagement.dbml</DependentUpon>
     </Compile>
+    <Compile Include="TableDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BLL.DataLogic
 {
     public class CategoryDataLogic
     {
@@ -17,23 +17,16 @@ namespace BLL
             {
                 return _categoryDataAccess.GetCategories();
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex; }
         }
 
         public bool AddOneCategory(tblCategory newCategory)
         {
             try
             {
-                _categoryDataAccess.AddOneCategory(newCategory);
-                return true;
+                return _categoryDataAccess.AddOneCategory(newCategory);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex; }
         }
 
         public bool DeleteOneCategory(int idCategoryToDelete)
@@ -42,22 +35,16 @@ namespace BLL
             {
                 return _categoryDataAccess.DeleteOneCategory(idCategoryToDelete);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneCategory(tblCategory newCategory)
+        public bool UpdateOneCategory(tblCategory categoryToUpdate)
         {
             try
             {
-                return _categoryDataAccess.UpdateOneCategory(newCategory);
+                return _categoryDataAccess.UpdateOneCategory(categoryToUpdate);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }

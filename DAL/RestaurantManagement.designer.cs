@@ -1197,11 +1197,11 @@ namespace DAL
 			{
 				if ((this._CategoryID != value))
 				{
-					if (this._tblCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryIDChanging(value);
+                    if (this._tblCategory.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    this.OnCategoryIDChanging(value);
 					this.SendPropertyChanging();
 					this._CategoryID = value;
 					this.SendPropertyChanged("CategoryID");
