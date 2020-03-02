@@ -57,14 +57,32 @@ namespace DAL
 
                 if (billInfoToUpdate != null)
                 {
-                    billInfoToUpdate.BillID = pendingBillInfo.ID;
-                    billInfoToUpdate.FoodID = pendingBillInfo.FoodID;
+                    billInfoToUpdate.tblBill = _dataContext.tblBills.Single(b => b.ID == pendingBillInfo.BillID);
+                    billInfoToUpdate.tblFood = _dataContext.tblFoods.Single(f => f.ID == pendingBillInfo.FoodID);
                     billInfoToUpdate.Count = pendingBillInfo.Count;
 
                     _dataContext.SubmitChanges();
                     return true;
                 }
                 return false;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public List<tblBill> GetBillsOfBillInfo()
+        {
+            try
+            {
+                return _dataContext.tblBills.ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public List<tblFood> GetFoodsOfBillInfo()
+        {
+            try
+            {
+                return _dataContext.tblFoods.ToList();
             }
             catch (Exception ex) { throw ex; }
         }

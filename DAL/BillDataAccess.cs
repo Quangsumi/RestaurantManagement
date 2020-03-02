@@ -71,5 +71,14 @@ namespace DAL
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public List<tblTable> GetTablesOfBill()
+        {
+            try
+            {
+                return _dataContext.tblTables.ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

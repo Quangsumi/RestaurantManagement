@@ -7,7 +7,7 @@ using DAL;
 
 namespace BLL.DataLogic
 {
-    public class BillInfo
+    public class BillInfoDataLogic
     {
         BillInfoDataAccess _billInfoDataAccess = new BillInfoDataAccess();
 
@@ -43,6 +43,24 @@ namespace BLL.DataLogic
             try
             {
                 return _billInfoDataAccess.UpdateOneBillInfo(billInfoToUpdate);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public List<tblBill> GetBillsOfBillInfo()
+        {
+            try
+            {
+                return _billInfoDataAccess.GetBillsOfBillInfo();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public List<tblFood> GetFoodsOfBillInfo()
+        {
+            try
+            {
+                return _billInfoDataAccess.GetFoodsOfBillInfo();
             }
             catch (Exception ex) { throw ex; }
         }

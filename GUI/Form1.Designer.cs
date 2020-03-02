@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,57 @@
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.foodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.splBillInfos = new System.Windows.Forms.SplitContainer();
+            this.dgvBillInfos = new System.Windows.Forms.DataGridView();
+            this.cboBillInfoBillID = new System.Windows.Forms.ComboBox();
+            this.cboBillInfoFoodID = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtBillInfoCount = new System.Windows.Forms.TextBox();
+            this.txtBillInfoID = new System.Windows.Forms.TextBox();
+            this.btnDeleteBillInfo = new System.Windows.Forms.Button();
+            this.btnClearBillInfo = new System.Windows.Forms.Button();
+            this.btnUpdateBillInfo = new System.Windows.Forms.Button();
+            this.btnAddBillInfo = new System.Windows.Forms.Button();
+            this.splBills = new System.Windows.Forms.SplitContainer();
+            this.dgvBills = new System.Windows.Forms.DataGridView();
+            this.cboBillTableID = new System.Windows.Forms.ComboBox();
+            this.dtpBillCheckOutDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpBillCheckInDate = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBillTotalPrice = new System.Windows.Forms.TextBox();
+            this.txtBillDiscount = new System.Windows.Forms.TextBox();
+            this.txtBillStatus = new System.Windows.Forms.TextBox();
+            this.txtBillID = new System.Windows.Forms.TextBox();
+            this.btnDeleteBill = new System.Windows.Forms.Button();
+            this.btnClearBill = new System.Windows.Forms.Button();
+            this.btnAddBill = new System.Windows.Forms.Button();
+            this.btnUpdateBill = new System.Windows.Forms.Button();
+            this.splTables = new System.Windows.Forms.SplitContainer();
+            this.dgvTables = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTableStatus = new System.Windows.Forms.TextBox();
+            this.txtTableName = new System.Windows.Forms.TextBox();
+            this.txtTableID = new System.Windows.Forms.TextBox();
+            this.btnClearTable = new System.Windows.Forms.Button();
+            this.btnDeleteTable = new System.Windows.Forms.Button();
+            this.btnAddTable = new System.Windows.Forms.Button();
+            this.btnUpdateTable = new System.Windows.Forms.Button();
             this.splFoods = new System.Windows.Forms.SplitContainer();
             this.dgvFoods = new System.Windows.Forms.DataGridView();
             this.cboFoodCategoryID = new System.Windows.Forms.ComboBox();
@@ -62,8 +111,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.splMain = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).BeginInit();
+            this.splBillInfos.Panel1.SuspendLayout();
+            this.splBillInfos.Panel2.SuspendLayout();
+            this.splBillInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splBills)).BeginInit();
+            this.splBills.Panel1.SuspendLayout();
+            this.splBills.Panel2.SuspendLayout();
+            this.splBills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splTables)).BeginInit();
+            this.splTables.Panel1.SuspendLayout();
+            this.splTables.Panel2.SuspendLayout();
+            this.splTables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splFoods)).BeginInit();
             this.splFoods.Panel1.SuspendLayout();
             this.splFoods.Panel2.SuspendLayout();
@@ -84,7 +149,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.managerToolStripMenuItem});
+            this.managerToolStripMenuItem,
+            this.toolsToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1009, 24);
@@ -94,20 +160,24 @@
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.aToolStripMenuItem.Text = "Account";
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aToolStripMenuItem.Text = "Home";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.toolsToolStripMenuItem.Text = "Account";
             // 
             // managerToolStripMenuItem
             // 
             this.managerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categoriesToolStripMenuItem,
-            this.foodsToolStripMenuItem});
+            this.foodsToolStripMenuItem,
+            this.tablesToolStripMenuItem,
+            this.billToolStripMenuItem,
+            this.billInfosToolStripMenuItem});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.managerToolStripMenuItem.Text = "Manager";
@@ -126,6 +196,27 @@
             this.foodsToolStripMenuItem.Text = "Foods";
             this.foodsToolStripMenuItem.Click += new System.EventHandler(this.foodsToolStripMenuItem_Click);
             // 
+            // tablesToolStripMenuItem
+            // 
+            this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.tablesToolStripMenuItem.Text = "Tables";
+            this.tablesToolStripMenuItem.Click += new System.EventHandler(this.tablesToolStripMenuItem_Click);
+            // 
+            // billToolStripMenuItem
+            // 
+            this.billToolStripMenuItem.Name = "billToolStripMenuItem";
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billToolStripMenuItem.Text = "Bills";
+            this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
+            // 
+            // billInfosToolStripMenuItem
+            // 
+            this.billInfosToolStripMenuItem.Name = "billInfosToolStripMenuItem";
+            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billInfosToolStripMenuItem.Text = "BillInfos";
+            this.billInfosToolStripMenuItem.Click += new System.EventHandler(this.billInfosToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
@@ -138,6 +229,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.splBillInfos);
+            this.panel2.Controls.Add(this.splBills);
+            this.panel2.Controls.Add(this.splTables);
             this.panel2.Controls.Add(this.splFoods);
             this.panel2.Controls.Add(this.splCategory);
             this.panel2.Controls.Add(this.splMain);
@@ -145,6 +239,484 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1009, 478);
             this.panel2.TabIndex = 2;
+            // 
+            // splBillInfos
+            // 
+            this.splBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splBillInfos.Location = new System.Drawing.Point(0, 0);
+            this.splBillInfos.Name = "splBillInfos";
+            // 
+            // splBillInfos.Panel1
+            // 
+            this.splBillInfos.Panel1.Controls.Add(this.dgvBillInfos);
+            // 
+            // splBillInfos.Panel2
+            // 
+            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoBillID);
+            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoFoodID);
+            this.splBillInfos.Panel2.Controls.Add(this.label20);
+            this.splBillInfos.Panel2.Controls.Add(this.label19);
+            this.splBillInfos.Panel2.Controls.Add(this.label18);
+            this.splBillInfos.Panel2.Controls.Add(this.label17);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoCount);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoID);
+            this.splBillInfos.Panel2.Controls.Add(this.btnDeleteBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnClearBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnUpdateBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnAddBillInfo);
+            this.splBillInfos.Size = new System.Drawing.Size(1009, 478);
+            this.splBillInfos.SplitterDistance = 457;
+            this.splBillInfos.TabIndex = 5;
+            // 
+            // dgvBillInfos
+            // 
+            this.dgvBillInfos.AllowUserToAddRows = false;
+            this.dgvBillInfos.AllowUserToDeleteRows = false;
+            this.dgvBillInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBillInfos.Location = new System.Drawing.Point(0, 0);
+            this.dgvBillInfos.Name = "dgvBillInfos";
+            this.dgvBillInfos.ReadOnly = true;
+            this.dgvBillInfos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBillInfos.Size = new System.Drawing.Size(457, 478);
+            this.dgvBillInfos.TabIndex = 0;
+            this.dgvBillInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfos_CellClick);
+            // 
+            // cboBillInfoBillID
+            // 
+            this.cboBillInfoBillID.FormattingEnabled = true;
+            this.cboBillInfoBillID.Location = new System.Drawing.Point(159, 70);
+            this.cboBillInfoBillID.Name = "cboBillInfoBillID";
+            this.cboBillInfoBillID.Size = new System.Drawing.Size(189, 21);
+            this.cboBillInfoBillID.TabIndex = 3;
+            // 
+            // cboBillInfoFoodID
+            // 
+            this.cboBillInfoFoodID.FormattingEnabled = true;
+            this.cboBillInfoFoodID.Location = new System.Drawing.Point(159, 103);
+            this.cboBillInfoFoodID.Name = "cboBillInfoFoodID";
+            this.cboBillInfoFoodID.Size = new System.Drawing.Size(189, 21);
+            this.cboBillInfoFoodID.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(87, 109);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(45, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Food ID";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(87, 142);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Count";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(87, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Bill ID";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(87, 43);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(18, 13);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "ID";
+            // 
+            // txtBillInfoCount
+            // 
+            this.txtBillInfoCount.Location = new System.Drawing.Point(159, 136);
+            this.txtBillInfoCount.Name = "txtBillInfoCount";
+            this.txtBillInfoCount.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoCount.TabIndex = 1;
+            // 
+            // txtBillInfoID
+            // 
+            this.txtBillInfoID.Location = new System.Drawing.Point(159, 38);
+            this.txtBillInfoID.Name = "txtBillInfoID";
+            this.txtBillInfoID.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoID.TabIndex = 1;
+            // 
+            // btnDeleteBillInfo
+            // 
+            this.btnDeleteBillInfo.Location = new System.Drawing.Point(163, 227);
+            this.btnDeleteBillInfo.Name = "btnDeleteBillInfo";
+            this.btnDeleteBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBillInfo.TabIndex = 0;
+            this.btnDeleteBillInfo.Text = "Delete";
+            this.btnDeleteBillInfo.UseVisualStyleBackColor = true;
+            this.btnDeleteBillInfo.Click += new System.EventHandler(this.btnDeleteBillInfo_Click);
+            // 
+            // btnClearBillInfo
+            // 
+            this.btnClearBillInfo.Location = new System.Drawing.Point(275, 227);
+            this.btnClearBillInfo.Name = "btnClearBillInfo";
+            this.btnClearBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnClearBillInfo.TabIndex = 0;
+            this.btnClearBillInfo.Text = "Clear";
+            this.btnClearBillInfo.UseVisualStyleBackColor = true;
+            this.btnClearBillInfo.Click += new System.EventHandler(this.btnClearBillInfo_Click);
+            // 
+            // btnUpdateBillInfo
+            // 
+            this.btnUpdateBillInfo.Location = new System.Drawing.Point(163, 182);
+            this.btnUpdateBillInfo.Name = "btnUpdateBillInfo";
+            this.btnUpdateBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBillInfo.TabIndex = 0;
+            this.btnUpdateBillInfo.Text = "Update";
+            this.btnUpdateBillInfo.UseVisualStyleBackColor = true;
+            this.btnUpdateBillInfo.Click += new System.EventHandler(this.btnUpdateBillInfo_Click);
+            // 
+            // btnAddBillInfo
+            // 
+            this.btnAddBillInfo.Location = new System.Drawing.Point(275, 182);
+            this.btnAddBillInfo.Name = "btnAddBillInfo";
+            this.btnAddBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBillInfo.TabIndex = 0;
+            this.btnAddBillInfo.Text = "Add New";
+            this.btnAddBillInfo.UseVisualStyleBackColor = true;
+            this.btnAddBillInfo.Click += new System.EventHandler(this.btnAddBillInfo_Click);
+            // 
+            // splBills
+            // 
+            this.splBills.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splBills.Location = new System.Drawing.Point(0, 0);
+            this.splBills.Name = "splBills";
+            // 
+            // splBills.Panel1
+            // 
+            this.splBills.Panel1.Controls.Add(this.dgvBills);
+            // 
+            // splBills.Panel2
+            // 
+            this.splBills.Panel2.Controls.Add(this.cboBillTableID);
+            this.splBills.Panel2.Controls.Add(this.dtpBillCheckOutDate);
+            this.splBills.Panel2.Controls.Add(this.dtpBillCheckInDate);
+            this.splBills.Panel2.Controls.Add(this.label16);
+            this.splBills.Panel2.Controls.Add(this.label15);
+            this.splBills.Panel2.Controls.Add(this.label14);
+            this.splBills.Panel2.Controls.Add(this.label13);
+            this.splBills.Panel2.Controls.Add(this.label12);
+            this.splBills.Panel2.Controls.Add(this.label11);
+            this.splBills.Panel2.Controls.Add(this.label10);
+            this.splBills.Panel2.Controls.Add(this.txtBillTotalPrice);
+            this.splBills.Panel2.Controls.Add(this.txtBillDiscount);
+            this.splBills.Panel2.Controls.Add(this.txtBillStatus);
+            this.splBills.Panel2.Controls.Add(this.txtBillID);
+            this.splBills.Panel2.Controls.Add(this.btnDeleteBill);
+            this.splBills.Panel2.Controls.Add(this.btnClearBill);
+            this.splBills.Panel2.Controls.Add(this.btnAddBill);
+            this.splBills.Panel2.Controls.Add(this.btnUpdateBill);
+            this.splBills.Size = new System.Drawing.Size(1009, 478);
+            this.splBills.SplitterDistance = 455;
+            this.splBills.TabIndex = 3;
+            // 
+            // dgvBills
+            // 
+            this.dgvBills.AllowUserToAddRows = false;
+            this.dgvBills.AllowUserToDeleteRows = false;
+            this.dgvBills.AllowUserToOrderColumns = true;
+            this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBills.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBills.Location = new System.Drawing.Point(0, 0);
+            this.dgvBills.Name = "dgvBills";
+            this.dgvBills.ReadOnly = true;
+            this.dgvBills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBills.Size = new System.Drawing.Size(455, 478);
+            this.dgvBills.TabIndex = 0;
+            this.dgvBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellClick);
+            // 
+            // cboBillTableID
+            // 
+            this.cboBillTableID.FormattingEnabled = true;
+            this.cboBillTableID.Location = new System.Drawing.Point(150, 130);
+            this.cboBillTableID.Name = "cboBillTableID";
+            this.cboBillTableID.Size = new System.Drawing.Size(200, 21);
+            this.cboBillTableID.TabIndex = 4;
+            // 
+            // dtpBillCheckOutDate
+            // 
+            this.dtpBillCheckOutDate.Location = new System.Drawing.Point(150, 99);
+            this.dtpBillCheckOutDate.Name = "dtpBillCheckOutDate";
+            this.dtpBillCheckOutDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpBillCheckOutDate.TabIndex = 3;
+            // 
+            // dtpBillCheckInDate
+            // 
+            this.dtpBillCheckInDate.Location = new System.Drawing.Point(150, 68);
+            this.dtpBillCheckInDate.Name = "dtpBillCheckInDate";
+            this.dtpBillCheckInDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpBillCheckInDate.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(58, 229);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Total price";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(58, 198);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Discount";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(58, 167);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Status";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(58, 136);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Table ID";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(58, 105);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Check-out Date";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(58, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Check-in Date";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(58, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(18, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "ID";
+            // 
+            // txtBillTotalPrice
+            // 
+            this.txtBillTotalPrice.Location = new System.Drawing.Point(152, 224);
+            this.txtBillTotalPrice.Name = "txtBillTotalPrice";
+            this.txtBillTotalPrice.Size = new System.Drawing.Size(200, 20);
+            this.txtBillTotalPrice.TabIndex = 1;
+            // 
+            // txtBillDiscount
+            // 
+            this.txtBillDiscount.Location = new System.Drawing.Point(152, 193);
+            this.txtBillDiscount.Name = "txtBillDiscount";
+            this.txtBillDiscount.Size = new System.Drawing.Size(200, 20);
+            this.txtBillDiscount.TabIndex = 1;
+            // 
+            // txtBillStatus
+            // 
+            this.txtBillStatus.Location = new System.Drawing.Point(152, 162);
+            this.txtBillStatus.Name = "txtBillStatus";
+            this.txtBillStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtBillStatus.TabIndex = 1;
+            // 
+            // txtBillID
+            // 
+            this.txtBillID.Location = new System.Drawing.Point(149, 37);
+            this.txtBillID.Name = "txtBillID";
+            this.txtBillID.Size = new System.Drawing.Size(200, 20);
+            this.txtBillID.TabIndex = 1;
+            // 
+            // btnDeleteBill
+            // 
+            this.btnDeleteBill.Location = new System.Drawing.Point(152, 309);
+            this.btnDeleteBill.Name = "btnDeleteBill";
+            this.btnDeleteBill.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBill.TabIndex = 0;
+            this.btnDeleteBill.Text = "Delete";
+            this.btnDeleteBill.UseVisualStyleBackColor = true;
+            this.btnDeleteBill.Click += new System.EventHandler(this.btnDeleteBill_Click);
+            // 
+            // btnClearBill
+            // 
+            this.btnClearBill.Location = new System.Drawing.Point(277, 309);
+            this.btnClearBill.Name = "btnClearBill";
+            this.btnClearBill.Size = new System.Drawing.Size(75, 23);
+            this.btnClearBill.TabIndex = 0;
+            this.btnClearBill.Text = "Clear";
+            this.btnClearBill.UseVisualStyleBackColor = true;
+            this.btnClearBill.Click += new System.EventHandler(this.btnClearBill_Click);
+            // 
+            // btnAddBill
+            // 
+            this.btnAddBill.Location = new System.Drawing.Point(277, 265);
+            this.btnAddBill.Name = "btnAddBill";
+            this.btnAddBill.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBill.TabIndex = 0;
+            this.btnAddBill.Text = "Add New";
+            this.btnAddBill.UseVisualStyleBackColor = true;
+            this.btnAddBill.Click += new System.EventHandler(this.btnAddBill_Click);
+            // 
+            // btnUpdateBill
+            // 
+            this.btnUpdateBill.Location = new System.Drawing.Point(152, 265);
+            this.btnUpdateBill.Name = "btnUpdateBill";
+            this.btnUpdateBill.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBill.TabIndex = 0;
+            this.btnUpdateBill.Text = "Update";
+            this.btnUpdateBill.UseVisualStyleBackColor = true;
+            this.btnUpdateBill.Click += new System.EventHandler(this.btnUpdateBill_Click);
+            // 
+            // splTables
+            // 
+            this.splTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splTables.Location = new System.Drawing.Point(0, 0);
+            this.splTables.Name = "splTables";
+            // 
+            // splTables.Panel1
+            // 
+            this.splTables.Panel1.Controls.Add(this.dgvTables);
+            // 
+            // splTables.Panel2
+            // 
+            this.splTables.Panel2.Controls.Add(this.label9);
+            this.splTables.Panel2.Controls.Add(this.label8);
+            this.splTables.Panel2.Controls.Add(this.label7);
+            this.splTables.Panel2.Controls.Add(this.txtTableStatus);
+            this.splTables.Panel2.Controls.Add(this.txtTableName);
+            this.splTables.Panel2.Controls.Add(this.txtTableID);
+            this.splTables.Panel2.Controls.Add(this.btnClearTable);
+            this.splTables.Panel2.Controls.Add(this.btnDeleteTable);
+            this.splTables.Panel2.Controls.Add(this.btnAddTable);
+            this.splTables.Panel2.Controls.Add(this.btnUpdateTable);
+            this.splTables.Size = new System.Drawing.Size(1009, 478);
+            this.splTables.SplitterDistance = 470;
+            this.splTables.TabIndex = 4;
+            // 
+            // dgvTables
+            // 
+            this.dgvTables.AllowUserToAddRows = false;
+            this.dgvTables.AllowUserToDeleteRows = false;
+            this.dgvTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTables.Location = new System.Drawing.Point(0, 0);
+            this.dgvTables.Name = "dgvTables";
+            this.dgvTables.ReadOnly = true;
+            this.dgvTables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTables.Size = new System.Drawing.Size(470, 478);
+            this.dgvTables.TabIndex = 0;
+            this.dgvTables.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTables_CellClick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(66, 117);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Status";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(66, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Name";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(66, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "ID";
+            // 
+            // txtTableStatus
+            // 
+            this.txtTableStatus.Location = new System.Drawing.Point(134, 114);
+            this.txtTableStatus.Name = "txtTableStatus";
+            this.txtTableStatus.Size = new System.Drawing.Size(177, 20);
+            this.txtTableStatus.TabIndex = 1;
+            // 
+            // txtTableName
+            // 
+            this.txtTableName.Location = new System.Drawing.Point(134, 80);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.Size = new System.Drawing.Size(177, 20);
+            this.txtTableName.TabIndex = 1;
+            // 
+            // txtTableID
+            // 
+            this.txtTableID.Location = new System.Drawing.Point(134, 44);
+            this.txtTableID.Name = "txtTableID";
+            this.txtTableID.Size = new System.Drawing.Size(177, 20);
+            this.txtTableID.TabIndex = 1;
+            // 
+            // btnClearTable
+            // 
+            this.btnClearTable.Location = new System.Drawing.Point(236, 196);
+            this.btnClearTable.Name = "btnClearTable";
+            this.btnClearTable.Size = new System.Drawing.Size(75, 23);
+            this.btnClearTable.TabIndex = 0;
+            this.btnClearTable.Text = "Clear";
+            this.btnClearTable.UseVisualStyleBackColor = true;
+            this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
+            // 
+            // btnDeleteTable
+            // 
+            this.btnDeleteTable.Location = new System.Drawing.Point(134, 196);
+            this.btnDeleteTable.Name = "btnDeleteTable";
+            this.btnDeleteTable.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteTable.TabIndex = 0;
+            this.btnDeleteTable.Text = "Delete";
+            this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
+            // 
+            // btnAddTable
+            // 
+            this.btnAddTable.Location = new System.Drawing.Point(236, 153);
+            this.btnAddTable.Name = "btnAddTable";
+            this.btnAddTable.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTable.TabIndex = 0;
+            this.btnAddTable.Text = "Add New";
+            this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
+            // 
+            // btnUpdateTable
+            // 
+            this.btnUpdateTable.Location = new System.Drawing.Point(134, 153);
+            this.btnUpdateTable.Name = "btnUpdateTable";
+            this.btnUpdateTable.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateTable.TabIndex = 0;
+            this.btnUpdateTable.Text = "Update";
+            this.btnUpdateTable.UseVisualStyleBackColor = true;
+            this.btnUpdateTable.Click += new System.EventHandler(this.btnUpdateTable_Click);
             // 
             // splFoods
             // 
@@ -424,7 +996,13 @@
             this.panel3.Size = new System.Drawing.Size(1009, 70);
             this.panel3.TabIndex = 3;
             // 
-            // Form1
+            // toolsToolStripMenuItem1
+            // 
+            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem1.Text = "Tools";
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,11 +1010,29 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Text = "Restaurant Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.splBillInfos.Panel1.ResumeLayout(false);
+            this.splBillInfos.Panel2.ResumeLayout(false);
+            this.splBillInfos.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).EndInit();
+            this.splBillInfos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).EndInit();
+            this.splBills.Panel1.ResumeLayout(false);
+            this.splBills.Panel2.ResumeLayout(false);
+            this.splBills.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splBills)).EndInit();
+            this.splBills.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
+            this.splTables.Panel1.ResumeLayout(false);
+            this.splTables.Panel2.ResumeLayout(false);
+            this.splTables.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splTables)).EndInit();
+            this.splTables.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).EndInit();
             this.splFoods.Panel1.ResumeLayout(false);
             this.splFoods.Panel2.ResumeLayout(false);
             this.splFoods.Panel2.PerformLayout();
@@ -493,6 +1089,56 @@
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem foodsToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splTables;
+        private System.Windows.Forms.DataGridView dgvTables;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTableStatus;
+        private System.Windows.Forms.TextBox txtTableName;
+        private System.Windows.Forms.TextBox txtTableID;
+        private System.Windows.Forms.Button btnClearTable;
+        private System.Windows.Forms.Button btnDeleteTable;
+        private System.Windows.Forms.Button btnAddTable;
+        private System.Windows.Forms.Button btnUpdateTable;
+        private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billInfosToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splBills;
+        private System.Windows.Forms.DataGridView dgvBills;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtBillID;
+        private System.Windows.Forms.Button btnDeleteBill;
+        private System.Windows.Forms.Button btnClearBill;
+        private System.Windows.Forms.Button btnAddBill;
+        private System.Windows.Forms.Button btnUpdateBill;
+        private System.Windows.Forms.DateTimePicker dtpBillCheckOutDate;
+        private System.Windows.Forms.DateTimePicker dtpBillCheckInDate;
+        private System.Windows.Forms.ComboBox cboBillTableID;
+        private System.Windows.Forms.TextBox txtBillDiscount;
+        private System.Windows.Forms.TextBox txtBillStatus;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtBillTotalPrice;
+        private System.Windows.Forms.SplitContainer splBillInfos;
+        private System.Windows.Forms.DataGridView dgvBillInfos;
+        private System.Windows.Forms.ComboBox cboBillInfoBillID;
+        private System.Windows.Forms.ComboBox cboBillInfoFoodID;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtBillInfoCount;
+        private System.Windows.Forms.TextBox txtBillInfoID;
+        private System.Windows.Forms.Button btnDeleteBillInfo;
+        private System.Windows.Forms.Button btnClearBillInfo;
+        private System.Windows.Forms.Button btnUpdateBillInfo;
+        private System.Windows.Forms.Button btnAddBillInfo;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
     }
 }
 

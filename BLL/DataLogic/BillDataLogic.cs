@@ -46,5 +46,14 @@ namespace BLL.DataLogic
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public List<tblTable> GetTablesOfBill()
+        {
+            try
+            {
+                return _billDataAccess.GetTablesOfBill();
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public List<tblCategory> GetCategoryOfFood()
+        public List<tblCategory> GetCategoriesOfFood()
         {
             try
             {

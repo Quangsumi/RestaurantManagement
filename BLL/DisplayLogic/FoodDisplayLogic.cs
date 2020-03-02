@@ -40,7 +40,7 @@ namespace BLL.DisplayLogic
             _txtFoodPrice.Text = row.Cells[3].Value.ToString();
         }
 
-        public void LoadFoods()
+        public void LoadFoodsFromDataAccess()
         {
             try
             {
@@ -58,7 +58,7 @@ namespace BLL.DisplayLogic
             // TODO - Make the Food form display Category Name instead of Category ID
             // Display on both datagridview and the combobox
 
-            _cboFoodCategoryID.DataSource = _foodDataLogic.GetCategoryOfFood();
+            _cboFoodCategoryID.DataSource = _foodDataLogic.GetCategoriesOfFood();
             _cboFoodCategoryID.DisplayMember = "ID";
             //_cboFoodCategoryID.DisplayMember = "Name";
             //_cboFoodCategoryID.ValueMember = "ID";
@@ -82,9 +82,9 @@ namespace BLL.DisplayLogic
             try
             {
                 if (_foodDataLogic.AddOneFood(newFood))
-                    MessageBox.Show("Add Successfully!");
+                    MessageBox.Show("Added successfully!");
                 else
-                    MessageBox.Show("Add Failed!");
+                    MessageBox.Show("Failed to add!");
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadFoods();
+                LoadFoodsFromDataAccess();
                 ClearTextBox();
             }
         }
@@ -108,9 +108,9 @@ namespace BLL.DisplayLogic
             try
             {
                 if (_foodDataLogic.UpdateOneFood(foodToUpdate))
-                    MessageBox.Show("Add Successfully!");
+                    MessageBox.Show("Updated successfully!");
                 else
-                    MessageBox.Show("Add Failed!");
+                    MessageBox.Show("Failed to updated!");
             }
             catch (Exception ex)
             {
@@ -118,7 +118,7 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadFoods();
+                LoadFoodsFromDataAccess();
                 ClearTextBox();
             }
         }
@@ -128,9 +128,9 @@ namespace BLL.DisplayLogic
             try
             {
                 if (_foodDataLogic.DeleteOneFood(Convert.ToInt32(_txtFoodID.Text)))
-                    MessageBox.Show("Add Successfully!");
+                    MessageBox.Show("Added successfully!");
                 else
-                    MessageBox.Show("Add Failed!");
+                    MessageBox.Show("Failed to delete!");
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadFoods();
+                LoadFoodsFromDataAccess();
                 ClearTextBox();
             }
         }

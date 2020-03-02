@@ -34,7 +34,7 @@ namespace BLL.DisplayLogic
             _txtCategoryName.Text = row.Cells[1].Value.ToString();
         }
 
-        public void LoadCategories()
+        public void LoadCategoriesFromDataAccess()
         {
             try
             {
@@ -52,11 +52,6 @@ namespace BLL.DisplayLogic
             _txtCategoryName.Text = "";
         }
 
-        public void ClickClearCategory()
-        {
-            ClearTextBox();
-        }
-
         public void ClickAddCategory()
         {
             tblCategory newCategory = new tblCategory();
@@ -65,9 +60,9 @@ namespace BLL.DisplayLogic
             try
             {
                 if (_categoryDataLogic.AddOneCategory(newCategory))
-                    MessageBox.Show("Add Successfully!");
+                    MessageBox.Show("Added Successfully!");
                 else
-                    MessageBox.Show("Add Failed!");
+                    MessageBox.Show("Failed to add!");
             }
             catch (Exception ex)
             {
@@ -75,31 +70,11 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadCategories();
+                LoadCategoriesFromDataAccess();
                 ClearTextBox();
             }
         }
-
-        public void ClickDeleteCategory()
-        {
-            try
-            {
-                if (_categoryDataLogic.DeleteOneCategory(Convert.ToInt32(_txtCategoryID.Text)))
-                    MessageBox.Show("Add Successfully!");
-                else
-                    MessageBox.Show("Add Failed!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadCategories();
-                ClearTextBox();
-            }
-        }
-
+        
         public void ClickUpdateCategory()
         {
             tblCategory categoryToUpdate = new tblCategory();
@@ -109,9 +84,9 @@ namespace BLL.DisplayLogic
             try
             {
                 if (_categoryDataLogic.UpdateOneCategory(categoryToUpdate))
-                    MessageBox.Show("Add Successfully!");
+                    MessageBox.Show("Updated successfully!");
                 else
-                    MessageBox.Show("Add Failed!");
+                    MessageBox.Show("Failed to update!");
             }
             catch (Exception ex)
             {
@@ -119,9 +94,35 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadCategories();
+                LoadCategoriesFromDataAccess();
                 ClearTextBox();
             }
+        }
+
+        public void ClickDeleteCategory()
+        {
+            try
+            {
+                if (_categoryDataLogic.DeleteOneCategory(Convert.ToInt32(_txtCategoryID.Text)))
+                    MessageBox.Show("Deleted successfully!");
+                else
+                    MessageBox.Show("Failed to delted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadCategoriesFromDataAccess();
+                ClearTextBox();
+            }
+        }
+
+
+        public void ClickClearCategory()
+        {
+            ClearTextBox();
         }
     }
 }

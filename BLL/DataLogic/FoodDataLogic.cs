@@ -47,11 +47,11 @@ namespace BLL.DataLogic
             catch (Exception ex) { throw ex; }
         }
 
-        public List<tblCategory> GetCategoryOfFood()
+        public List<tblCategory> GetCategoriesOfFood()
         {
             try
             {
-                return _dataAccess.GetCategoryOfFood();
+                return _dataAccess.GetCategoriesOfFood();
             }
             catch (Exception ex) { throw ex; }
         }
