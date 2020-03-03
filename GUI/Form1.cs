@@ -31,13 +31,13 @@ namespace GUI
         {
             _categoryDisplayLogic = new CategoryDisplayLogic(dgvCategories, txtCategoryID, txtCategoryName);
             
-            _foodDisplayLogic = new FoodDisplayLogic(dgvFoods, txtFoodID, txtFoodName, cboFoodCategoryID, txtFoodPrice);
+            _foodDisplayLogic = new FoodDisplayLogic(dgvFoods, txtFoodID, txtFoodName, cboFoodCategoryID, txtFoodCategoryName, txtFoodPrice);
             
             _tableDisplayLogic = new TableDisplayLogic(dgvTables, txtTableID, txtTableName, txtTableStatus);
             
-            _billDisplayLogic = new BillDisplayLogic(dgvBills, txtBillID, dtpBillCheckInDate, dtpBillCheckOutDate, cboBillTableID, txtBillStatus, txtBillDiscount, txtBillTotalPrice);
+            _billDisplayLogic = new BillDisplayLogic(dgvBills, txtBillID, dtpBillCheckInDate, dtpBillCheckOutDate, cboBillTableID, txtBillTableName, txtBillStatus, txtBillDiscount, txtBillTotalPrice);
             
-            _billInfoDisplayLogic = new BillInfoDisplayLogic(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoCount);
+            _billInfoDisplayLogic = new BillInfoDisplayLogic(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoFoodName, txtBillInfoCount);
         }
 
         private void LoadDataByBLL()
@@ -118,6 +118,11 @@ namespace GUI
             _foodDisplayLogic.CellClick(sender, e);
         }
 
+        private void cboFoodCategoryID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _foodDisplayLogic.cboFoodCategoryIDIndexChanged();
+        }
+
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             _foodDisplayLogic.ClickAddRecord();
@@ -176,6 +181,11 @@ namespace GUI
             _billDisplayLogic.CellClick(sender, e);
         }
 
+        private void cboBillTableID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _billDisplayLogic.cboBillTableIDIndexChanged();
+        }
+
         private void btnAddBill_Click(object sender, EventArgs e)
         {
             _billDisplayLogic.ClickAddRecord();
@@ -204,6 +214,11 @@ namespace GUI
             _billInfoDisplayLogic.CellClick(sender, e);
         }
 
+        private void cboBillInfoFoodID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _billInfoDisplayLogic.cboBillInfoFoodIDIndexChanged();
+        }
+
         private void btnAddBillInfo_Click(object sender, EventArgs e)
         {
             _billInfoDisplayLogic.ClickAddRecord();
@@ -223,6 +238,9 @@ namespace GUI
         {
             _billInfoDisplayLogic.ClickClearControlsContent();
         }
+
+
+
         #endregion
 
 

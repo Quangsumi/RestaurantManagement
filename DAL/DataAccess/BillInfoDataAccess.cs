@@ -84,5 +84,16 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public string GetFoodNameByFoodID(string foodID)
+        {
+            int id = Int32.TryParse(foodID, out int result) ? result : 1;
+
+            try
+            {
+                return _dataContext.tblFoods.FirstOrDefault(f => f.ID == id)?.Name;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

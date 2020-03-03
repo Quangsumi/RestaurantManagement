@@ -53,7 +53,16 @@ namespace BLL.DataLogic
         {
             try
             {
-                return (_dataAccess as DAL.DataAccess.BillDataAccess).GetTablesOfBill();
+                return (_dataAccess as BillDataAccess).GetTablesOfBill();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public string GetTableNameByTableID(string tableID)
+        {
+            try
+            {
+                return (_dataAccess as BillDataAccess).GetTableNameByTableID(tableID);
             }
             catch (Exception ex) { throw ex; }
         }

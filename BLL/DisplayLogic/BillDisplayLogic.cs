@@ -18,18 +18,20 @@ namespace BLL.DisplayLogic
         DateTimePicker _dtpCheckInDate;
         DateTimePicker _dtpCheckOutDate;
         ComboBox _cboBillTableID;
+        TextBox _txtBillTableName;
         TextBox _txtBillStatus;
         TextBox _txtDiscount;
         TextBox _txtTotalPrice;
 
         public BillDisplayLogic(){}
 
-        public BillDisplayLogic(DataGridView dgvBills, TextBox txtBillID, DateTimePicker dtpCheckInDate, DateTimePicker dtpCheckOutDate, ComboBox cboBillTableID, TextBox txtBillStatus, TextBox txtDiscount, TextBox txtTotalPrice)
+        public BillDisplayLogic(DataGridView dgvBills, TextBox txtBillID, DateTimePicker dtpCheckInDate, DateTimePicker dtpCheckOutDate, ComboBox cboBillTableID, TextBox txtBillTableName, TextBox txtBillStatus, TextBox txtDiscount, TextBox txtTotalPrice)
         {
             _txtBillID = txtBillID;
             _dtpCheckInDate = dtpCheckInDate;
             _dtpCheckOutDate = dtpCheckOutDate;
             _cboBillTableID = cboBillTableID;
+            _txtBillTableName = txtBillTableName;
             _txtBillStatus = txtBillStatus;
             _txtDiscount = txtDiscount;
             _txtTotalPrice = txtTotalPrice;
@@ -49,6 +51,24 @@ namespace BLL.DisplayLogic
             _txtDiscount.Text = row.Cells[4].Value.ToString();
             _txtTotalPrice.Text = row.Cells[5].Value.ToString();
             _txtBillStatus.Text = row.Cells[6].Value.ToString();
+        }
+
+        public void cboBillTableIDIndexChanged()
+        {
+            _txtBillTableName.Text = GetTableNameByTableID(_cboBillTableID.Text) ?? "NULL";
+        }
+
+        private string GetTableNameByTableID(string tableID)
+        {
+            try
+            {
+                return (_dataLogic as BillDataLogic).GetTableNameByTableID(tableID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "ERROR!!!";
+            }
         }
 
         protected override void ClearControlsContent()
@@ -159,13 +179,8 @@ namespace BLL.DisplayLogic
 
         private void LoadTableIDToComboBox()
         {
-            // TODO - Make the Bill form display Table Name instead of Table ID
-            // Display on both datagridview and the combobox
-
             _cboBillTableID.DataSource = (_dataLogic as BillDataLogic).GetTablesOfBill();
             _cboBillTableID.DisplayMember = "ID";
-            //_cboBillTableID.DisplayMember = "Name";
-            //_cboBillTableID.ValueMember = "ID";
         }
     }
 }

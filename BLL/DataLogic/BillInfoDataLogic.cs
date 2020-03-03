@@ -65,5 +65,14 @@ namespace BLL.DataLogic
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public string GetFoodNameByFoodID(string foodID)
+        {
+            try
+            {
+                return (_dataAccess as BillInfoDataAccess).GetFoodNameByFoodID(foodID);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

@@ -17,16 +17,18 @@ namespace BLL.DisplayLogic
         TextBox _txtFoodID;
         TextBox _txtFoodName;
         ComboBox _cboFoodCategoryID;
+        TextBox _txtFoodCategoryName;
         TextBox _txtFoodPrice;
 
         public FoodDisplayLogic() { }
 
-        public FoodDisplayLogic(DataGridView dgvFoods, TextBox txtFoodID, TextBox txtFoodName, ComboBox cboFoodCategoryID, TextBox txtFoodPrice)
+        public FoodDisplayLogic(DataGridView dgvFoods, TextBox txtFoodID, TextBox txtFoodName, ComboBox cboFoodCategoryID, TextBox txtCategoryName, TextBox txtFoodPrice)
         {
             _dgvFoods = dgvFoods;
             _txtFoodID = txtFoodID;
             _txtFoodName = txtFoodName;
             _cboFoodCategoryID = cboFoodCategoryID;
+            _txtFoodCategoryName = txtCategoryName;
             _txtFoodPrice = txtFoodPrice;
         }
 
@@ -40,6 +42,24 @@ namespace BLL.DisplayLogic
             _txtFoodName.Text = row.Cells[1].Value.ToString();
             _cboFoodCategoryID.Text = row.Cells[2].Value.ToString();
             _txtFoodPrice.Text = row.Cells[3].Value.ToString();
+        }
+
+        public void cboFoodCategoryIDIndexChanged()
+        {
+            _txtFoodCategoryName.Text = GetCatagoryNameByCategoryID(_cboFoodCategoryID.Text) ?? "NULL";
+        }
+
+        private string GetCatagoryNameByCategoryID(string catagoryID)
+        {
+            try
+            {
+                return (_dataLogic as FoodDataLogic).GetCatagoryNameByCategoryID(catagoryID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "ERROR!!!";
+            }
         }
 
         public override void ClickAddRecord()
@@ -133,13 +153,8 @@ namespace BLL.DisplayLogic
 
         private void LoadCategoryIDToComboBox()
         {
-            // TODO - Make the Food form display Category Name instead of Category ID
-            // Display on both datagridview and the combobox
-
             _cboFoodCategoryID.DataSource = (_dataLogic as FoodDataLogic).GetCategoriesOfFood();
             _cboFoodCategoryID.DisplayMember = "ID";
-            //_cboFoodCategoryID.DisplayMember = "Name";
-            //_cboFoodCategoryID.ValueMember = "ID";
         }
 
         protected override void ClearControlsContent()

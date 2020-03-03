@@ -17,15 +17,17 @@ namespace BLL.DisplayLogic
         TextBox _txtBillInfoID;
         ComboBox _cboBillInfoBillID;
         ComboBox _cboBillInfoFoodID;
+        TextBox _txtBillInfoFoodName;
         TextBox _txtCount;
 
         public BillInfoDisplayLogic(){}
 
-        public BillInfoDisplayLogic(DataGridView dgvBillInfos, TextBox txtBillInfoID, ComboBox cboBillInfoBillID, ComboBox cboBillInfoFoodID, TextBox txtCount)
+        public BillInfoDisplayLogic(DataGridView dgvBillInfos, TextBox txtBillInfoID, ComboBox cboBillInfoBillID, ComboBox cboBillInfoFoodID, TextBox txtBillInfoFoodName, TextBox txtCount)
         {
             _txtBillInfoID = txtBillInfoID;
             _cboBillInfoBillID = cboBillInfoBillID;
             _cboBillInfoFoodID = cboBillInfoFoodID;
+            _txtBillInfoFoodName = txtBillInfoFoodName;
             _txtCount = txtCount;
             _dgvBillInfos = dgvBillInfos;
         }
@@ -40,6 +42,24 @@ namespace BLL.DisplayLogic
             _cboBillInfoBillID.Text = row.Cells[1].Value.ToString();
             _cboBillInfoFoodID.Text = row.Cells[2].Value.ToString();
             _txtCount.Text = row.Cells[3].Value.ToString();
+        }
+
+        public void cboBillInfoFoodIDIndexChanged()
+        {
+            _txtBillInfoFoodName.Text = GetFoodNameByFoodID(_cboBillInfoFoodID.Text) ?? "NULL";
+        }
+
+        private string GetFoodNameByFoodID(string foodID)
+        {
+            try
+            {
+                return (_dataLogic as BillInfoDataLogic).GetFoodNameByFoodID(foodID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "ERROR!!!";
+            }
         }
 
         public override void ClickAddRecord()
@@ -140,13 +160,8 @@ namespace BLL.DisplayLogic
 
         private void LoadFoodsIDToComboBox()
         {
-            // TODO - Make the BillInfo form display Food Name instead of Food ID
-            // Display on both datagridview and the combobox
-
             _cboBillInfoFoodID.DataSource = (_dataLogic as BillInfoDataLogic).GetFoodsOfBillInfo();
             _cboBillInfoFoodID.DisplayMember = "ID";
-            //_cboBillInfoFoodID.DisplayMember = "Name";
-            //_cboBillInfoFoodID.ValueMember = "ID";
         }
 
         protected override void ClearControlsContent()

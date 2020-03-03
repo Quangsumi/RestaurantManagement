@@ -37,8 +37,9 @@
             this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.splBillInfos = new System.Windows.Forms.SplitContainer();
             this.dgvBillInfos = new System.Windows.Forms.DataGridView();
             this.cboBillInfoBillID = new System.Windows.Forms.ComboBox();
@@ -110,10 +111,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.splMain = new System.Windows.Forms.SplitContainer();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.txtFoodCategoryName = new System.Windows.Forms.TextBox();
+            this.txtBillInfoFoodName = new System.Windows.Forms.TextBox();
+            this.txtBillTableName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).BeginInit();
             this.splBillInfos.Panel1.SuspendLayout();
             this.splBillInfos.Panel2.SuspendLayout();
@@ -141,7 +145,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
             this.splMain.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -185,37 +190,43 @@
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoriesToolStripMenuItem.Text = "Category";
             this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // foodsToolStripMenuItem
             // 
             this.foodsToolStripMenuItem.Name = "foodsToolStripMenuItem";
-            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.foodsToolStripMenuItem.Text = "Foods";
             this.foodsToolStripMenuItem.Click += new System.EventHandler(this.foodsToolStripMenuItem_Click);
             // 
             // tablesToolStripMenuItem
             // 
             this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tablesToolStripMenuItem.Text = "Tables";
             this.tablesToolStripMenuItem.Click += new System.EventHandler(this.tablesToolStripMenuItem_Click);
             // 
             // billToolStripMenuItem
             // 
             this.billToolStripMenuItem.Name = "billToolStripMenuItem";
-            this.billToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.billToolStripMenuItem.Text = "Bills";
             this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
             // 
             // billInfosToolStripMenuItem
             // 
             this.billInfosToolStripMenuItem.Name = "billInfosToolStripMenuItem";
-            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.billInfosToolStripMenuItem.Text = "BillInfos";
             this.billInfosToolStripMenuItem.Click += new System.EventHandler(this.billInfosToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem1
+            // 
+            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem1.Text = "Tools";
             // 
             // panel1
             // 
@@ -227,18 +238,19 @@
             this.panel1.Size = new System.Drawing.Size(1009, 43);
             this.panel1.TabIndex = 1;
             // 
-            // panel2
+            // pnlBody
             // 
-            this.panel2.Controls.Add(this.splBillInfos);
-            this.panel2.Controls.Add(this.splBills);
-            this.panel2.Controls.Add(this.splTables);
-            this.panel2.Controls.Add(this.splFoods);
-            this.panel2.Controls.Add(this.splCategory);
-            this.panel2.Controls.Add(this.splMain);
-            this.panel2.Location = new System.Drawing.Point(0, 76);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1009, 478);
-            this.panel2.TabIndex = 2;
+            this.pnlBody.Controls.Add(this.splBills);
+            this.pnlBody.Controls.Add(this.splBillInfos);
+            this.pnlBody.Controls.Add(this.splCategory);
+            this.pnlBody.Controls.Add(this.splFoods);
+            this.pnlBody.Controls.Add(this.splTables);
+            this.pnlBody.Controls.Add(this.splMain);
+            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBody.Location = new System.Drawing.Point(0, 70);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(1009, 484);
+            this.pnlBody.TabIndex = 2;
             // 
             // splBillInfos
             // 
@@ -259,12 +271,13 @@
             this.splBillInfos.Panel2.Controls.Add(this.label18);
             this.splBillInfos.Panel2.Controls.Add(this.label17);
             this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoCount);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoFoodName);
             this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoID);
             this.splBillInfos.Panel2.Controls.Add(this.btnDeleteBillInfo);
             this.splBillInfos.Panel2.Controls.Add(this.btnClearBillInfo);
             this.splBillInfos.Panel2.Controls.Add(this.btnUpdateBillInfo);
             this.splBillInfos.Panel2.Controls.Add(this.btnAddBillInfo);
-            this.splBillInfos.Size = new System.Drawing.Size(1009, 478);
+            this.splBillInfos.Size = new System.Drawing.Size(1009, 484);
             this.splBillInfos.SplitterDistance = 457;
             this.splBillInfos.TabIndex = 5;
             // 
@@ -278,12 +291,13 @@
             this.dgvBillInfos.Name = "dgvBillInfos";
             this.dgvBillInfos.ReadOnly = true;
             this.dgvBillInfos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillInfos.Size = new System.Drawing.Size(457, 478);
+            this.dgvBillInfos.Size = new System.Drawing.Size(457, 484);
             this.dgvBillInfos.TabIndex = 0;
             this.dgvBillInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfos_CellClick);
             // 
             // cboBillInfoBillID
             // 
+            this.cboBillInfoBillID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBillInfoBillID.FormattingEnabled = true;
             this.cboBillInfoBillID.Location = new System.Drawing.Point(159, 70);
             this.cboBillInfoBillID.Name = "cboBillInfoBillID";
@@ -292,11 +306,13 @@
             // 
             // cboBillInfoFoodID
             // 
+            this.cboBillInfoFoodID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBillInfoFoodID.FormattingEnabled = true;
             this.cboBillInfoFoodID.Location = new System.Drawing.Point(159, 103);
             this.cboBillInfoFoodID.Name = "cboBillInfoFoodID";
-            this.cboBillInfoFoodID.Size = new System.Drawing.Size(189, 21);
+            this.cboBillInfoFoodID.Size = new System.Drawing.Size(78, 21);
             this.cboBillInfoFoodID.TabIndex = 3;
+            this.cboBillInfoFoodID.SelectedIndexChanged += new System.EventHandler(this.cboBillInfoFoodID_SelectedIndexChanged);
             // 
             // label20
             // 
@@ -343,8 +359,10 @@
             // 
             // txtBillInfoID
             // 
+            this.txtBillInfoID.Enabled = false;
             this.txtBillInfoID.Location = new System.Drawing.Point(159, 38);
             this.txtBillInfoID.Name = "txtBillInfoID";
+            this.txtBillInfoID.ReadOnly = true;
             this.txtBillInfoID.Size = new System.Drawing.Size(189, 20);
             this.txtBillInfoID.TabIndex = 1;
             // 
@@ -413,12 +431,13 @@
             this.splBills.Panel2.Controls.Add(this.txtBillTotalPrice);
             this.splBills.Panel2.Controls.Add(this.txtBillDiscount);
             this.splBills.Panel2.Controls.Add(this.txtBillStatus);
+            this.splBills.Panel2.Controls.Add(this.txtBillTableName);
             this.splBills.Panel2.Controls.Add(this.txtBillID);
             this.splBills.Panel2.Controls.Add(this.btnDeleteBill);
             this.splBills.Panel2.Controls.Add(this.btnClearBill);
             this.splBills.Panel2.Controls.Add(this.btnAddBill);
             this.splBills.Panel2.Controls.Add(this.btnUpdateBill);
-            this.splBills.Size = new System.Drawing.Size(1009, 478);
+            this.splBills.Size = new System.Drawing.Size(1009, 484);
             this.splBills.SplitterDistance = 455;
             this.splBills.TabIndex = 3;
             // 
@@ -433,17 +452,19 @@
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
             this.dgvBills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBills.Size = new System.Drawing.Size(455, 478);
+            this.dgvBills.Size = new System.Drawing.Size(455, 484);
             this.dgvBills.TabIndex = 0;
             this.dgvBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellClick);
             // 
             // cboBillTableID
             // 
+            this.cboBillTableID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBillTableID.FormattingEnabled = true;
             this.cboBillTableID.Location = new System.Drawing.Point(150, 130);
             this.cboBillTableID.Name = "cboBillTableID";
-            this.cboBillTableID.Size = new System.Drawing.Size(200, 21);
+            this.cboBillTableID.Size = new System.Drawing.Size(89, 21);
             this.cboBillTableID.TabIndex = 4;
+            this.cboBillTableID.SelectedIndexChanged += new System.EventHandler(this.cboBillTableID_SelectedIndexChanged);
             // 
             // dtpBillCheckOutDate
             // 
@@ -545,8 +566,10 @@
             // 
             // txtBillID
             // 
+            this.txtBillID.Enabled = false;
             this.txtBillID.Location = new System.Drawing.Point(149, 37);
             this.txtBillID.Name = "txtBillID";
+            this.txtBillID.ReadOnly = true;
             this.txtBillID.Size = new System.Drawing.Size(200, 20);
             this.txtBillID.TabIndex = 1;
             // 
@@ -612,7 +635,7 @@
             this.splTables.Panel2.Controls.Add(this.btnDeleteTable);
             this.splTables.Panel2.Controls.Add(this.btnAddTable);
             this.splTables.Panel2.Controls.Add(this.btnUpdateTable);
-            this.splTables.Size = new System.Drawing.Size(1009, 478);
+            this.splTables.Size = new System.Drawing.Size(1009, 484);
             this.splTables.SplitterDistance = 470;
             this.splTables.TabIndex = 4;
             // 
@@ -626,7 +649,7 @@
             this.dgvTables.Name = "dgvTables";
             this.dgvTables.ReadOnly = true;
             this.dgvTables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTables.Size = new System.Drawing.Size(470, 478);
+            this.dgvTables.Size = new System.Drawing.Size(470, 484);
             this.dgvTables.TabIndex = 0;
             this.dgvTables.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTables_CellClick);
             // 
@@ -673,8 +696,10 @@
             // 
             // txtTableID
             // 
+            this.txtTableID.Enabled = false;
             this.txtTableID.Location = new System.Drawing.Point(134, 44);
             this.txtTableID.Name = "txtTableID";
+            this.txtTableID.ReadOnly = true;
             this.txtTableID.Size = new System.Drawing.Size(177, 20);
             this.txtTableID.TabIndex = 1;
             // 
@@ -737,12 +762,13 @@
             this.splFoods.Panel2.Controls.Add(this.label3);
             this.splFoods.Panel2.Controls.Add(this.txtFoodPrice);
             this.splFoods.Panel2.Controls.Add(this.txtFoodName);
+            this.splFoods.Panel2.Controls.Add(this.txtFoodCategoryName);
             this.splFoods.Panel2.Controls.Add(this.txtFoodID);
             this.splFoods.Panel2.Controls.Add(this.btnClearFood);
             this.splFoods.Panel2.Controls.Add(this.btnDeleteFood);
             this.splFoods.Panel2.Controls.Add(this.btnUpdateFood);
             this.splFoods.Panel2.Controls.Add(this.btnAddFood);
-            this.splFoods.Size = new System.Drawing.Size(1009, 478);
+            this.splFoods.Size = new System.Drawing.Size(1009, 484);
             this.splFoods.SplitterDistance = 495;
             this.splFoods.TabIndex = 3;
             // 
@@ -756,17 +782,19 @@
             this.dgvFoods.Name = "dgvFoods";
             this.dgvFoods.ReadOnly = true;
             this.dgvFoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFoods.Size = new System.Drawing.Size(495, 478);
+            this.dgvFoods.Size = new System.Drawing.Size(495, 484);
             this.dgvFoods.TabIndex = 0;
             this.dgvFoods.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoods_CellClick);
             // 
             // cboFoodCategoryID
             // 
+            this.cboFoodCategoryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFoodCategoryID.FormattingEnabled = true;
             this.cboFoodCategoryID.Location = new System.Drawing.Point(140, 106);
             this.cboFoodCategoryID.Name = "cboFoodCategoryID";
-            this.cboFoodCategoryID.Size = new System.Drawing.Size(167, 21);
+            this.cboFoodCategoryID.Size = new System.Drawing.Size(74, 21);
             this.cboFoodCategoryID.TabIndex = 3;
+            this.cboFoodCategoryID.SelectedIndexChanged += new System.EventHandler(this.cboFoodCategoryID_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -820,8 +848,10 @@
             // 
             // txtFoodID
             // 
+            this.txtFoodID.Enabled = false;
             this.txtFoodID.Location = new System.Drawing.Point(140, 29);
             this.txtFoodID.Name = "txtFoodID";
+            this.txtFoodID.ReadOnly = true;
             this.txtFoodID.Size = new System.Drawing.Size(167, 20);
             this.txtFoodID.TabIndex = 1;
             // 
@@ -885,7 +915,7 @@
             this.splCategory.Panel2.Controls.Add(this.txtCategoryID);
             this.splCategory.Panel2.Controls.Add(this.label1);
             this.splCategory.Panel2.Controls.Add(this.label2);
-            this.splCategory.Size = new System.Drawing.Size(1009, 478);
+            this.splCategory.Size = new System.Drawing.Size(1009, 484);
             this.splCategory.SplitterDistance = 543;
             this.splCategory.TabIndex = 0;
             // 
@@ -900,7 +930,7 @@
             this.dgvCategories.Name = "dgvCategories";
             this.dgvCategories.ReadOnly = true;
             this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategories.Size = new System.Drawing.Size(543, 478);
+            this.dgvCategories.Size = new System.Drawing.Size(543, 484);
             this.dgvCategories.TabIndex = 0;
             this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
             // 
@@ -953,6 +983,7 @@
             // 
             // txtCategoryID
             // 
+            this.txtCategoryID.Enabled = false;
             this.txtCategoryID.Location = new System.Drawing.Point(76, 25);
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.ReadOnly = true;
@@ -982,39 +1013,69 @@
             this.splMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splMain.Location = new System.Drawing.Point(0, 0);
             this.splMain.Name = "splMain";
-            this.splMain.Size = new System.Drawing.Size(1009, 478);
+            this.splMain.Size = new System.Drawing.Size(1009, 484);
             this.splMain.SplitterDistance = 417;
             this.splMain.TabIndex = 0;
             // 
-            // panel3
+            // pnlHeader
             // 
-            this.panel3.Controls.Add(this.menuStrip1);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1009, 70);
-            this.panel3.TabIndex = 3;
+            this.pnlHeader.Controls.Add(this.menuStrip1);
+            this.pnlHeader.Controls.Add(this.panel1);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1009, 70);
+            this.pnlHeader.TabIndex = 3;
             // 
-            // toolsToolStripMenuItem1
+            // pnlMain
             // 
-            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
-            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
-            this.toolsToolStripMenuItem1.Text = "Tools";
+            this.pnlMain.Controls.Add(this.pnlBody);
+            this.pnlMain.Controls.Add(this.pnlHeader);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1009, 554);
+            this.pnlMain.TabIndex = 1;
+            // 
+            // txtFoodCategoryName
+            // 
+            this.txtFoodCategoryName.Enabled = false;
+            this.txtFoodCategoryName.Location = new System.Drawing.Point(220, 107);
+            this.txtFoodCategoryName.Name = "txtFoodCategoryName";
+            this.txtFoodCategoryName.ReadOnly = true;
+            this.txtFoodCategoryName.Size = new System.Drawing.Size(87, 20);
+            this.txtFoodCategoryName.TabIndex = 1;
+            // 
+            // txtBillInfoFoodName
+            // 
+            this.txtBillInfoFoodName.Enabled = false;
+            this.txtBillInfoFoodName.Location = new System.Drawing.Point(249, 104);
+            this.txtBillInfoFoodName.Name = "txtBillInfoFoodName";
+            this.txtBillInfoFoodName.ReadOnly = true;
+            this.txtBillInfoFoodName.Size = new System.Drawing.Size(96, 20);
+            this.txtBillInfoFoodName.TabIndex = 1;
+            // 
+            // txtBillTableName
+            // 
+            this.txtBillTableName.Enabled = false;
+            this.txtBillTableName.Location = new System.Drawing.Point(245, 130);
+            this.txtBillTableName.Name = "txtBillTableName";
+            this.txtBillTableName.ReadOnly = true;
+            this.txtBillTableName.Size = new System.Drawing.Size(107, 20);
+            this.txtBillTableName.TabIndex = 1;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 554);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlMain);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Restaurant Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
             this.splBillInfos.Panel1.ResumeLayout(false);
             this.splBillInfos.Panel2.ResumeLayout(false);
             this.splBillInfos.Panel2.PerformLayout();
@@ -1047,8 +1108,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
             this.splMain.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1058,7 +1120,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlBody;
         private System.Windows.Forms.SplitContainer splMain;
         private System.Windows.Forms.SplitContainer splCategory;
         private System.Windows.Forms.DataGridView dgvCategories;
@@ -1075,7 +1137,7 @@
         private System.Windows.Forms.Button btnDeleteFood;
         private System.Windows.Forms.Button btnUpdateFood;
         private System.Windows.Forms.Button btnAddFood;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.ComboBox cboFoodCategoryID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -1139,6 +1201,10 @@
         private System.Windows.Forms.Button btnUpdateBillInfo;
         private System.Windows.Forms.Button btnAddBillInfo;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
+        private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.TextBox txtFoodCategoryName;
+        private System.Windows.Forms.TextBox txtBillInfoFoodName;
+        private System.Windows.Forms.TextBox txtBillTableName;
     }
 }
 

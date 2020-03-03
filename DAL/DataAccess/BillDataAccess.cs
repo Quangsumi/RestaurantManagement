@@ -78,5 +78,16 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public string GetTableNameByTableID(string tableID)
+        {
+            int id = Int32.TryParse(tableID, out int result) ? result : 1;
+
+            try
+            {
+                return _dataContext.tblTables.FirstOrDefault(t => t.ID == id)?.Name;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

@@ -75,5 +75,16 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public string GetCatagoryNameByCategoryID(string catagoryID)
+        {
+            int id = Int32.TryParse(catagoryID, out int result) ? result : 1;
+
+            try
+            {
+                return _dataContext.tblCategories.FirstOrDefault(c => c.ID == id)?.Name;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }
