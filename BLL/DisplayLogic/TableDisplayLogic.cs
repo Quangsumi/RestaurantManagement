@@ -4,21 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.DataLogic;
 using DAL;
+using BLL.DataLogic;
 
 namespace BLL.DisplayLogic
 {
-    public class TableDisplayLogic
+    public class TableDisplayLogic : DisplayLogic<tblTable>
     {
-        TableDataLogic _tableDataLogic = new TableDataLogic();
+        protected override DataLogic<tblTable> _dataLogic { get; set; } = new TableDataLogic();
 
         DataGridView _dgvTables;
         TextBox _txtTableID;
         TextBox _txtTableName;
         TextBox _txtTableStatus;
 
-        public void TransferObject(DataGridView dgvTables, TextBox txtTableID, TextBox txtTableName, TextBox txtTableStatus)
+        public TableDisplayLogic() { }
+
+        public TableDisplayLogic(DataGridView dgvTables, TextBox txtTableID, TextBox txtTableName, TextBox txtTableStatus)
         {
             _txtTableID = txtTableID;
             _txtTableName = txtTableName;
@@ -26,7 +28,7 @@ namespace BLL.DisplayLogic
             _dgvTables = dgvTables;
         }
 
-        public void CellClick(object sender, DataGridViewCellEventArgs e)
+        public override void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
 
@@ -37,26 +39,7 @@ namespace BLL.DisplayLogic
             _txtTableStatus.Text = row.Cells[2].Value.ToString();
         }
 
-        public void LoadTablesFromDataAccess()
-        {
-            try
-            {
-                _dgvTables.DataSource = _tableDataLogic.GetTables();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ClearTextBox()
-        {
-            _txtTableID.Text = "";
-            _txtTableName.Text = "";
-            _txtTableStatus.Text = "";
-        }
-
-        public void ClickAddTable()
+        public override void ClickAddRecord()
         {
             tblTable newTable = new tblTable();
             newTable.Name = _txtTableName.Text;
@@ -64,7 +47,7 @@ namespace BLL.DisplayLogic
 
             try
             {
-                if (_tableDataLogic.AddOneTable(newTable))
+                if (_dataLogic.AddRecord(newTable))
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
@@ -75,41 +58,21 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadTablesFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-        public void ClickUpdateTable()
+        public override void ClickClearControlsContent()
         {
-            tblTable tableToUpdate = new tblTable();
-            tableToUpdate.ID = Convert.ToInt32(_txtTableID.Text);
-            tableToUpdate.Name = _txtTableName.Text;
-            tableToUpdate.Status = Convert.ToInt32(_txtTableStatus.Text);
-
-            try
-            {
-                if (_tableDataLogic.UpdateOneTable(tableToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadTablesFromDataAccess();
-                ClearTextBox();
-            }
+            ClearControlsContent();
         }
 
-        public void ClickDeleteTable()
+        public override void ClickDeleteRecord()
         {
             try
             {
-                if (_tableDataLogic.DeleteOneTable(Convert.ToInt32(_txtTableID.Text)))
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtTableID.Text)))
                     MessageBox.Show("Deleted Successfully!");
                 else
                     MessageBox.Show("Failed to deleted!");
@@ -120,15 +83,53 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadTablesFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-        
-        public void ClickClearTable()
+        public override void ClickUpdateRecord()
         {
-            ClearTextBox();
+            tblTable tableToUpdate = new tblTable();
+            tableToUpdate.ID = Convert.ToInt32(_txtTableID.Text);
+            tableToUpdate.Name = _txtTableName.Text;
+            tableToUpdate.Status = Convert.ToInt32(_txtTableStatus.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(tableToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void LoadRecordsFromDataLogic()
+        {
+            try
+            {
+                _dgvTables.DataSource = _dataLogic.GetRecords();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        protected override void ClearControlsContent()
+        {
+            _txtTableID.Text = "";
+            _txtTableName.Text = "";
+            _txtTableStatus.Text = "";
         }
     }
 }

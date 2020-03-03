@@ -4,38 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAL.DataAccess
 {
-    public class BillDataAccess
+    public class BillDataAccess : DataAccess<tblBill>
     {
-        RestaurantManagementDataContext _dataContext = new RestaurantManagementDataContext();
-
-        public List<tblBill> GetBills()
+        public override bool AddRecord(tblBill newRecord)
         {
             try
             {
-                return _dataContext.tblBills.ToList();
-            }
-            catch (Exception ex) { throw ex; }
-        }
-
-        public bool AddOneBill(tblBill newBill)
-        {
-            try
-            {
-                _dataContext.tblBills.InsertOnSubmit(newBill);
+                _dataContext.tblBills.InsertOnSubmit(newRecord);
                 _dataContext.SubmitChanges();
                 return true;
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneBill(int idBillToDelete)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
                 tblBill billToDelete = _dataContext.tblBills
-                    .FirstOrDefault(a => a.ID == idBillToDelete);
+                    .FirstOrDefault(a => a.ID == idRecordToDelete);
 
                 if (billToDelete != null)
                 {
@@ -48,21 +37,30 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneBill(tblBill pendingBill)
+        public override List<tblBill> GetRecords()
+        {
+            try
+            {
+                return _dataContext.tblBills.ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public override bool UpdateRecord(tblBill pendingRecord)
         {
             try
             {
                 tblBill billToUpdate = _dataContext.tblBills
-                    .FirstOrDefault(c => c.ID == pendingBill.ID);
+                    .FirstOrDefault(c => c.ID == pendingRecord.ID);
 
                 if (billToUpdate != null)
                 {
-                    billToUpdate.CheckInDate = pendingBill.CheckInDate;
-                    billToUpdate.CheckOutDate = pendingBill.CheckOutDate;
-                    billToUpdate.TableID = pendingBill.TableID;
-                    billToUpdate.Status = pendingBill.Status;
-                    billToUpdate.Discount = pendingBill.Discount;
-                    billToUpdate.TotalPrice = pendingBill.TotalPrice;
+                    billToUpdate.CheckInDate = pendingRecord.CheckInDate;
+                    billToUpdate.CheckOutDate = pendingRecord.CheckOutDate;
+                    billToUpdate.TableID = pendingRecord.TableID;
+                    billToUpdate.Status = pendingRecord.Status;
+                    billToUpdate.Discount = pendingRecord.Discount;
+                    billToUpdate.TotalPrice = pendingRecord.TotalPrice;
 
                     _dataContext.SubmitChanges();
                     return true;

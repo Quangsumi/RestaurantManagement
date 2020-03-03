@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
+using System.Windows.Forms;
 
 namespace BLL.DisplayLogic
 {
-    public class FoodDisplayLogic
+    public class FoodDisplayLogic : DisplayLogic<tblFood>
     {
-        FoodDataLogic _foodDataLogic = new FoodDataLogic();
+        protected override DataLogic<tblFood> _dataLogic { get; set; } = new FoodDataLogic();
 
         DataGridView _dgvFoods;
         TextBox _txtFoodID;
@@ -19,7 +19,9 @@ namespace BLL.DisplayLogic
         ComboBox _cboFoodCategoryID;
         TextBox _txtFoodPrice;
 
-        public void TransferObject(DataGridView dgvFoods, TextBox txtFoodID, TextBox txtFoodName, ComboBox cboFoodCategoryID, TextBox txtFoodPrice)
+        public FoodDisplayLogic() { }
+
+        public FoodDisplayLogic(DataGridView dgvFoods, TextBox txtFoodID, TextBox txtFoodName, ComboBox cboFoodCategoryID, TextBox txtFoodPrice)
         {
             _dgvFoods = dgvFoods;
             _txtFoodID = txtFoodID;
@@ -28,7 +30,7 @@ namespace BLL.DisplayLogic
             _txtFoodPrice = txtFoodPrice;
         }
 
-        public void CellClick(object sender, DataGridViewCellEventArgs e)
+        public override void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
 
@@ -40,11 +42,87 @@ namespace BLL.DisplayLogic
             _txtFoodPrice.Text = row.Cells[3].Value.ToString();
         }
 
-        public void LoadFoodsFromDataAccess()
+        public override void ClickAddRecord()
+        {
+            tblFood newFood = new tblFood();
+            newFood.Name = _txtFoodName.Text;
+            newFood.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
+            newFood.Price = Convert.ToDouble(_txtFoodPrice.Text);
+
+            try
+            {
+                if (_dataLogic.AddRecord(newFood))
+                    MessageBox.Show("Added successfully!");
+                else
+                    MessageBox.Show("Failed to add!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
+        }
+
+        public override void ClickDeleteRecord()
         {
             try
             {
-                _dgvFoods.DataSource = _foodDataLogic.GetFoods();
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtFoodID.Text)))
+                    MessageBox.Show("Added successfully!");
+                else
+                    MessageBox.Show("Failed to delete!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickUpdateRecord()
+        {
+            tblFood foodToUpdate = new tblFood();
+            foodToUpdate.ID = Convert.ToInt32(_txtFoodID.Text);
+            foodToUpdate.Name = _txtFoodName.Text;
+            foodToUpdate.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
+            foodToUpdate.Price = Convert.ToDouble(_txtFoodPrice.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(foodToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to updated!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void LoadRecordsFromDataLogic()
+        {
+            try
+            {
+                _dgvFoods.DataSource = _dataLogic.GetRecords();
                 LoadCategoryIDToComboBox();
             }
             catch (Exception ex)
@@ -58,94 +136,18 @@ namespace BLL.DisplayLogic
             // TODO - Make the Food form display Category Name instead of Category ID
             // Display on both datagridview and the combobox
 
-            _cboFoodCategoryID.DataSource = _foodDataLogic.GetCategoriesOfFood();
+            _cboFoodCategoryID.DataSource = (_dataLogic as FoodDataLogic).GetCategoriesOfFood();
             _cboFoodCategoryID.DisplayMember = "ID";
             //_cboFoodCategoryID.DisplayMember = "Name";
             //_cboFoodCategoryID.ValueMember = "ID";
         }
 
-        private void ClearTextBox()
+        protected override void ClearControlsContent()
         {
             _txtFoodID.Text = "";
             _txtFoodName.Text = "";
             _cboFoodCategoryID.Text = "";
             _txtFoodPrice.Text = "";
-        }
-
-        public void ClickAddFood()
-        {
-            tblFood newFood = new tblFood();
-            newFood.Name = _txtFoodName.Text;
-            newFood.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
-            newFood.Price = Convert.ToDouble(_txtFoodPrice.Text);
-
-            try
-            {
-                if (_foodDataLogic.AddOneFood(newFood))
-                    MessageBox.Show("Added successfully!");
-                else
-                    MessageBox.Show("Failed to add!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadFoodsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickUpdateFood()
-        {
-            tblFood foodToUpdate = new tblFood();
-            foodToUpdate.ID = Convert.ToInt32(_txtFoodID.Text);
-            foodToUpdate.Name = _txtFoodName.Text;
-            foodToUpdate.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
-            foodToUpdate.Price = Convert.ToDouble(_txtFoodPrice.Text);
-
-            try
-            {
-                if (_foodDataLogic.UpdateOneFood(foodToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to updated!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadFoodsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickDeleteFood()
-        {
-            try
-            {
-                if (_foodDataLogic.DeleteOneFood(Convert.ToInt32(_txtFoodID.Text)))
-                    MessageBox.Show("Added successfully!");
-                else
-                    MessageBox.Show("Failed to delete!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadFoodsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickClearFood()
-        {
-            ClearTextBox();
         }
     }
 }

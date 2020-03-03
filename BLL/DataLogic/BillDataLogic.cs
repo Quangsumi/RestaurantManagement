@@ -4,45 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.DataAccess;
 
 namespace BLL.DataLogic
 {
-    public class BillDataLogic
+    public class BillDataLogic : DataLogic<tblBill>
     {
-        BillDataAccess _billDataAccess = new BillDataAccess();
 
-        public List<tblBill> GetBills()
+        public override DataAccess<tblBill> _dataAccess { get; set; } = new BillDataAccess();
+
+        public override bool AddRecord(tblBill newRecord)
         {
             try
             {
-                return _billDataAccess.GetBills();
+                return _dataAccess.AddRecord(newRecord);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneBill(tblBill newBill)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
-                return _billDataAccess.AddOneBill(newBill);
+                return _dataAccess.DeleteRecord(idRecordToDelete);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneBill(int idBillToDelete)
+        public override List<tblBill> GetRecords()
         {
             try
             {
-                return _billDataAccess.DeleteOneBill(idBillToDelete);
+                return _dataAccess.GetRecords();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneBill(tblBill billToUpdate)
+        public override bool UpdateRecord(tblBill recordToUpdate)
         {
             try
             {
-                return _billDataAccess.UpdateOneBill(billToUpdate);
+                return _dataAccess.UpdateRecord(recordToUpdate);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -51,7 +53,7 @@ namespace BLL.DataLogic
         {
             try
             {
-                return _billDataAccess.GetTablesOfBill();
+                return (_dataAccess as DAL.DataAccess.BillDataAccess).GetTablesOfBill();
             }
             catch (Exception ex) { throw ex; }
         }

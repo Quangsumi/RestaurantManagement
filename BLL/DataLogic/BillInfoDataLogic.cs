@@ -4,45 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.DataAccess;
 
 namespace BLL.DataLogic
 {
-    public class BillInfoDataLogic
+    public class BillInfoDataLogic : DataLogic<tblBillInfo>
     {
-        BillInfoDataAccess _billInfoDataAccess = new BillInfoDataAccess();
+        public override DataAccess<tblBillInfo> _dataAccess { get; set; } = new BillInfoDataAccess();
 
-        public List<tblBillInfo> GetBillInfos()
+        public override bool AddRecord(tblBillInfo newRecord)
         {
             try
             {
-                return _billInfoDataAccess.GetBillInfos();
+                return _dataAccess.AddRecord(newRecord);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneBillInfo(tblBillInfo newBillInfo)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
-                return _billInfoDataAccess.AddOneBillInfo(newBillInfo);
+                return _dataAccess.DeleteRecord(idRecordToDelete);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneBillInfo(int idBillInfoToDelete)
+        public override List<tblBillInfo> GetRecords()
         {
             try
             {
-                return _billInfoDataAccess.DeleteOneBillInfo(idBillInfoToDelete);
+                return _dataAccess.GetRecords();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneBillInfo(tblBillInfo billInfoToUpdate)
+        public override bool UpdateRecord(tblBillInfo recordToUpdate)
         {
             try
             {
-                return _billInfoDataAccess.UpdateOneBillInfo(billInfoToUpdate);
+                return _dataAccess.UpdateRecord(recordToUpdate);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -51,7 +52,7 @@ namespace BLL.DataLogic
         {
             try
             {
-                return _billInfoDataAccess.GetBillsOfBillInfo();
+                return (_dataAccess as BillInfoDataAccess).GetBillsOfBillInfo();
             }
             catch (Exception ex) { throw ex; }
         }
@@ -60,7 +61,7 @@ namespace BLL.DataLogic
         {
             try
             {
-                return _billInfoDataAccess.GetFoodsOfBillInfo();
+                return (_dataAccess as BillInfoDataAccess).GetFoodsOfBillInfo();
             }
             catch (Exception ex) { throw ex; }
         }

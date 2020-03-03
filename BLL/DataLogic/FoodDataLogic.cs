@@ -4,45 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.DataAccess;
 
 namespace BLL.DataLogic
 {
-    public class FoodDataLogic
+    public class FoodDataLogic : DataLogic<tblFood>
     {
-        FoodDataAccess _dataAccess = new FoodDataAccess();
+        public override DataAccess<tblFood> _dataAccess { get; set; } = new FoodDataAccess();
 
-        public List<tblFood> GetFoods()
+        public override bool AddRecord(tblFood newRecord)
         {
             try
             {
-                return _dataAccess.GetFoods();
+                return _dataAccess.AddRecord(newRecord);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneFood(tblFood newFood)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
-                return _dataAccess.AddOneFood(newFood);
+                return _dataAccess.DeleteRecord(idRecordToDelete);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneFood(int idFoodToDelete)
+        public override List<tblFood> GetRecords()
         {
             try
             {
-                return _dataAccess.DeleteOneFood(idFoodToDelete);
+                return _dataAccess.GetRecords();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneFood(tblFood foodToUpdate)
+        public override bool UpdateRecord(tblFood recordToUpdate)
         {
             try
             {
-                return _dataAccess.UpdateOneFood(foodToUpdate);
+                return _dataAccess.UpdateRecord(recordToUpdate);
             }
             catch (Exception ex) { throw ex; }
         }
@@ -51,7 +52,7 @@ namespace BLL.DataLogic
         {
             try
             {
-                return _dataAccess.GetCategoriesOfFood();
+                return (_dataAccess as FoodDataAccess).GetCategoriesOfFood();
             }
             catch (Exception ex) { throw ex; }
         }

@@ -9,9 +9,9 @@ using BLL.DataLogic;
 
 namespace BLL.DisplayLogic
 {
-    public class BillDisplayLogic
+    public class BillDisplayLogic : DisplayLogic<tblBill>
     {
-        BillDataLogic _billDataLogic = new BillDataLogic();
+        protected override DataLogic<tblBill> _dataLogic { get; set; } = new BillDataLogic();
 
         DataGridView _dgvBills;
         TextBox _txtBillID;
@@ -22,7 +22,9 @@ namespace BLL.DisplayLogic
         TextBox _txtDiscount;
         TextBox _txtTotalPrice;
 
-        public void TransferObject(DataGridView dgvBills, TextBox txtBillID, DateTimePicker dtpCheckInDate, DateTimePicker dtpCheckOutDate, ComboBox cboBillTableID, TextBox txtBillStatus, TextBox txtDiscount, TextBox txtTotalPrice)
+        public BillDisplayLogic(){}
+
+        public BillDisplayLogic(DataGridView dgvBills, TextBox txtBillID, DateTimePicker dtpCheckInDate, DateTimePicker dtpCheckOutDate, ComboBox cboBillTableID, TextBox txtBillStatus, TextBox txtDiscount, TextBox txtTotalPrice)
         {
             _txtBillID = txtBillID;
             _dtpCheckInDate = dtpCheckInDate;
@@ -34,7 +36,7 @@ namespace BLL.DisplayLogic
             _dgvBills = dgvBills;
         }
 
-        public void CellClick(object sender, DataGridViewCellEventArgs e)
+        public override void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
 
@@ -49,11 +51,104 @@ namespace BLL.DisplayLogic
             _txtBillStatus.Text = row.Cells[6].Value.ToString();
         }
 
-        public void LoadBillsFromDataAccess()
+        protected override void ClearControlsContent()
+        {
+            _txtBillID.Text = "";
+            _dtpCheckInDate.Value = DateTime.Now;
+            _dtpCheckOutDate.Value = DateTime.Now;
+            _cboBillTableID.Text = "";
+            _txtBillStatus.Text = "";
+            _txtDiscount.Text = "";
+            _txtTotalPrice.Text = "";
+        }
+
+        public override void ClickAddRecord()
+        {
+            tblBill newBill = new tblBill();
+            newBill.CheckInDate = _dtpCheckInDate.Value;
+            newBill.CheckOutDate = _dtpCheckOutDate.Value;
+            newBill.TableID = Convert.ToInt32(_cboBillTableID.Text);
+            newBill.Status = Convert.ToInt32(_txtBillStatus.Text);
+            newBill.Discount = Convert.ToInt32(_txtDiscount.Text);
+            newBill.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
+
+            try
+            {
+                if (_dataLogic.AddRecord(newBill))
+                    MessageBox.Show("Added Successfully!");
+                else
+                    MessageBox.Show("Failed to add!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
+        }
+
+        public override void ClickDeleteRecord()
         {
             try
             {
-                _dgvBills.DataSource = _billDataLogic.GetBills();
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtBillID.Text)))
+                    MessageBox.Show("Deleted successfully!");
+                else
+                    MessageBox.Show("Failed to delted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickUpdateRecord()
+        {
+            tblBill billToUpdate = new tblBill();
+            billToUpdate.ID = Convert.ToInt32(_txtBillID.Text);
+            billToUpdate.CheckInDate = _dtpCheckInDate.Value;
+            billToUpdate.CheckOutDate = _dtpCheckOutDate.Value;
+            billToUpdate.TableID = Convert.ToInt32(_cboBillTableID.Text);
+            billToUpdate.Status = Convert.ToInt32(_txtBillStatus.Text);
+            billToUpdate.Discount = Convert.ToInt32(_txtDiscount.Text);
+            billToUpdate.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(billToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void LoadRecordsFromDataLogic()
+        {
+            try
+            {
+                _dgvBills.DataSource = _dataLogic.GetRecords();
                 LoadTableIDToComboBox();
             }
             catch (Exception ex)
@@ -67,103 +162,10 @@ namespace BLL.DisplayLogic
             // TODO - Make the Bill form display Table Name instead of Table ID
             // Display on both datagridview and the combobox
 
-            _cboBillTableID.DataSource = _billDataLogic.GetTablesOfBill();
+            _cboBillTableID.DataSource = (_dataLogic as BillDataLogic).GetTablesOfBill();
             _cboBillTableID.DisplayMember = "ID";
             //_cboBillTableID.DisplayMember = "Name";
             //_cboBillTableID.ValueMember = "ID";
-        }
-
-        private void ClearTextBox()
-        {
-            _txtBillID.Text = "";
-            _dtpCheckInDate.Value = DateTime.Now;
-            _dtpCheckOutDate.Value = DateTime.Now;
-            _cboBillTableID.Text = "";
-            _txtBillStatus.Text = "";
-            _txtDiscount.Text = "";
-            _txtTotalPrice.Text = "";
-        }
-
-        public void ClickAddBill()
-        {
-            tblBill newBill = new tblBill();
-            newBill.CheckInDate = _dtpCheckInDate.Value;
-            newBill.CheckOutDate = _dtpCheckOutDate.Value;
-            newBill.TableID = Convert.ToInt32(_cboBillTableID.Text);
-            newBill.Status = Convert.ToInt32(_txtBillStatus.Text);
-            newBill.Discount = Convert.ToInt32(_txtDiscount.Text);
-            newBill.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
-
-            try
-            {
-                if (_billDataLogic.AddOneBill(newBill))
-                    MessageBox.Show("Added Successfully!");
-                else
-                    MessageBox.Show("Failed to add!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadBillsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickUpdateBill()
-        {
-            tblBill billToUpdate = new tblBill();
-            billToUpdate.ID = Convert.ToInt32(_txtBillID.Text);
-            billToUpdate.CheckInDate = _dtpCheckInDate.Value;
-            billToUpdate.CheckOutDate = _dtpCheckOutDate.Value;
-            billToUpdate.TableID = Convert.ToInt32(_cboBillTableID.Text);
-            billToUpdate.Status = Convert.ToInt32(_txtBillStatus.Text);
-            billToUpdate.Discount = Convert.ToInt32(_txtDiscount.Text);
-            billToUpdate.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
-
-            try
-            {
-                if (_billDataLogic.UpdateOneBill(billToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadBillsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickDeleteBill()
-        {
-            try
-            {
-                if (_billDataLogic.DeleteOneBill(Convert.ToInt32(_txtBillID.Text)))
-                    MessageBox.Show("Deleted successfully!");
-                else
-                    MessageBox.Show("Failed to delted!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadBillsFromDataAccess();
-                ClearTextBox();
-            }
-        }
-
-        public void ClickClearBill()
-        {
-            ClearTextBox();
         }
     }
 }

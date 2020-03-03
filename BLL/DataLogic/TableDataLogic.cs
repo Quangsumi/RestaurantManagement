@@ -4,45 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.DataAccess;
 
 namespace BLL.DataLogic
 {
-    public class TableDataLogic
+    public class TableDataLogic : DataLogic<tblTable>
     {
-        TableDataAccess _tableDataAccess = new TableDataAccess();
+        public override DataAccess<tblTable> _dataAccess { get; set; } = new TableDataAccess();
 
-        public List<tblTable> GetTables()
+        public override bool AddRecord(tblTable newRecord)
         {
             try
             {
-                return _tableDataAccess.GetTables();
+                return _dataAccess.AddRecord(newRecord);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneTable(tblTable newTable)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
-                return _tableDataAccess.AddOneTable(newTable);
+                return _dataAccess.DeleteRecord(idRecordToDelete);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneTable(int idTableToDelete)
+        public override List<tblTable> GetRecords()
         {
             try
             {
-                return _tableDataAccess.DeleteOneTable(idTableToDelete);
+                return _dataAccess.GetRecords();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneTable(tblTable tableToUpdate)
+        public override bool UpdateRecord(tblTable recordToUpdate)
         {
             try
             {
-                return _tableDataAccess.UpdateOneTable(tableToUpdate);
+                return _dataAccess.UpdateRecord(recordToUpdate);
             }
             catch (Exception ex) { throw ex; }
         }

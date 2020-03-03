@@ -1,48 +1,49 @@
-﻿using DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
+using DAL.DataAccess;
 
 namespace BLL.DataLogic
 {
-    public class CategoryDataLogic
+    public class CategoryDataLogic : DataLogic<tblCategory>
     {
-        CategoryDataAccess _categoryDataAccess = new CategoryDataAccess();
+        public override DataAccess<tblCategory> _dataAccess { get; set; } = new CategoryDataAccess();
 
-        public List<tblCategory> GetCategories()
+        public override bool AddRecord(tblCategory newRecord)
         {
             try
             {
-                return _categoryDataAccess.GetCategories();
+                return _dataAccess.AddRecord(newRecord);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool AddOneCategory(tblCategory newCategory)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
-                return _categoryDataAccess.AddOneCategory(newCategory);
+                return _dataAccess.DeleteRecord(idRecordToDelete);
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneCategory(int idCategoryToDelete)
+        public override List<tblCategory> GetRecords()
         {
             try
             {
-                return _categoryDataAccess.DeleteOneCategory(idCategoryToDelete);
+                return _dataAccess.GetRecords();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneCategory(tblCategory categoryToUpdate)
+        public override bool UpdateRecord(tblCategory recordToUpdate)
         {
             try
             {
-                return _categoryDataAccess.UpdateOneCategory(categoryToUpdate);
+                return _dataAccess.UpdateRecord(recordToUpdate);
             }
             catch (Exception ex) { throw ex; }
         }

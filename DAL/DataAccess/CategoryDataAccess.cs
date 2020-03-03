@@ -4,38 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAL.DataAccess
 {
-    public class CategoryDataAccess
+    public class CategoryDataAccess : DataAccess<tblCategory>
     {
-        RestaurantManagementDataContext _dataContext = new RestaurantManagementDataContext();
-
-        public List<tblCategory> GetCategories()
+        public override bool AddRecord(tblCategory newRecord)
         {
             try
             {
-                return _dataContext.tblCategories.ToList();
-            }
-            catch (Exception ex) { throw ex; }
-        }
-
-        public bool AddOneCategory(tblCategory newCategory)
-        {
-            try
-            {
-                _dataContext.tblCategories.InsertOnSubmit(newCategory);
+                _dataContext.tblCategories.InsertOnSubmit(newRecord);
                 _dataContext.SubmitChanges();
                 return true;
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneCategory(int idCategoryToDelete)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
                 tblCategory categoryToDelete = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == idCategoryToDelete);
+                    .FirstOrDefault(c => c.ID == idRecordToDelete);
 
                 if (categoryToDelete != null)
                 {
@@ -48,17 +37,26 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneCategory(tblCategory pendingCategory)
+        public override List<tblCategory> GetRecords()
+        {
+            try
+            {
+                return _dataContext.tblCategories.ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public override bool UpdateRecord(tblCategory pendingRecord)
         {
             try
             {
                 tblCategory categoryToUpdate = _dataContext.tblCategories
-                    .FirstOrDefault(c => c.ID == pendingCategory.ID);
+                    .FirstOrDefault(c => c.ID == pendingRecord.ID);
 
                 if (categoryToUpdate != null)
                 {
-                    categoryToUpdate.Name = pendingCategory.Name;
-                    
+                    categoryToUpdate.Name = pendingRecord.Name;
+
                     _dataContext.SubmitChanges();
                     return true;
                 }

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAL;
 using BLL.DataLogic;
+using DAL;
 
 namespace BLL.DisplayLogic
 {
-    public class BillInfoDisplayLogic
+    public class BillInfoDisplayLogic : DisplayLogic<tblBillInfo>
     {
-        BillInfoDataLogic _billInfoDataLogic = new BillInfoDataLogic();
+        protected override DataLogic<tblBillInfo> _dataLogic { get; set; } = new BillInfoDataLogic();
 
         DataGridView _dgvBillInfos;
         TextBox _txtBillInfoID;
@@ -19,7 +19,9 @@ namespace BLL.DisplayLogic
         ComboBox _cboBillInfoFoodID;
         TextBox _txtCount;
 
-        public void TransferObject(DataGridView dgvBillInfos, TextBox txtBillInfoID, ComboBox cboBillInfoBillID, ComboBox cboBillInfoFoodID, TextBox txtCount)
+        public BillInfoDisplayLogic(){}
+
+        public BillInfoDisplayLogic(DataGridView dgvBillInfos, TextBox txtBillInfoID, ComboBox cboBillInfoBillID, ComboBox cboBillInfoFoodID, TextBox txtCount)
         {
             _txtBillInfoID = txtBillInfoID;
             _cboBillInfoBillID = cboBillInfoBillID;
@@ -28,7 +30,7 @@ namespace BLL.DisplayLogic
             _dgvBillInfos = dgvBillInfos;
         }
 
-        public void CellClick(object sender, DataGridViewCellEventArgs e)
+        public override void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
 
@@ -40,46 +42,7 @@ namespace BLL.DisplayLogic
             _txtCount.Text = row.Cells[3].Value.ToString();
         }
 
-        public void LoadBillInfosFromDataAccess()
-        {
-            try
-            {
-                _dgvBillInfos.DataSource = _billInfoDataLogic.GetBillInfos();
-                LoadBillsIDToComboBox();
-                LoadFoodsIDToComboBox();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ClearTextBox()
-        {
-            _txtBillInfoID.Text = "";
-            _cboBillInfoBillID.Text = "";
-            _cboBillInfoFoodID.Text = "";
-            _txtCount.Text = "";
-        }
-
-        private void LoadBillsIDToComboBox()
-        {
-            _cboBillInfoBillID.DataSource = _billInfoDataLogic.GetBillsOfBillInfo();
-            _cboBillInfoBillID.DisplayMember = "ID";
-        }
-
-        private void LoadFoodsIDToComboBox()
-        {
-            // TODO - Make the BillInfo form display Food Name instead of Food ID
-            // Display on both datagridview and the combobox
-
-            _cboBillInfoFoodID.DataSource = _billInfoDataLogic.GetFoodsOfBillInfo();
-            _cboBillInfoFoodID.DisplayMember = "ID";
-            //_cboBillInfoFoodID.DisplayMember = "Name";
-            //_cboBillInfoFoodID.ValueMember = "ID";
-        }
-
-        public void ClickAddBillInfo()
+        public override void ClickAddRecord()
         {
             tblBillInfo newBillInfo = new tblBillInfo();
             newBillInfo.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
@@ -88,7 +51,7 @@ namespace BLL.DisplayLogic
 
             try
             {
-                if (_billInfoDataLogic.AddOneBillInfo(newBillInfo))
+                if (_dataLogic.AddRecord(newBillInfo))
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
@@ -99,42 +62,21 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadBillInfosFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-        public void ClickUpdateBillInfo()
+        public override void ClickClearControlsContent()
         {
-            tblBillInfo billInfoToUpdate = new tblBillInfo();
-            billInfoToUpdate.ID = Convert.ToInt32(_txtBillInfoID.Text);
-            billInfoToUpdate.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
-            billInfoToUpdate.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
-            billInfoToUpdate.Count = Convert.ToInt32(_txtCount.Text);
-
-            try
-            {
-                if (_billInfoDataLogic.UpdateOneBillInfo(billInfoToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadBillInfosFromDataAccess();
-                ClearTextBox();
-            }
+            ClearControlsContent();
         }
 
-        public void ClickDeleteBillInfo()
+        public override void ClickDeleteRecord()
         {
             try
             {
-                if (_billInfoDataLogic.DeleteOneBillInfo(Convert.ToInt32(_txtBillInfoID.Text)))
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtBillInfoID.Text)))
                     MessageBox.Show("Deleted successfully!");
                 else
                     MessageBox.Show("Failed to delted!");
@@ -145,15 +87,74 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadBillInfosFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-
-        public void ClickClearBillInfo()
+        public override void ClickUpdateRecord()
         {
-            ClearTextBox();
+            tblBillInfo billInfoToUpdate = new tblBillInfo();
+            billInfoToUpdate.ID = Convert.ToInt32(_txtBillInfoID.Text);
+            billInfoToUpdate.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
+            billInfoToUpdate.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
+            billInfoToUpdate.Count = Convert.ToInt32(_txtCount.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(billInfoToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void LoadRecordsFromDataLogic()
+        {
+            try
+            {
+                _dgvBillInfos.DataSource = _dataLogic.GetRecords();
+                LoadBillsIDToComboBox();
+                LoadFoodsIDToComboBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LoadBillsIDToComboBox()
+        {
+            _cboBillInfoBillID.DataSource = (_dataLogic as BillInfoDataLogic).GetBillsOfBillInfo();
+            _cboBillInfoBillID.DisplayMember = "ID";
+        }
+
+        private void LoadFoodsIDToComboBox()
+        {
+            // TODO - Make the BillInfo form display Food Name instead of Food ID
+            // Display on both datagridview and the combobox
+
+            _cboBillInfoFoodID.DataSource = (_dataLogic as BillInfoDataLogic).GetFoodsOfBillInfo();
+            _cboBillInfoFoodID.DisplayMember = "ID";
+            //_cboBillInfoFoodID.DisplayMember = "Name";
+            //_cboBillInfoFoodID.ValueMember = "ID";
+        }
+
+        protected override void ClearControlsContent()
+        {
+            _txtBillInfoID.Text = "";
+            _cboBillInfoBillID.Text = "";
+            _cboBillInfoFoodID.Text = "";
+            _txtCount.Text = "";
         }
     }
 }

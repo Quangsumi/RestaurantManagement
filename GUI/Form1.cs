@@ -14,11 +14,11 @@ namespace GUI
 {
     public partial class frmMain : Form
     {
-        CategoryDisplayLogic _categoryDisplayLogic = new CategoryDisplayLogic();
-        FoodDisplayLogic _foodDisplayLogic = new FoodDisplayLogic();
-        TableDisplayLogic _tableDisplayLogic = new TableDisplayLogic();
-        BillDisplayLogic _billDisplayLogic = new BillDisplayLogic();
-        BillInfoDisplayLogic _billInfoDisplayLogic = new BillInfoDisplayLogic();
+        CategoryDisplayLogic _categoryDisplayLogic;
+        FoodDisplayLogic _foodDisplayLogic;
+        TableDisplayLogic _tableDisplayLogic;
+        BillDisplayLogic _billDisplayLogic;
+        BillInfoDisplayLogic _billInfoDisplayLogic;
 
         public frmMain()
         {
@@ -29,24 +29,24 @@ namespace GUI
 
         private void TransferObjectsToDisplayLogic()
         {
-            _categoryDisplayLogic.TransferObject(dgvCategories, txtCategoryID, txtCategoryName);
+            _categoryDisplayLogic = new CategoryDisplayLogic(dgvCategories, txtCategoryID, txtCategoryName);
             
-            _foodDisplayLogic.TransferObject(dgvFoods, txtFoodID, txtFoodName, cboFoodCategoryID, txtFoodPrice);
-
-            _tableDisplayLogic.TransferObject(dgvTables, txtTableID, txtTableName, txtTableStatus);
-
-            _billDisplayLogic.TransferObject(dgvBills, txtBillID, dtpBillCheckInDate, dtpBillCheckOutDate, cboBillTableID, txtBillStatus, txtBillDiscount, txtBillTotalPrice);
-
-            _billInfoDisplayLogic.TransferObject(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoCount);
+            _foodDisplayLogic = new FoodDisplayLogic(dgvFoods, txtFoodID, txtFoodName, cboFoodCategoryID, txtFoodPrice);
+            
+            _tableDisplayLogic = new TableDisplayLogic(dgvTables, txtTableID, txtTableName, txtTableStatus);
+            
+            _billDisplayLogic = new BillDisplayLogic(dgvBills, txtBillID, dtpBillCheckInDate, dtpBillCheckOutDate, cboBillTableID, txtBillStatus, txtBillDiscount, txtBillTotalPrice);
+            
+            _billInfoDisplayLogic = new BillInfoDisplayLogic(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoCount);
         }
 
         private void LoadDataByBLL()
         {
-            _categoryDisplayLogic.LoadCategoriesFromDataAccess();
-            _foodDisplayLogic.LoadFoodsFromDataAccess();
-            _tableDisplayLogic.LoadTablesFromDataAccess();
-            _billDisplayLogic.LoadBillsFromDataAccess();
-            _billInfoDisplayLogic.LoadBillInfosFromDataAccess();
+            _categoryDisplayLogic.LoadRecordsFromDataLogic();
+            _foodDisplayLogic.LoadRecordsFromDataLogic();
+            _tableDisplayLogic.LoadRecordsFromDataLogic();
+            _billDisplayLogic.LoadRecordsFromDataLogic();
+            _billInfoDisplayLogic.LoadRecordsFromDataLogic();
         }
 
 
@@ -91,22 +91,22 @@ namespace GUI
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            _categoryDisplayLogic.ClickAddCategory();
+            _categoryDisplayLogic.ClickAddRecord();
         }
 
         private void btnUpdateCategory_Click(object sender, EventArgs e)
         {
-            _categoryDisplayLogic.ClickUpdateCategory();
+            _categoryDisplayLogic.ClickUpdateRecord();
         }
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-            _categoryDisplayLogic.ClickDeleteCategory();
+            _categoryDisplayLogic.ClickDeleteRecord();
         }
 
         private void btnClearCategory_Click(object sender, EventArgs e)
         {
-            _categoryDisplayLogic.ClickClearCategory();
+            _categoryDisplayLogic.ClickClearControlsContent();
         }
         #endregion
 
@@ -120,22 +120,22 @@ namespace GUI
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            _foodDisplayLogic.ClickAddFood();
+            _foodDisplayLogic.ClickAddRecord();
         }
 
         private void btnUpdateFood_Click(object sender, EventArgs e)
         {
-            _foodDisplayLogic.ClickUpdateFood();
+            _foodDisplayLogic.ClickUpdateRecord();
         }
 
         private void btnDeleteFood_Click(object sender, EventArgs e)
         {
-            _foodDisplayLogic.ClickDeleteFood();
+            _foodDisplayLogic.ClickDeleteRecord();
         }
 
         private void btnClearFood_Click(object sender, EventArgs e)
         {
-            _foodDisplayLogic.ClickClearFood();
+            _foodDisplayLogic.ClickClearControlsContent();
         }
         #endregion
 
@@ -148,22 +148,22 @@ namespace GUI
 
         private void btnAddTable_Click(object sender, EventArgs e)
         {
-            _tableDisplayLogic.ClickAddTable();
+            _tableDisplayLogic.ClickAddRecord();
         }
 
         private void btnUpdateTable_Click(object sender, EventArgs e)
         {
-            _tableDisplayLogic.ClickUpdateTable();
+            _tableDisplayLogic.ClickUpdateRecord();
         }
 
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
-            _tableDisplayLogic.ClickDeleteTable();
+            _tableDisplayLogic.ClickDeleteRecord();
         }
 
         private void btnClearTable_Click(object sender, EventArgs e)
         {
-            _tableDisplayLogic.ClickClearTable();
+            _tableDisplayLogic.ClickClearControlsContent();
         }
 
 
@@ -178,22 +178,22 @@ namespace GUI
 
         private void btnAddBill_Click(object sender, EventArgs e)
         {
-            _billDisplayLogic.ClickAddBill();
+            _billDisplayLogic.ClickAddRecord();
         }
 
         private void btnUpdateBill_Click(object sender, EventArgs e)
         {
-            _billDisplayLogic.ClickUpdateBill();
+            _billDisplayLogic.ClickUpdateRecord();
         }
 
         private void btnDeleteBill_Click(object sender, EventArgs e)
         {
-            _billDisplayLogic.ClickDeleteBill();
+            _billDisplayLogic.ClickDeleteRecord();
         }
 
         private void btnClearBill_Click(object sender, EventArgs e)
         {
-            _billDisplayLogic.ClickClearBill();
+            _billDisplayLogic.ClickClearControlsContent();
         }
         #endregion
 
@@ -206,22 +206,22 @@ namespace GUI
 
         private void btnAddBillInfo_Click(object sender, EventArgs e)
         {
-            _billInfoDisplayLogic.ClickAddBillInfo();
+            _billInfoDisplayLogic.ClickAddRecord();
         }
 
         private void btnUpdateBillInfo_Click(object sender, EventArgs e)
         {
-            _billInfoDisplayLogic.ClickUpdateBillInfo();
+            _billInfoDisplayLogic.ClickUpdateRecord();
         }
 
         private void btnDeleteBillInfo_Click(object sender, EventArgs e)
         {
-            _billInfoDisplayLogic.ClickDeleteBillInfo();
+            _billInfoDisplayLogic.ClickDeleteRecord();
         }
 
         private void btnClearBillInfo_Click(object sender, EventArgs e)
         {
-            _billInfoDisplayLogic.ClickClearBillInfo();
+            _billInfoDisplayLogic.ClickClearControlsContent();
         }
         #endregion
 

@@ -9,22 +9,24 @@ using BLL.DataLogic;
 
 namespace BLL.DisplayLogic
 {
-    public class CategoryDisplayLogic
+    public class CategoryDisplayLogic : DisplayLogic<tblCategory>
     {
-        CategoryDataLogic _categoryDataLogic = new CategoryDataLogic();
-        
+        protected override DataLogic<tblCategory> _dataLogic { get; set; } = new CategoryDataLogic();
+
         DataGridView _dgvCategories;
         TextBox _txtCategoryID;
         TextBox _txtCategoryName;
 
-        public void TransferObject(DataGridView dgvCategories, TextBox txtCategoryID, TextBox txtCategoryName)
+        public CategoryDisplayLogic() { }
+
+        public CategoryDisplayLogic(DataGridView dgvCategories, TextBox txtCategoryID, TextBox txtCategoryName)
         {
             _txtCategoryID = txtCategoryID;
             _txtCategoryName = txtCategoryName;
             _dgvCategories = dgvCategories;
         }
 
-        public void CellClick(object sender, DataGridViewCellEventArgs e)
+        public override void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
 
@@ -34,32 +36,14 @@ namespace BLL.DisplayLogic
             _txtCategoryName.Text = row.Cells[1].Value.ToString();
         }
 
-        public void LoadCategoriesFromDataAccess()
-        {
-            try
-            {
-                _dgvCategories.DataSource = _categoryDataLogic.GetCategories();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ClearTextBox()
-        {
-            _txtCategoryID.Text = "";
-            _txtCategoryName.Text = "";
-        }
-
-        public void ClickAddCategory()
+        public override void ClickAddRecord()
         {
             tblCategory newCategory = new tblCategory();
             newCategory.Name = _txtCategoryName.Text;
 
             try
             {
-                if (_categoryDataLogic.AddOneCategory(newCategory))
+                if (_dataLogic.AddRecord(newCategory))
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
@@ -70,40 +54,21 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadCategoriesFromDataAccess();
-                ClearTextBox();
-            }
-        }
-        
-        public void ClickUpdateCategory()
-        {
-            tblCategory categoryToUpdate = new tblCategory();
-            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
-            categoryToUpdate.Name = _txtCategoryName.Text;
-
-            try
-            {
-                if (_categoryDataLogic.UpdateOneCategory(categoryToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadCategoriesFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-        public void ClickDeleteCategory()
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
+        }
+
+        public override void ClickDeleteRecord()
         {
             try
             {
-                if (_categoryDataLogic.DeleteOneCategory(Convert.ToInt32(_txtCategoryID.Text)))
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtCategoryID.Text)))
                     MessageBox.Show("Deleted successfully!");
                 else
                     MessageBox.Show("Failed to delted!");
@@ -114,15 +79,51 @@ namespace BLL.DisplayLogic
             }
             finally
             {
-                LoadCategoriesFromDataAccess();
-                ClearTextBox();
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
             }
         }
 
-
-        public void ClickClearCategory()
+        public override void ClickUpdateRecord()
         {
-            ClearTextBox();
+            tblCategory categoryToUpdate = new tblCategory();
+            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
+            categoryToUpdate.Name = _txtCategoryName.Text;
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(categoryToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void LoadRecordsFromDataLogic()
+        {
+            try
+            {
+                _dgvCategories.DataSource = _dataLogic.GetRecords();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        protected override void ClearControlsContent()
+        {
+            _txtCategoryID.Text = "";
+            _txtCategoryName.Text = "";
         }
     }
 }

@@ -4,38 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAL.DataAccess
 {
-    public class BillInfoDataAccess
+    public class BillInfoDataAccess : DataAccess<tblBillInfo>
     {
-        RestaurantManagementDataContext _dataContext = new RestaurantManagementDataContext();
-
-        public List<tblBillInfo> GetBillInfos()
+        public override bool AddRecord(tblBillInfo newRecord)
         {
             try
             {
-                return _dataContext.tblBillInfos.ToList();
-            }
-            catch (Exception ex) { throw ex; }
-        }
-
-        public bool AddOneBillInfo(tblBillInfo newBillInfo)
-        {
-            try
-            {
-                _dataContext.tblBillInfos.InsertOnSubmit(newBillInfo);
+                _dataContext.tblBillInfos.InsertOnSubmit(newRecord);
                 _dataContext.SubmitChanges();
                 return true;
             }
             catch (Exception ex) { throw ex; }
         }
 
-        public bool DeleteOneBillInfo(int idBillInfoToDelete)
+        public override bool DeleteRecord(int idRecordToDelete)
         {
             try
             {
                 tblBillInfo billInfoToDelete = _dataContext.tblBillInfos
-                    .FirstOrDefault(b => b.ID == idBillInfoToDelete);
+                    .FirstOrDefault(b => b.ID == idRecordToDelete);
 
                 if (billInfoToDelete != null)
                 {
@@ -48,18 +37,27 @@ namespace DAL
             catch (Exception ex) { throw ex; }
         }
 
-        public bool UpdateOneBillInfo(tblBillInfo pendingBillInfo)
+        public override List<tblBillInfo> GetRecords()
+        {
+            try
+            {
+                return _dataContext.tblBillInfos.ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public override bool UpdateRecord(tblBillInfo pendingRecord)
         {
             try
             {
                 tblBillInfo billInfoToUpdate = _dataContext.tblBillInfos
-                    .FirstOrDefault(c => c.ID == pendingBillInfo.ID);
+                    .FirstOrDefault(c => c.ID == pendingRecord.ID);
 
                 if (billInfoToUpdate != null)
                 {
-                    billInfoToUpdate.tblBill = _dataContext.tblBills.Single(b => b.ID == pendingBillInfo.BillID);
-                    billInfoToUpdate.tblFood = _dataContext.tblFoods.Single(f => f.ID == pendingBillInfo.FoodID);
-                    billInfoToUpdate.Count = pendingBillInfo.Count;
+                    billInfoToUpdate.tblBill = _dataContext.tblBills.Single(b => b.ID == pendingRecord.BillID);
+                    billInfoToUpdate.tblFood = _dataContext.tblFoods.Single(f => f.ID == pendingRecord.FoodID);
+                    billInfoToUpdate.Count = pendingRecord.Count;
 
                     _dataContext.SubmitChanges();
                     return true;
