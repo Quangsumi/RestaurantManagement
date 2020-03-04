@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
+using BLL.Helper;
 
 namespace BLL.DisplayLogic
 {
@@ -36,8 +37,14 @@ namespace BLL.DisplayLogic
             _txtCategoryName.Text = row.Cells[1].Value.ToString();
         }
 
+        protected override bool IsInputValid()
+            => Validate.IsValidID(_txtCategoryID)
+            && Validate.IsValidText(_txtCategoryName);
+
         public override void ClickAddRecord()
         {
+            if (!IsInputValid()) return;
+
             tblCategory newCategory = new tblCategory();
             newCategory.Name = _txtCategoryName.Text;
 
@@ -47,55 +54,6 @@ namespace BLL.DisplayLogic
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickClearControlsContent()
-        {
-            ClearControlsContent();
-        }
-
-        public override void ClickDeleteRecord()
-        {
-            try
-            {
-                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtCategoryID.Text)))
-                    MessageBox.Show("Deleted successfully!");
-                else
-                    MessageBox.Show("Failed to delted!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickUpdateRecord()
-        {
-            tblCategory categoryToUpdate = new tblCategory();
-            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
-            categoryToUpdate.Name = _txtCategoryName.Text;
-
-            try
-            {
-                if (_dataLogic.UpdateRecord(categoryToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
             }
             catch (Exception ex)
             {
@@ -124,6 +82,59 @@ namespace BLL.DisplayLogic
         {
             _txtCategoryID.Text = "";
             _txtCategoryName.Text = "";
+        }
+
+        public override void ClickDeleteRecord()
+        {
+            if (!IsInputValid()) return;
+
+            try
+            {
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtCategoryID.Text)))
+                    MessageBox.Show("Deleted successfully!");
+                else
+                    MessageBox.Show("Failed to delted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickUpdateRecord()
+        {
+            if (!IsInputValid()) return;
+
+            tblCategory categoryToUpdate = new tblCategory();
+            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
+            categoryToUpdate.Name = _txtCategoryName.Text;
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(categoryToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
         }
     }
 }

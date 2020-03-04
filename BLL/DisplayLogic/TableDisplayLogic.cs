@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
+using BLL.Helper;
 
 namespace BLL.DisplayLogic
 {
@@ -39,8 +40,15 @@ namespace BLL.DisplayLogic
             _txtTableStatus.Text = row.Cells[2].Value.ToString();
         }
 
+        protected override bool IsInputValid()
+            => Validate.IsValidID(_txtTableID)
+            && Validate.IsOneAndZero(_txtTableStatus) 
+            && Validate.IsValidText(_txtTableName);
+
         public override void ClickAddRecord()
         {
+            if (!IsInputValid()) return;
+
             tblTable newTable = new tblTable();
             newTable.Name = _txtTableName.Text;
             newTable.Status = Convert.ToInt32(_txtTableStatus.Text);
@@ -51,56 +59,6 @@ namespace BLL.DisplayLogic
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickClearControlsContent()
-        {
-            ClearControlsContent();
-        }
-
-        public override void ClickDeleteRecord()
-        {
-            try
-            {
-                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtTableID.Text)))
-                    MessageBox.Show("Deleted Successfully!");
-                else
-                    MessageBox.Show("Failed to deleted!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickUpdateRecord()
-        {
-            tblTable tableToUpdate = new tblTable();
-            tableToUpdate.ID = Convert.ToInt32(_txtTableID.Text);
-            tableToUpdate.Name = _txtTableName.Text;
-            tableToUpdate.Status = Convert.ToInt32(_txtTableStatus.Text);
-
-            try
-            {
-                if (_dataLogic.UpdateRecord(tableToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
             }
             catch (Exception ex)
             {
@@ -130,6 +88,60 @@ namespace BLL.DisplayLogic
             _txtTableID.Text = "";
             _txtTableName.Text = "";
             _txtTableStatus.Text = "";
+        }
+
+        public override void ClickDeleteRecord()
+        {
+            if (!IsInputValid()) return;
+
+            try
+            {
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtTableID.Text)))
+                    MessageBox.Show("Deleted Successfully!");
+                else
+                    MessageBox.Show("Failed to deleted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickUpdateRecord()
+        {
+            if (!IsInputValid()) return;
+
+            tblTable tableToUpdate = new tblTable();
+            tableToUpdate.ID = Convert.ToInt32(_txtTableID.Text);
+            tableToUpdate.Name = _txtTableName.Text;
+            tableToUpdate.Status = Convert.ToInt32(_txtTableStatus.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(tableToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
         }
     }
 }

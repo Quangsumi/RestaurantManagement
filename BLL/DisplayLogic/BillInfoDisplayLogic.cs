@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.DataLogic;
+using BLL.Helper;
 using DAL;
 
 namespace BLL.DisplayLogic
@@ -44,26 +45,14 @@ namespace BLL.DisplayLogic
             _txtCount.Text = row.Cells[3].Value.ToString();
         }
 
-        public void cboBillInfoFoodIDIndexChanged()
-        {
-            _txtBillInfoFoodName.Text = GetFoodNameByFoodID(_cboBillInfoFoodID.Text) ?? "NULL";
-        }
-
-        private string GetFoodNameByFoodID(string foodID)
-        {
-            try
-            {
-                return (_dataLogic as BillInfoDataLogic).GetFoodNameByFoodID(foodID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return "ERROR!!!";
-            }
-        }
+        protected override bool IsInputValid()
+            => Validate.IsValidID(_txtBillInfoID)
+            && Validate.IsDigit(_txtCount);
 
         public override void ClickAddRecord()
         {
+            if (!IsInputValid()) return;
+
             tblBillInfo newBillInfo = new tblBillInfo();
             newBillInfo.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
             newBillInfo.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
@@ -75,57 +64,6 @@ namespace BLL.DisplayLogic
                     MessageBox.Show("Added Successfully!");
                 else
                     MessageBox.Show("Failed to add!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickClearControlsContent()
-        {
-            ClearControlsContent();
-        }
-
-        public override void ClickDeleteRecord()
-        {
-            try
-            {
-                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtBillInfoID.Text)))
-                    MessageBox.Show("Deleted successfully!");
-                else
-                    MessageBox.Show("Failed to delted!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                LoadRecordsFromDataLogic();
-                ClearControlsContent();
-            }
-        }
-
-        public override void ClickUpdateRecord()
-        {
-            tblBillInfo billInfoToUpdate = new tblBillInfo();
-            billInfoToUpdate.ID = Convert.ToInt32(_txtBillInfoID.Text);
-            billInfoToUpdate.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
-            billInfoToUpdate.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
-            billInfoToUpdate.Count = Convert.ToInt32(_txtCount.Text);
-
-            try
-            {
-                if (_dataLogic.UpdateRecord(billInfoToUpdate))
-                    MessageBox.Show("Updated successfully!");
-                else
-                    MessageBox.Show("Failed to update!");
             }
             catch (Exception ex)
             {
@@ -170,6 +108,79 @@ namespace BLL.DisplayLogic
             _cboBillInfoBillID.Text = "";
             _cboBillInfoFoodID.Text = "";
             _txtCount.Text = "";
+        }
+
+        public override void ClickDeleteRecord()
+        {
+            if (!IsInputValid()) return;
+
+            try
+            {
+                if (_dataLogic.DeleteRecord(Convert.ToInt32(_txtBillInfoID.Text)))
+                    MessageBox.Show("Deleted successfully!");
+                else
+                    MessageBox.Show("Failed to delted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickUpdateRecord()
+        {
+            if (!IsInputValid()) return;
+
+            tblBillInfo billInfoToUpdate = new tblBillInfo();
+            billInfoToUpdate.ID = Convert.ToInt32(_txtBillInfoID.Text);
+            billInfoToUpdate.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
+            billInfoToUpdate.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
+            billInfoToUpdate.Count = Convert.ToInt32(_txtCount.Text);
+
+            try
+            {
+                if (_dataLogic.UpdateRecord(billInfoToUpdate))
+                    MessageBox.Show("Updated successfully!");
+                else
+                    MessageBox.Show("Failed to update!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadRecordsFromDataLogic();
+                ClearControlsContent();
+            }
+        }
+
+        public override void ClickClearControlsContent()
+        {
+            ClearControlsContent();
+        }
+
+        public void cboBillInfoFoodIDIndexChanged()
+        {
+            _txtBillInfoFoodName.Text = GetFoodNameByFoodID(_cboBillInfoFoodID.Text) ?? "NULL";
+        }
+
+        private string GetFoodNameByFoodID(string foodID)
+        {
+            try
+            {
+                return (_dataLogic as BillInfoDataLogic).GetFoodNameByFoodID(foodID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "ERROR!!!";
+            }
         }
     }
 }

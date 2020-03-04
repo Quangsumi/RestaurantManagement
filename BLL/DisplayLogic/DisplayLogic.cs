@@ -16,9 +16,11 @@ namespace BLL.DisplayLogic
 
         public abstract void LoadRecordsFromDataLogic();
 
-        protected abstract void ClearControlsContent();
+        protected abstract bool IsInputValid();
 
         public abstract void ClickAddRecord();
+
+        protected abstract void ClearControlsContent();
 
         public abstract void ClickUpdateRecord();
 
