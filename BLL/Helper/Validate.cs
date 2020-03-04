@@ -33,7 +33,7 @@ namespace BLL.Helper
 
         private static bool ShowNotADigitError()
         {
-            MessageBox.Show("Count must be digit only!");
+            MessageBox.Show("Count/Discount must be digit only!");
             return false;
         }
 

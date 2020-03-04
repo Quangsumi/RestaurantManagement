@@ -86,5 +86,14 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public List<tblFood> GetFoodByCategoryID(int categoryID)
+        {
+            try
+            {
+                return _dataContext.tblFoods.Where(f => f.CategoryID == categoryID).ToList();
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

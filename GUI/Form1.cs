@@ -19,6 +19,7 @@ namespace GUI
         TableDisplayLogic _tableDisplayLogic;
         BillDisplayLogic _billDisplayLogic;
         BillInfoDisplayLogic _billInfoDisplayLogic;
+        MainFromDisplayLogic _mainFormDisplayLogic;
 
         public frmMain()
         {
@@ -38,6 +39,8 @@ namespace GUI
             _billDisplayLogic = new BillDisplayLogic(dgvBills, txtBillID, dtpBillCheckInDate, dtpBillCheckOutDate, cboBillTableID, txtBillTableName, txtBillStatus, txtBillDiscount, txtBillTotalPrice);
             
             _billInfoDisplayLogic = new BillInfoDisplayLogic(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoFoodName, txtBillInfoCount);
+
+            _mainFormDisplayLogic = new MainFromDisplayLogic(flpMainTables, lvwMainOrders, cboMainCategoryName, cboMainFoodName, txtMainDiscount, txtMainTotalPrice);
         }
 
         private void LoadDataByBLL()
@@ -47,6 +50,8 @@ namespace GUI
             _tableDisplayLogic.LoadRecordsFromDataLogic();
             _billDisplayLogic.LoadRecordsFromDataLogic();
             _billInfoDisplayLogic.LoadRecordsFromDataLogic();
+            _mainFormDisplayLogic.InitializeData();
+
         }
 
 
@@ -241,8 +246,30 @@ namespace GUI
 
 
 
+
         #endregion
 
 
+        #region MainForm
+        private void cboMainCategoryName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _mainFormDisplayLogic.cboMainCategoryNameIndexChanged();
+        }
+
+        private void btnMainAddFood_Click(object sender, EventArgs e)
+        {
+            _mainFormDisplayLogic.ClickAddFood();
+        }
+
+        private void btnMainRemoveFood_Click(object sender, EventArgs e)
+        {
+            _mainFormDisplayLogic.ClickClearFood();
+        }
+
+        private void btnMainCheckout_Click(object sender, EventArgs e)
+        {
+            _mainFormDisplayLogic.ClickCheckout();
+        }
+        #endregion
     }
 }

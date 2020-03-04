@@ -65,5 +65,14 @@ namespace BLL.DataLogic
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public List<tblFood> GetFoodByCategoryID(int categoryID)
+        {
+            try
+            {
+                return (_dataAccess as FoodDataAccess).GetFoodByCategoryID(categoryID);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

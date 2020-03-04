@@ -40,20 +40,23 @@
             this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.splBillInfos = new System.Windows.Forms.SplitContainer();
-            this.dgvBillInfos = new System.Windows.Forms.DataGridView();
-            this.cboBillInfoBillID = new System.Windows.Forms.ComboBox();
-            this.cboBillInfoFoodID = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtBillInfoCount = new System.Windows.Forms.TextBox();
-            this.txtBillInfoID = new System.Windows.Forms.TextBox();
-            this.btnDeleteBillInfo = new System.Windows.Forms.Button();
-            this.btnClearBillInfo = new System.Windows.Forms.Button();
-            this.btnUpdateBillInfo = new System.Windows.Forms.Button();
-            this.btnAddBillInfo = new System.Windows.Forms.Button();
+            this.splMain = new System.Windows.Forms.SplitContainer();
+            this.flpMainTables = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnMainAddFood = new System.Windows.Forms.Button();
+            this.btnMainRemoveFood = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.txtMainDiscount = new System.Windows.Forms.TextBox();
+            this.txtMainTotalPrice = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cboMainFoodName = new System.Windows.Forms.ComboBox();
+            this.cboMainCategoryName = new System.Windows.Forms.ComboBox();
+            this.lvwMainOrders = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splBills = new System.Windows.Forms.SplitContainer();
             this.dgvBills = new System.Windows.Forms.DataGridView();
             this.cboBillTableID = new System.Windows.Forms.ComboBox();
@@ -69,11 +72,52 @@
             this.txtBillTotalPrice = new System.Windows.Forms.TextBox();
             this.txtBillDiscount = new System.Windows.Forms.TextBox();
             this.txtBillStatus = new System.Windows.Forms.TextBox();
+            this.txtBillTableName = new System.Windows.Forms.TextBox();
             this.txtBillID = new System.Windows.Forms.TextBox();
             this.btnDeleteBill = new System.Windows.Forms.Button();
             this.btnClearBill = new System.Windows.Forms.Button();
             this.btnAddBill = new System.Windows.Forms.Button();
             this.btnUpdateBill = new System.Windows.Forms.Button();
+            this.splBillInfos = new System.Windows.Forms.SplitContainer();
+            this.dgvBillInfos = new System.Windows.Forms.DataGridView();
+            this.cboBillInfoBillID = new System.Windows.Forms.ComboBox();
+            this.cboBillInfoFoodID = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtBillInfoCount = new System.Windows.Forms.TextBox();
+            this.txtBillInfoFoodName = new System.Windows.Forms.TextBox();
+            this.txtBillInfoID = new System.Windows.Forms.TextBox();
+            this.btnDeleteBillInfo = new System.Windows.Forms.Button();
+            this.btnClearBillInfo = new System.Windows.Forms.Button();
+            this.btnUpdateBillInfo = new System.Windows.Forms.Button();
+            this.btnAddBillInfo = new System.Windows.Forms.Button();
+            this.splCategory = new System.Windows.Forms.SplitContainer();
+            this.dgvCategories = new System.Windows.Forms.DataGridView();
+            this.btnClearCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
+            this.btnUpdateCategory = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
+            this.txtCategoryID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.splFoods = new System.Windows.Forms.SplitContainer();
+            this.dgvFoods = new System.Windows.Forms.DataGridView();
+            this.cboFoodCategoryID = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFoodPrice = new System.Windows.Forms.TextBox();
+            this.txtFoodName = new System.Windows.Forms.TextBox();
+            this.txtFoodCategoryName = new System.Windows.Forms.TextBox();
+            this.txtFoodID = new System.Windows.Forms.TextBox();
+            this.btnClearFood = new System.Windows.Forms.Button();
+            this.btnDeleteFood = new System.Windows.Forms.Button();
+            this.btnUpdateFood = new System.Windows.Forms.Button();
+            this.btnAddFood = new System.Windows.Forms.Button();
             this.splTables = new System.Windows.Forms.SplitContainer();
             this.dgvTables = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -86,65 +130,39 @@
             this.btnDeleteTable = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
             this.btnUpdateTable = new System.Windows.Forms.Button();
-            this.splFoods = new System.Windows.Forms.SplitContainer();
-            this.dgvFoods = new System.Windows.Forms.DataGridView();
-            this.cboFoodCategoryID = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFoodPrice = new System.Windows.Forms.TextBox();
-            this.txtFoodName = new System.Windows.Forms.TextBox();
-            this.txtFoodID = new System.Windows.Forms.TextBox();
-            this.btnClearFood = new System.Windows.Forms.Button();
-            this.btnDeleteFood = new System.Windows.Forms.Button();
-            this.btnUpdateFood = new System.Windows.Forms.Button();
-            this.btnAddFood = new System.Windows.Forms.Button();
-            this.splCategory = new System.Windows.Forms.SplitContainer();
-            this.dgvCategories = new System.Windows.Forms.DataGridView();
-            this.btnClearCategory = new System.Windows.Forms.Button();
-            this.btnDeleteCategory = new System.Windows.Forms.Button();
-            this.btnUpdateCategory = new System.Windows.Forms.Button();
-            this.btnAddCategory = new System.Windows.Forms.Button();
-            this.txtCategoryName = new System.Windows.Forms.TextBox();
-            this.txtCategoryID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.splMain = new System.Windows.Forms.SplitContainer();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.txtFoodCategoryName = new System.Windows.Forms.TextBox();
-            this.txtBillInfoFoodName = new System.Windows.Forms.TextBox();
-            this.txtBillTableName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).BeginInit();
-            this.splBillInfos.Panel1.SuspendLayout();
-            this.splBillInfos.Panel2.SuspendLayout();
-            this.splBillInfos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
+            this.splMain.Panel1.SuspendLayout();
+            this.splMain.Panel2.SuspendLayout();
+            this.splMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splBills)).BeginInit();
             this.splBills.Panel1.SuspendLayout();
             this.splBills.Panel2.SuspendLayout();
             this.splBills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splTables)).BeginInit();
-            this.splTables.Panel1.SuspendLayout();
-            this.splTables.Panel2.SuspendLayout();
-            this.splTables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splFoods)).BeginInit();
-            this.splFoods.Panel1.SuspendLayout();
-            this.splFoods.Panel2.SuspendLayout();
-            this.splFoods.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).BeginInit();
+            this.splBillInfos.Panel1.SuspendLayout();
+            this.splBillInfos.Panel2.SuspendLayout();
+            this.splBillInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splCategory)).BeginInit();
             this.splCategory.Panel1.SuspendLayout();
             this.splCategory.Panel2.SuspendLayout();
             this.splCategory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
-            this.splMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splFoods)).BeginInit();
+            this.splFoods.Panel1.SuspendLayout();
+            this.splFoods.Panel2.SuspendLayout();
+            this.splFoods.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splTables)).BeginInit();
+            this.splTables.Panel1.SuspendLayout();
+            this.splTables.Panel2.SuspendLayout();
+            this.splTables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -190,35 +208,35 @@
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.categoriesToolStripMenuItem.Text = "Category";
             this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // foodsToolStripMenuItem
             // 
             this.foodsToolStripMenuItem.Name = "foodsToolStripMenuItem";
-            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.foodsToolStripMenuItem.Text = "Foods";
             this.foodsToolStripMenuItem.Click += new System.EventHandler(this.foodsToolStripMenuItem_Click);
             // 
             // tablesToolStripMenuItem
             // 
             this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.tablesToolStripMenuItem.Text = "Tables";
             this.tablesToolStripMenuItem.Click += new System.EventHandler(this.tablesToolStripMenuItem_Click);
             // 
             // billToolStripMenuItem
             // 
             this.billToolStripMenuItem.Name = "billToolStripMenuItem";
-            this.billToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.billToolStripMenuItem.Text = "Bills";
             this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
             // 
             // billInfosToolStripMenuItem
             // 
             this.billInfosToolStripMenuItem.Name = "billInfosToolStripMenuItem";
-            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.billInfosToolStripMenuItem.Text = "BillInfos";
             this.billInfosToolStripMenuItem.Click += new System.EventHandler(this.billInfosToolStripMenuItem_Click);
             // 
@@ -240,171 +258,187 @@
             // 
             // pnlBody
             // 
+            this.pnlBody.Controls.Add(this.splMain);
             this.pnlBody.Controls.Add(this.splBills);
             this.pnlBody.Controls.Add(this.splBillInfos);
             this.pnlBody.Controls.Add(this.splCategory);
             this.pnlBody.Controls.Add(this.splFoods);
             this.pnlBody.Controls.Add(this.splTables);
-            this.pnlBody.Controls.Add(this.splMain);
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(0, 70);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(1009, 484);
             this.pnlBody.TabIndex = 2;
             // 
-            // splBillInfos
+            // splMain
             // 
-            this.splBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splBillInfos.Location = new System.Drawing.Point(0, 0);
-            this.splBillInfos.Name = "splBillInfos";
+            this.splMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splMain.Location = new System.Drawing.Point(0, 0);
+            this.splMain.Name = "splMain";
             // 
-            // splBillInfos.Panel1
+            // splMain.Panel1
             // 
-            this.splBillInfos.Panel1.Controls.Add(this.dgvBillInfos);
+            this.splMain.Panel1.Controls.Add(this.flpMainTables);
             // 
-            // splBillInfos.Panel2
+            // splMain.Panel2
             // 
-            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoBillID);
-            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoFoodID);
-            this.splBillInfos.Panel2.Controls.Add(this.label20);
-            this.splBillInfos.Panel2.Controls.Add(this.label19);
-            this.splBillInfos.Panel2.Controls.Add(this.label18);
-            this.splBillInfos.Panel2.Controls.Add(this.label17);
-            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoCount);
-            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoFoodName);
-            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoID);
-            this.splBillInfos.Panel2.Controls.Add(this.btnDeleteBillInfo);
-            this.splBillInfos.Panel2.Controls.Add(this.btnClearBillInfo);
-            this.splBillInfos.Panel2.Controls.Add(this.btnUpdateBillInfo);
-            this.splBillInfos.Panel2.Controls.Add(this.btnAddBillInfo);
-            this.splBillInfos.Size = new System.Drawing.Size(1009, 484);
-            this.splBillInfos.SplitterDistance = 457;
-            this.splBillInfos.TabIndex = 5;
+            this.splMain.Panel2.Controls.Add(this.btnMainAddFood);
+            this.splMain.Panel2.Controls.Add(this.btnMainRemoveFood);
+            this.splMain.Panel2.Controls.Add(this.btnCheckout);
+            this.splMain.Panel2.Controls.Add(this.txtMainDiscount);
+            this.splMain.Panel2.Controls.Add(this.txtMainTotalPrice);
+            this.splMain.Panel2.Controls.Add(this.label24);
+            this.splMain.Panel2.Controls.Add(this.label23);
+            this.splMain.Panel2.Controls.Add(this.label22);
+            this.splMain.Panel2.Controls.Add(this.label21);
+            this.splMain.Panel2.Controls.Add(this.cboMainFoodName);
+            this.splMain.Panel2.Controls.Add(this.cboMainCategoryName);
+            this.splMain.Panel2.Controls.Add(this.lvwMainOrders);
+            this.splMain.Size = new System.Drawing.Size(1009, 484);
+            this.splMain.SplitterDistance = 507;
+            this.splMain.TabIndex = 0;
             // 
-            // dgvBillInfos
+            // flpMainTables
             // 
-            this.dgvBillInfos.AllowUserToAddRows = false;
-            this.dgvBillInfos.AllowUserToDeleteRows = false;
-            this.dgvBillInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBillInfos.Location = new System.Drawing.Point(0, 0);
-            this.dgvBillInfos.Name = "dgvBillInfos";
-            this.dgvBillInfos.ReadOnly = true;
-            this.dgvBillInfos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillInfos.Size = new System.Drawing.Size(457, 484);
-            this.dgvBillInfos.TabIndex = 0;
-            this.dgvBillInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfos_CellClick);
+            this.flpMainTables.AutoScroll = true;
+            this.flpMainTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpMainTables.Location = new System.Drawing.Point(0, 0);
+            this.flpMainTables.Name = "flpMainTables";
+            this.flpMainTables.Size = new System.Drawing.Size(507, 484);
+            this.flpMainTables.TabIndex = 0;
             // 
-            // cboBillInfoBillID
+            // btnMainAddFood
             // 
-            this.cboBillInfoBillID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBillInfoBillID.FormattingEnabled = true;
-            this.cboBillInfoBillID.Location = new System.Drawing.Point(159, 70);
-            this.cboBillInfoBillID.Name = "cboBillInfoBillID";
-            this.cboBillInfoBillID.Size = new System.Drawing.Size(189, 21);
-            this.cboBillInfoBillID.TabIndex = 3;
+            this.btnMainAddFood.Location = new System.Drawing.Point(298, 253);
+            this.btnMainAddFood.Name = "btnMainAddFood";
+            this.btnMainAddFood.Size = new System.Drawing.Size(75, 53);
+            this.btnMainAddFood.TabIndex = 4;
+            this.btnMainAddFood.Text = "Add Food";
+            this.btnMainAddFood.UseVisualStyleBackColor = true;
+            this.btnMainAddFood.Click += new System.EventHandler(this.btnMainAddFood_Click);
             // 
-            // cboBillInfoFoodID
+            // btnMainRemoveFood
             // 
-            this.cboBillInfoFoodID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBillInfoFoodID.FormattingEnabled = true;
-            this.cboBillInfoFoodID.Location = new System.Drawing.Point(159, 103);
-            this.cboBillInfoFoodID.Name = "cboBillInfoFoodID";
-            this.cboBillInfoFoodID.Size = new System.Drawing.Size(78, 21);
-            this.cboBillInfoFoodID.TabIndex = 3;
-            this.cboBillInfoFoodID.SelectedIndexChanged += new System.EventHandler(this.cboBillInfoFoodID_SelectedIndexChanged);
+            this.btnMainRemoveFood.Location = new System.Drawing.Point(393, 253);
+            this.btnMainRemoveFood.Name = "btnMainRemoveFood";
+            this.btnMainRemoveFood.Size = new System.Drawing.Size(75, 53);
+            this.btnMainRemoveFood.TabIndex = 4;
+            this.btnMainRemoveFood.Text = "Remove Food";
+            this.btnMainRemoveFood.UseVisualStyleBackColor = true;
+            this.btnMainRemoveFood.Click += new System.EventHandler(this.btnMainRemoveFood_Click);
             // 
-            // label20
+            // btnCheckout
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(87, 109);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Food ID";
+            this.btnCheckout.Location = new System.Drawing.Point(344, 321);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(75, 59);
+            this.btnCheckout.TabIndex = 4;
+            this.btnCheckout.Text = "Checkout";
+            this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnMainCheckout_Click);
             // 
-            // label19
+            // txtMainDiscount
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(87, 142);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Count";
+            this.txtMainDiscount.Location = new System.Drawing.Point(99, 324);
+            this.txtMainDiscount.Name = "txtMainDiscount";
+            this.txtMainDiscount.Size = new System.Drawing.Size(175, 20);
+            this.txtMainDiscount.TabIndex = 3;
             // 
-            // label18
+            // txtMainTotalPrice
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(87, 76);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 13);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Bill ID";
+            this.txtMainTotalPrice.Enabled = false;
+            this.txtMainTotalPrice.Location = new System.Drawing.Point(99, 360);
+            this.txtMainTotalPrice.Name = "txtMainTotalPrice";
+            this.txtMainTotalPrice.ReadOnly = true;
+            this.txtMainTotalPrice.Size = new System.Drawing.Size(175, 20);
+            this.txtMainTotalPrice.TabIndex = 3;
             // 
-            // label17
+            // label24
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(87, 43);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(18, 13);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "ID";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(20, 364);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(57, 13);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Total price";
             // 
-            // txtBillInfoCount
+            // label23
             // 
-            this.txtBillInfoCount.Location = new System.Drawing.Point(159, 136);
-            this.txtBillInfoCount.Name = "txtBillInfoCount";
-            this.txtBillInfoCount.Size = new System.Drawing.Size(189, 20);
-            this.txtBillInfoCount.TabIndex = 1;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(20, 326);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(49, 13);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Discount";
             // 
-            // txtBillInfoID
+            // label22
             // 
-            this.txtBillInfoID.Enabled = false;
-            this.txtBillInfoID.Location = new System.Drawing.Point(159, 38);
-            this.txtBillInfoID.Name = "txtBillInfoID";
-            this.txtBillInfoID.ReadOnly = true;
-            this.txtBillInfoID.Size = new System.Drawing.Size(189, 20);
-            this.txtBillInfoID.TabIndex = 1;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(20, 288);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Food";
             // 
-            // btnDeleteBillInfo
+            // label21
             // 
-            this.btnDeleteBillInfo.Location = new System.Drawing.Point(163, 227);
-            this.btnDeleteBillInfo.Name = "btnDeleteBillInfo";
-            this.btnDeleteBillInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteBillInfo.TabIndex = 0;
-            this.btnDeleteBillInfo.Text = "Delete";
-            this.btnDeleteBillInfo.UseVisualStyleBackColor = true;
-            this.btnDeleteBillInfo.Click += new System.EventHandler(this.btnDeleteBillInfo_Click);
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(20, 250);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(49, 13);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Category";
             // 
-            // btnClearBillInfo
+            // cboMainFoodName
             // 
-            this.btnClearBillInfo.Location = new System.Drawing.Point(275, 227);
-            this.btnClearBillInfo.Name = "btnClearBillInfo";
-            this.btnClearBillInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnClearBillInfo.TabIndex = 0;
-            this.btnClearBillInfo.Text = "Clear";
-            this.btnClearBillInfo.UseVisualStyleBackColor = true;
-            this.btnClearBillInfo.Click += new System.EventHandler(this.btnClearBillInfo_Click);
+            this.cboMainFoodName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMainFoodName.FormattingEnabled = true;
+            this.cboMainFoodName.Location = new System.Drawing.Point(98, 281);
+            this.cboMainFoodName.Name = "cboMainFoodName";
+            this.cboMainFoodName.Size = new System.Drawing.Size(175, 21);
+            this.cboMainFoodName.TabIndex = 1;
             // 
-            // btnUpdateBillInfo
+            // cboMainCategoryName
             // 
-            this.btnUpdateBillInfo.Location = new System.Drawing.Point(163, 182);
-            this.btnUpdateBillInfo.Name = "btnUpdateBillInfo";
-            this.btnUpdateBillInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateBillInfo.TabIndex = 0;
-            this.btnUpdateBillInfo.Text = "Update";
-            this.btnUpdateBillInfo.UseVisualStyleBackColor = true;
-            this.btnUpdateBillInfo.Click += new System.EventHandler(this.btnUpdateBillInfo_Click);
+            this.cboMainCategoryName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMainCategoryName.FormattingEnabled = true;
+            this.cboMainCategoryName.Location = new System.Drawing.Point(98, 244);
+            this.cboMainCategoryName.Name = "cboMainCategoryName";
+            this.cboMainCategoryName.Size = new System.Drawing.Size(175, 21);
+            this.cboMainCategoryName.TabIndex = 1;
+            this.cboMainCategoryName.SelectedIndexChanged += new System.EventHandler(this.cboMainCategoryName_SelectedIndexChanged);
             // 
-            // btnAddBillInfo
+            // lvwMainOrders
             // 
-            this.btnAddBillInfo.Location = new System.Drawing.Point(275, 182);
-            this.btnAddBillInfo.Name = "btnAddBillInfo";
-            this.btnAddBillInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnAddBillInfo.TabIndex = 0;
-            this.btnAddBillInfo.Text = "Add New";
-            this.btnAddBillInfo.UseVisualStyleBackColor = true;
-            this.btnAddBillInfo.Click += new System.EventHandler(this.btnAddBillInfo_Click);
+            this.lvwMainOrders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvwMainOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvwMainOrders.FullRowSelect = true;
+            this.lvwMainOrders.GridLines = true;
+            this.lvwMainOrders.HideSelection = false;
+            this.lvwMainOrders.Location = new System.Drawing.Point(11, 14);
+            this.lvwMainOrders.Name = "lvwMainOrders";
+            this.lvwMainOrders.Size = new System.Drawing.Size(475, 176);
+            this.lvwMainOrders.TabIndex = 0;
+            this.lvwMainOrders.UseCompatibleStateImageBehavior = false;
+            this.lvwMainOrders.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Food name";
+            this.columnHeader1.Width = 220;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Count";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Unit price";
+            this.columnHeader3.Width = 100;
             // 
             // splBills
             // 
@@ -564,6 +598,15 @@
             this.txtBillStatus.Size = new System.Drawing.Size(200, 20);
             this.txtBillStatus.TabIndex = 1;
             // 
+            // txtBillTableName
+            // 
+            this.txtBillTableName.Enabled = false;
+            this.txtBillTableName.Location = new System.Drawing.Point(245, 130);
+            this.txtBillTableName.Name = "txtBillTableName";
+            this.txtBillTableName.ReadOnly = true;
+            this.txtBillTableName.Size = new System.Drawing.Size(107, 20);
+            this.txtBillTableName.TabIndex = 1;
+            // 
             // txtBillID
             // 
             this.txtBillID.Enabled = false;
@@ -612,6 +655,443 @@
             this.btnUpdateBill.Text = "Update";
             this.btnUpdateBill.UseVisualStyleBackColor = true;
             this.btnUpdateBill.Click += new System.EventHandler(this.btnUpdateBill_Click);
+            // 
+            // splBillInfos
+            // 
+            this.splBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splBillInfos.Location = new System.Drawing.Point(0, 0);
+            this.splBillInfos.Name = "splBillInfos";
+            // 
+            // splBillInfos.Panel1
+            // 
+            this.splBillInfos.Panel1.Controls.Add(this.dgvBillInfos);
+            // 
+            // splBillInfos.Panel2
+            // 
+            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoBillID);
+            this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoFoodID);
+            this.splBillInfos.Panel2.Controls.Add(this.label20);
+            this.splBillInfos.Panel2.Controls.Add(this.label19);
+            this.splBillInfos.Panel2.Controls.Add(this.label18);
+            this.splBillInfos.Panel2.Controls.Add(this.label17);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoCount);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoFoodName);
+            this.splBillInfos.Panel2.Controls.Add(this.txtBillInfoID);
+            this.splBillInfos.Panel2.Controls.Add(this.btnDeleteBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnClearBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnUpdateBillInfo);
+            this.splBillInfos.Panel2.Controls.Add(this.btnAddBillInfo);
+            this.splBillInfos.Size = new System.Drawing.Size(1009, 484);
+            this.splBillInfos.SplitterDistance = 457;
+            this.splBillInfos.TabIndex = 5;
+            // 
+            // dgvBillInfos
+            // 
+            this.dgvBillInfos.AllowUserToAddRows = false;
+            this.dgvBillInfos.AllowUserToDeleteRows = false;
+            this.dgvBillInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBillInfos.Location = new System.Drawing.Point(0, 0);
+            this.dgvBillInfos.Name = "dgvBillInfos";
+            this.dgvBillInfos.ReadOnly = true;
+            this.dgvBillInfos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBillInfos.Size = new System.Drawing.Size(457, 484);
+            this.dgvBillInfos.TabIndex = 0;
+            this.dgvBillInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfos_CellClick);
+            // 
+            // cboBillInfoBillID
+            // 
+            this.cboBillInfoBillID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBillInfoBillID.FormattingEnabled = true;
+            this.cboBillInfoBillID.Location = new System.Drawing.Point(159, 70);
+            this.cboBillInfoBillID.Name = "cboBillInfoBillID";
+            this.cboBillInfoBillID.Size = new System.Drawing.Size(189, 21);
+            this.cboBillInfoBillID.TabIndex = 3;
+            // 
+            // cboBillInfoFoodID
+            // 
+            this.cboBillInfoFoodID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBillInfoFoodID.FormattingEnabled = true;
+            this.cboBillInfoFoodID.Location = new System.Drawing.Point(159, 103);
+            this.cboBillInfoFoodID.Name = "cboBillInfoFoodID";
+            this.cboBillInfoFoodID.Size = new System.Drawing.Size(78, 21);
+            this.cboBillInfoFoodID.TabIndex = 3;
+            this.cboBillInfoFoodID.SelectedIndexChanged += new System.EventHandler(this.cboBillInfoFoodID_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(87, 109);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(45, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Food ID";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(87, 142);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Count";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(87, 76);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Bill ID";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(87, 43);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(18, 13);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "ID";
+            // 
+            // txtBillInfoCount
+            // 
+            this.txtBillInfoCount.Location = new System.Drawing.Point(159, 136);
+            this.txtBillInfoCount.Name = "txtBillInfoCount";
+            this.txtBillInfoCount.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoCount.TabIndex = 1;
+            // 
+            // txtBillInfoFoodName
+            // 
+            this.txtBillInfoFoodName.Enabled = false;
+            this.txtBillInfoFoodName.Location = new System.Drawing.Point(249, 104);
+            this.txtBillInfoFoodName.Name = "txtBillInfoFoodName";
+            this.txtBillInfoFoodName.ReadOnly = true;
+            this.txtBillInfoFoodName.Size = new System.Drawing.Size(96, 20);
+            this.txtBillInfoFoodName.TabIndex = 1;
+            // 
+            // txtBillInfoID
+            // 
+            this.txtBillInfoID.Enabled = false;
+            this.txtBillInfoID.Location = new System.Drawing.Point(159, 38);
+            this.txtBillInfoID.Name = "txtBillInfoID";
+            this.txtBillInfoID.ReadOnly = true;
+            this.txtBillInfoID.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoID.TabIndex = 1;
+            // 
+            // btnDeleteBillInfo
+            // 
+            this.btnDeleteBillInfo.Location = new System.Drawing.Point(163, 227);
+            this.btnDeleteBillInfo.Name = "btnDeleteBillInfo";
+            this.btnDeleteBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBillInfo.TabIndex = 0;
+            this.btnDeleteBillInfo.Text = "Delete";
+            this.btnDeleteBillInfo.UseVisualStyleBackColor = true;
+            this.btnDeleteBillInfo.Click += new System.EventHandler(this.btnDeleteBillInfo_Click);
+            // 
+            // btnClearBillInfo
+            // 
+            this.btnClearBillInfo.Location = new System.Drawing.Point(275, 227);
+            this.btnClearBillInfo.Name = "btnClearBillInfo";
+            this.btnClearBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnClearBillInfo.TabIndex = 0;
+            this.btnClearBillInfo.Text = "Clear";
+            this.btnClearBillInfo.UseVisualStyleBackColor = true;
+            this.btnClearBillInfo.Click += new System.EventHandler(this.btnClearBillInfo_Click);
+            // 
+            // btnUpdateBillInfo
+            // 
+            this.btnUpdateBillInfo.Location = new System.Drawing.Point(163, 182);
+            this.btnUpdateBillInfo.Name = "btnUpdateBillInfo";
+            this.btnUpdateBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBillInfo.TabIndex = 0;
+            this.btnUpdateBillInfo.Text = "Update";
+            this.btnUpdateBillInfo.UseVisualStyleBackColor = true;
+            this.btnUpdateBillInfo.Click += new System.EventHandler(this.btnUpdateBillInfo_Click);
+            // 
+            // btnAddBillInfo
+            // 
+            this.btnAddBillInfo.Location = new System.Drawing.Point(275, 182);
+            this.btnAddBillInfo.Name = "btnAddBillInfo";
+            this.btnAddBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBillInfo.TabIndex = 0;
+            this.btnAddBillInfo.Text = "Add New";
+            this.btnAddBillInfo.UseVisualStyleBackColor = true;
+            this.btnAddBillInfo.Click += new System.EventHandler(this.btnAddBillInfo_Click);
+            // 
+            // splCategory
+            // 
+            this.splCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splCategory.Location = new System.Drawing.Point(0, 0);
+            this.splCategory.Name = "splCategory";
+            // 
+            // splCategory.Panel1
+            // 
+            this.splCategory.Panel1.Controls.Add(this.dgvCategories);
+            // 
+            // splCategory.Panel2
+            // 
+            this.splCategory.Panel2.Controls.Add(this.btnClearCategory);
+            this.splCategory.Panel2.Controls.Add(this.btnDeleteCategory);
+            this.splCategory.Panel2.Controls.Add(this.btnUpdateCategory);
+            this.splCategory.Panel2.Controls.Add(this.btnAddCategory);
+            this.splCategory.Panel2.Controls.Add(this.txtCategoryName);
+            this.splCategory.Panel2.Controls.Add(this.txtCategoryID);
+            this.splCategory.Panel2.Controls.Add(this.label1);
+            this.splCategory.Panel2.Controls.Add(this.label2);
+            this.splCategory.Size = new System.Drawing.Size(1009, 484);
+            this.splCategory.SplitterDistance = 543;
+            this.splCategory.TabIndex = 0;
+            // 
+            // dgvCategories
+            // 
+            this.dgvCategories.AllowUserToAddRows = false;
+            this.dgvCategories.AllowUserToDeleteRows = false;
+            this.dgvCategories.AllowUserToOrderColumns = true;
+            this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCategories.Location = new System.Drawing.Point(0, 0);
+            this.dgvCategories.Name = "dgvCategories";
+            this.dgvCategories.ReadOnly = true;
+            this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategories.Size = new System.Drawing.Size(543, 484);
+            this.dgvCategories.TabIndex = 0;
+            this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
+            // 
+            // btnClearCategory
+            // 
+            this.btnClearCategory.Location = new System.Drawing.Point(184, 138);
+            this.btnClearCategory.Name = "btnClearCategory";
+            this.btnClearCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnClearCategory.TabIndex = 2;
+            this.btnClearCategory.Text = "Clear";
+            this.btnClearCategory.UseVisualStyleBackColor = true;
+            this.btnClearCategory.Click += new System.EventHandler(this.btnClearCategory_Click);
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.Location = new System.Drawing.Point(76, 138);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCategory.TabIndex = 2;
+            this.btnDeleteCategory.Text = "Delete";
+            this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            // 
+            // btnUpdateCategory
+            // 
+            this.btnUpdateCategory.Location = new System.Drawing.Point(76, 100);
+            this.btnUpdateCategory.Name = "btnUpdateCategory";
+            this.btnUpdateCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCategory.TabIndex = 2;
+            this.btnUpdateCategory.Text = "Update";
+            this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Location = new System.Drawing.Point(184, 100);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCategory.TabIndex = 2;
+            this.btnAddCategory.Text = "Add New";
+            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // txtCategoryName
+            // 
+            this.txtCategoryName.Location = new System.Drawing.Point(76, 63);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(183, 20);
+            this.txtCategoryName.TabIndex = 1;
+            // 
+            // txtCategoryID
+            // 
+            this.txtCategoryID.Enabled = false;
+            this.txtCategoryID.Location = new System.Drawing.Point(76, 25);
+            this.txtCategoryID.Name = "txtCategoryID";
+            this.txtCategoryID.ReadOnly = true;
+            this.txtCategoryID.Size = new System.Drawing.Size(183, 20);
+            this.txtCategoryID.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "ID";
+            // 
+            // splFoods
+            // 
+            this.splFoods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splFoods.Location = new System.Drawing.Point(0, 0);
+            this.splFoods.Name = "splFoods";
+            // 
+            // splFoods.Panel1
+            // 
+            this.splFoods.Panel1.Controls.Add(this.dgvFoods);
+            // 
+            // splFoods.Panel2
+            // 
+            this.splFoods.Panel2.Controls.Add(this.cboFoodCategoryID);
+            this.splFoods.Panel2.Controls.Add(this.label6);
+            this.splFoods.Panel2.Controls.Add(this.label5);
+            this.splFoods.Panel2.Controls.Add(this.label4);
+            this.splFoods.Panel2.Controls.Add(this.label3);
+            this.splFoods.Panel2.Controls.Add(this.txtFoodPrice);
+            this.splFoods.Panel2.Controls.Add(this.txtFoodName);
+            this.splFoods.Panel2.Controls.Add(this.txtFoodCategoryName);
+            this.splFoods.Panel2.Controls.Add(this.txtFoodID);
+            this.splFoods.Panel2.Controls.Add(this.btnClearFood);
+            this.splFoods.Panel2.Controls.Add(this.btnDeleteFood);
+            this.splFoods.Panel2.Controls.Add(this.btnUpdateFood);
+            this.splFoods.Panel2.Controls.Add(this.btnAddFood);
+            this.splFoods.Size = new System.Drawing.Size(1009, 484);
+            this.splFoods.SplitterDistance = 495;
+            this.splFoods.TabIndex = 3;
+            // 
+            // dgvFoods
+            // 
+            this.dgvFoods.AllowUserToAddRows = false;
+            this.dgvFoods.AllowUserToDeleteRows = false;
+            this.dgvFoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFoods.Location = new System.Drawing.Point(0, 0);
+            this.dgvFoods.Name = "dgvFoods";
+            this.dgvFoods.ReadOnly = true;
+            this.dgvFoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFoods.Size = new System.Drawing.Size(495, 484);
+            this.dgvFoods.TabIndex = 0;
+            this.dgvFoods.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoods_CellClick);
+            // 
+            // cboFoodCategoryID
+            // 
+            this.cboFoodCategoryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFoodCategoryID.FormattingEnabled = true;
+            this.cboFoodCategoryID.Location = new System.Drawing.Point(140, 106);
+            this.cboFoodCategoryID.Name = "cboFoodCategoryID";
+            this.cboFoodCategoryID.Size = new System.Drawing.Size(74, 21);
+            this.cboFoodCategoryID.TabIndex = 3;
+            this.cboFoodCategoryID.SelectedIndexChanged += new System.EventHandler(this.cboFoodCategoryID_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(58, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Price";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(58, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Category ID";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(58, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(58, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "ID";
+            // 
+            // txtFoodPrice
+            // 
+            this.txtFoodPrice.Location = new System.Drawing.Point(140, 140);
+            this.txtFoodPrice.Name = "txtFoodPrice";
+            this.txtFoodPrice.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodPrice.TabIndex = 1;
+            // 
+            // txtFoodName
+            // 
+            this.txtFoodName.Location = new System.Drawing.Point(140, 66);
+            this.txtFoodName.Name = "txtFoodName";
+            this.txtFoodName.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodName.TabIndex = 1;
+            // 
+            // txtFoodCategoryName
+            // 
+            this.txtFoodCategoryName.Enabled = false;
+            this.txtFoodCategoryName.Location = new System.Drawing.Point(220, 107);
+            this.txtFoodCategoryName.Name = "txtFoodCategoryName";
+            this.txtFoodCategoryName.ReadOnly = true;
+            this.txtFoodCategoryName.Size = new System.Drawing.Size(87, 20);
+            this.txtFoodCategoryName.TabIndex = 1;
+            // 
+            // txtFoodID
+            // 
+            this.txtFoodID.Enabled = false;
+            this.txtFoodID.Location = new System.Drawing.Point(140, 29);
+            this.txtFoodID.Name = "txtFoodID";
+            this.txtFoodID.ReadOnly = true;
+            this.txtFoodID.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodID.TabIndex = 1;
+            // 
+            // btnClearFood
+            // 
+            this.btnClearFood.Location = new System.Drawing.Point(232, 225);
+            this.btnClearFood.Name = "btnClearFood";
+            this.btnClearFood.Size = new System.Drawing.Size(75, 23);
+            this.btnClearFood.TabIndex = 0;
+            this.btnClearFood.Text = "Clear";
+            this.btnClearFood.UseVisualStyleBackColor = true;
+            this.btnClearFood.Click += new System.EventHandler(this.btnClearFood_Click);
+            // 
+            // btnDeleteFood
+            // 
+            this.btnDeleteFood.Location = new System.Drawing.Point(109, 225);
+            this.btnDeleteFood.Name = "btnDeleteFood";
+            this.btnDeleteFood.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteFood.TabIndex = 0;
+            this.btnDeleteFood.Text = "Delete";
+            this.btnDeleteFood.UseVisualStyleBackColor = true;
+            this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
+            // 
+            // btnUpdateFood
+            // 
+            this.btnUpdateFood.Location = new System.Drawing.Point(109, 182);
+            this.btnUpdateFood.Name = "btnUpdateFood";
+            this.btnUpdateFood.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateFood.TabIndex = 0;
+            this.btnUpdateFood.Text = "Update";
+            this.btnUpdateFood.UseVisualStyleBackColor = true;
+            this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
+            // 
+            // btnAddFood
+            // 
+            this.btnAddFood.Location = new System.Drawing.Point(232, 182);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFood.TabIndex = 0;
+            this.btnAddFood.Text = "Add New";
+            this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // splTables
             // 
@@ -743,280 +1223,6 @@
             this.btnUpdateTable.UseVisualStyleBackColor = true;
             this.btnUpdateTable.Click += new System.EventHandler(this.btnUpdateTable_Click);
             // 
-            // splFoods
-            // 
-            this.splFoods.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splFoods.Location = new System.Drawing.Point(0, 0);
-            this.splFoods.Name = "splFoods";
-            // 
-            // splFoods.Panel1
-            // 
-            this.splFoods.Panel1.Controls.Add(this.dgvFoods);
-            // 
-            // splFoods.Panel2
-            // 
-            this.splFoods.Panel2.Controls.Add(this.cboFoodCategoryID);
-            this.splFoods.Panel2.Controls.Add(this.label6);
-            this.splFoods.Panel2.Controls.Add(this.label5);
-            this.splFoods.Panel2.Controls.Add(this.label4);
-            this.splFoods.Panel2.Controls.Add(this.label3);
-            this.splFoods.Panel2.Controls.Add(this.txtFoodPrice);
-            this.splFoods.Panel2.Controls.Add(this.txtFoodName);
-            this.splFoods.Panel2.Controls.Add(this.txtFoodCategoryName);
-            this.splFoods.Panel2.Controls.Add(this.txtFoodID);
-            this.splFoods.Panel2.Controls.Add(this.btnClearFood);
-            this.splFoods.Panel2.Controls.Add(this.btnDeleteFood);
-            this.splFoods.Panel2.Controls.Add(this.btnUpdateFood);
-            this.splFoods.Panel2.Controls.Add(this.btnAddFood);
-            this.splFoods.Size = new System.Drawing.Size(1009, 484);
-            this.splFoods.SplitterDistance = 495;
-            this.splFoods.TabIndex = 3;
-            // 
-            // dgvFoods
-            // 
-            this.dgvFoods.AllowUserToAddRows = false;
-            this.dgvFoods.AllowUserToDeleteRows = false;
-            this.dgvFoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFoods.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFoods.Location = new System.Drawing.Point(0, 0);
-            this.dgvFoods.Name = "dgvFoods";
-            this.dgvFoods.ReadOnly = true;
-            this.dgvFoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFoods.Size = new System.Drawing.Size(495, 484);
-            this.dgvFoods.TabIndex = 0;
-            this.dgvFoods.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoods_CellClick);
-            // 
-            // cboFoodCategoryID
-            // 
-            this.cboFoodCategoryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFoodCategoryID.FormattingEnabled = true;
-            this.cboFoodCategoryID.Location = new System.Drawing.Point(140, 106);
-            this.cboFoodCategoryID.Name = "cboFoodCategoryID";
-            this.cboFoodCategoryID.Size = new System.Drawing.Size(74, 21);
-            this.cboFoodCategoryID.TabIndex = 3;
-            this.cboFoodCategoryID.SelectedIndexChanged += new System.EventHandler(this.cboFoodCategoryID_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(58, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Price";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 108);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Category ID";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Name";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "ID";
-            // 
-            // txtFoodPrice
-            // 
-            this.txtFoodPrice.Location = new System.Drawing.Point(140, 140);
-            this.txtFoodPrice.Name = "txtFoodPrice";
-            this.txtFoodPrice.Size = new System.Drawing.Size(167, 20);
-            this.txtFoodPrice.TabIndex = 1;
-            // 
-            // txtFoodName
-            // 
-            this.txtFoodName.Location = new System.Drawing.Point(140, 66);
-            this.txtFoodName.Name = "txtFoodName";
-            this.txtFoodName.Size = new System.Drawing.Size(167, 20);
-            this.txtFoodName.TabIndex = 1;
-            // 
-            // txtFoodID
-            // 
-            this.txtFoodID.Enabled = false;
-            this.txtFoodID.Location = new System.Drawing.Point(140, 29);
-            this.txtFoodID.Name = "txtFoodID";
-            this.txtFoodID.ReadOnly = true;
-            this.txtFoodID.Size = new System.Drawing.Size(167, 20);
-            this.txtFoodID.TabIndex = 1;
-            // 
-            // btnClearFood
-            // 
-            this.btnClearFood.Location = new System.Drawing.Point(232, 225);
-            this.btnClearFood.Name = "btnClearFood";
-            this.btnClearFood.Size = new System.Drawing.Size(75, 23);
-            this.btnClearFood.TabIndex = 0;
-            this.btnClearFood.Text = "Clear";
-            this.btnClearFood.UseVisualStyleBackColor = true;
-            this.btnClearFood.Click += new System.EventHandler(this.btnClearFood_Click);
-            // 
-            // btnDeleteFood
-            // 
-            this.btnDeleteFood.Location = new System.Drawing.Point(109, 225);
-            this.btnDeleteFood.Name = "btnDeleteFood";
-            this.btnDeleteFood.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteFood.TabIndex = 0;
-            this.btnDeleteFood.Text = "Delete";
-            this.btnDeleteFood.UseVisualStyleBackColor = true;
-            this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
-            // 
-            // btnUpdateFood
-            // 
-            this.btnUpdateFood.Location = new System.Drawing.Point(109, 182);
-            this.btnUpdateFood.Name = "btnUpdateFood";
-            this.btnUpdateFood.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateFood.TabIndex = 0;
-            this.btnUpdateFood.Text = "Update";
-            this.btnUpdateFood.UseVisualStyleBackColor = true;
-            this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
-            // 
-            // btnAddFood
-            // 
-            this.btnAddFood.Location = new System.Drawing.Point(232, 182);
-            this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFood.TabIndex = 0;
-            this.btnAddFood.Text = "Add New";
-            this.btnAddFood.UseVisualStyleBackColor = true;
-            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
-            // 
-            // splCategory
-            // 
-            this.splCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splCategory.Location = new System.Drawing.Point(0, 0);
-            this.splCategory.Name = "splCategory";
-            // 
-            // splCategory.Panel1
-            // 
-            this.splCategory.Panel1.Controls.Add(this.dgvCategories);
-            // 
-            // splCategory.Panel2
-            // 
-            this.splCategory.Panel2.Controls.Add(this.btnClearCategory);
-            this.splCategory.Panel2.Controls.Add(this.btnDeleteCategory);
-            this.splCategory.Panel2.Controls.Add(this.btnUpdateCategory);
-            this.splCategory.Panel2.Controls.Add(this.btnAddCategory);
-            this.splCategory.Panel2.Controls.Add(this.txtCategoryName);
-            this.splCategory.Panel2.Controls.Add(this.txtCategoryID);
-            this.splCategory.Panel2.Controls.Add(this.label1);
-            this.splCategory.Panel2.Controls.Add(this.label2);
-            this.splCategory.Size = new System.Drawing.Size(1009, 484);
-            this.splCategory.SplitterDistance = 543;
-            this.splCategory.TabIndex = 0;
-            // 
-            // dgvCategories
-            // 
-            this.dgvCategories.AllowUserToAddRows = false;
-            this.dgvCategories.AllowUserToDeleteRows = false;
-            this.dgvCategories.AllowUserToOrderColumns = true;
-            this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCategories.Location = new System.Drawing.Point(0, 0);
-            this.dgvCategories.Name = "dgvCategories";
-            this.dgvCategories.ReadOnly = true;
-            this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategories.Size = new System.Drawing.Size(543, 484);
-            this.dgvCategories.TabIndex = 0;
-            this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
-            // 
-            // btnClearCategory
-            // 
-            this.btnClearCategory.Location = new System.Drawing.Point(184, 138);
-            this.btnClearCategory.Name = "btnClearCategory";
-            this.btnClearCategory.Size = new System.Drawing.Size(75, 23);
-            this.btnClearCategory.TabIndex = 2;
-            this.btnClearCategory.Text = "Clear";
-            this.btnClearCategory.UseVisualStyleBackColor = true;
-            this.btnClearCategory.Click += new System.EventHandler(this.btnClearCategory_Click);
-            // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(76, 138);
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteCategory.TabIndex = 2;
-            this.btnDeleteCategory.Text = "Delete";
-            this.btnDeleteCategory.UseVisualStyleBackColor = true;
-            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
-            // 
-            // btnUpdateCategory
-            // 
-            this.btnUpdateCategory.Location = new System.Drawing.Point(76, 100);
-            this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateCategory.TabIndex = 2;
-            this.btnUpdateCategory.Text = "Update";
-            this.btnUpdateCategory.UseVisualStyleBackColor = true;
-            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Location = new System.Drawing.Point(184, 100);
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCategory.TabIndex = 2;
-            this.btnAddCategory.Text = "Add New";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
-            // txtCategoryName
-            // 
-            this.txtCategoryName.Location = new System.Drawing.Point(76, 63);
-            this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(183, 20);
-            this.txtCategoryName.TabIndex = 1;
-            // 
-            // txtCategoryID
-            // 
-            this.txtCategoryID.Enabled = false;
-            this.txtCategoryID.Location = new System.Drawing.Point(76, 25);
-            this.txtCategoryID.Name = "txtCategoryID";
-            this.txtCategoryID.ReadOnly = true;
-            this.txtCategoryID.Size = new System.Drawing.Size(183, 20);
-            this.txtCategoryID.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "ID";
-            // 
-            // splMain
-            // 
-            this.splMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splMain.Location = new System.Drawing.Point(0, 0);
-            this.splMain.Name = "splMain";
-            this.splMain.Size = new System.Drawing.Size(1009, 484);
-            this.splMain.SplitterDistance = 417;
-            this.splMain.TabIndex = 0;
-            // 
             // pnlHeader
             // 
             this.pnlHeader.Controls.Add(this.menuStrip1);
@@ -1037,33 +1243,6 @@
             this.pnlMain.Size = new System.Drawing.Size(1009, 554);
             this.pnlMain.TabIndex = 1;
             // 
-            // txtFoodCategoryName
-            // 
-            this.txtFoodCategoryName.Enabled = false;
-            this.txtFoodCategoryName.Location = new System.Drawing.Point(220, 107);
-            this.txtFoodCategoryName.Name = "txtFoodCategoryName";
-            this.txtFoodCategoryName.ReadOnly = true;
-            this.txtFoodCategoryName.Size = new System.Drawing.Size(87, 20);
-            this.txtFoodCategoryName.TabIndex = 1;
-            // 
-            // txtBillInfoFoodName
-            // 
-            this.txtBillInfoFoodName.Enabled = false;
-            this.txtBillInfoFoodName.Location = new System.Drawing.Point(249, 104);
-            this.txtBillInfoFoodName.Name = "txtBillInfoFoodName";
-            this.txtBillInfoFoodName.ReadOnly = true;
-            this.txtBillInfoFoodName.Size = new System.Drawing.Size(96, 20);
-            this.txtBillInfoFoodName.TabIndex = 1;
-            // 
-            // txtBillTableName
-            // 
-            this.txtBillTableName.Enabled = false;
-            this.txtBillTableName.Location = new System.Drawing.Point(245, 130);
-            this.txtBillTableName.Name = "txtBillTableName";
-            this.txtBillTableName.ReadOnly = true;
-            this.txtBillTableName.Size = new System.Drawing.Size(107, 20);
-            this.txtBillTableName.TabIndex = 1;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1076,38 +1255,41 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlBody.ResumeLayout(false);
-            this.splBillInfos.Panel1.ResumeLayout(false);
-            this.splBillInfos.Panel2.ResumeLayout(false);
-            this.splBillInfos.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).EndInit();
-            this.splBillInfos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).EndInit();
+            this.splMain.Panel1.ResumeLayout(false);
+            this.splMain.Panel2.ResumeLayout(false);
+            this.splMain.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
+            this.splMain.ResumeLayout(false);
             this.splBills.Panel1.ResumeLayout(false);
             this.splBills.Panel2.ResumeLayout(false);
             this.splBills.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splBills)).EndInit();
             this.splBills.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
-            this.splTables.Panel1.ResumeLayout(false);
-            this.splTables.Panel2.ResumeLayout(false);
-            this.splTables.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splTables)).EndInit();
-            this.splTables.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).EndInit();
-            this.splFoods.Panel1.ResumeLayout(false);
-            this.splFoods.Panel2.ResumeLayout(false);
-            this.splFoods.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splFoods)).EndInit();
-            this.splFoods.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).EndInit();
+            this.splBillInfos.Panel1.ResumeLayout(false);
+            this.splBillInfos.Panel2.ResumeLayout(false);
+            this.splBillInfos.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splBillInfos)).EndInit();
+            this.splBillInfos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfos)).EndInit();
             this.splCategory.Panel1.ResumeLayout(false);
             this.splCategory.Panel2.ResumeLayout(false);
             this.splCategory.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splCategory)).EndInit();
             this.splCategory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
-            this.splMain.ResumeLayout(false);
+            this.splFoods.Panel1.ResumeLayout(false);
+            this.splFoods.Panel2.ResumeLayout(false);
+            this.splFoods.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splFoods)).EndInit();
+            this.splFoods.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoods)).EndInit();
+            this.splTables.Panel1.ResumeLayout(false);
+            this.splTables.Panel2.ResumeLayout(false);
+            this.splTables.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splTables)).EndInit();
+            this.splTables.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMain.ResumeLayout(false);
@@ -1205,6 +1387,22 @@
         private System.Windows.Forms.TextBox txtFoodCategoryName;
         private System.Windows.Forms.TextBox txtBillInfoFoodName;
         private System.Windows.Forms.TextBox txtBillTableName;
+        private System.Windows.Forms.FlowLayoutPanel flpMainTables;
+        private System.Windows.Forms.Button btnMainAddFood;
+        private System.Windows.Forms.Button btnMainRemoveFood;
+        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.TextBox txtMainTotalPrice;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cboMainFoodName;
+        private System.Windows.Forms.ComboBox cboMainCategoryName;
+        private System.Windows.Forms.ListView lvwMainOrders;
+        private System.Windows.Forms.TextBox txtMainDiscount;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 
