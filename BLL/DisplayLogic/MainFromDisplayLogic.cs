@@ -81,16 +81,7 @@ namespace BLL.DisplayLogic
 
             foreach (tblTable table in _tables)
             {
-                Button btnTable = new Button();
-                btnTable.Text = table.Name;
-                btnTable.Width = 110;
-                btnTable.Height = 110;
-                btnTable.BackColor = System.Drawing.Color.DodgerBlue;
-                btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                btnTable.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-                btnTable.ForeColor = System.Drawing.Color.White;
-                btnTable.Tag = new Order();
-                (btnTable.Tag as Order).Table = table;
+                Button btnTable = Initialize.BtnTable(table);
                 btnTable.Click += Table_Click;
 
                 _flpMainTable.Controls.Add(btnTable);
@@ -124,7 +115,6 @@ namespace BLL.DisplayLogic
 
         private void DisplayTotalPrice(Order order)
             => _txtMainTotalPrice.Text = order.TotalPrice.ToString();
-
 
         public void ClickAddFood()
         {
@@ -209,20 +199,7 @@ namespace BLL.DisplayLogic
 
         private void ShowCheckoutInfomation(Order checkoutOrder)
         {
-            string msg = "";
-
-            msg += checkoutOrder.Table.ID.ToString() + " - " + checkoutOrder.Table.Name + "\r\n\n";
-            msg += "- Checkin Date: " + checkoutOrder.CheckInDate.ToString() + "\r\n";
-            msg += "- Checkout Date: " + DateTime.Now.ToString() + "\r\n";
-            msg += "- Status: " + checkoutOrder.Status + "\r\n";
-            msg += "- Orders: " + "\r\n";
-            foreach (var food in checkoutOrder.Foods)
-            {
-                msg += "\t+ Food name: " + food.Key.Name + " - x" + food.Value + "\r\n";
-            }
-            checkoutOrder.Discount = Int32.Parse(_txtMainDiscount.Text);
-            msg += "\r\n" + "- Discount: " + checkoutOrder.Discount + "\r\n";
-            msg += "- Totol Price: " + checkoutOrder.TotalPrice;
+            string msg = Initialize.CheckoutInfo(checkoutOrder, _txtMainDiscount);
 
             DialogResult dialogResult = MessageBox.Show(msg, checkoutOrder.Table.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -232,13 +209,7 @@ namespace BLL.DisplayLogic
 
         private void AddOrderToBill(Order checkoutOrder)
         {
-            tblBill newBill = new tblBill();
-            newBill.CheckInDate = checkoutOrder.CheckInDate;
-            newBill.CheckOutDate = DateTime.Now;
-            newBill.TableID = checkoutOrder.Table.ID;
-            newBill.Discount = Int32.Parse(_txtMainDiscount.Text);
-            newBill.TotalPrice = checkoutOrder.TotalPrice;
-            newBill.Status = 1;
+            tblBill newBill = Initialize.Bill(checkoutOrder, _txtMainDiscount);
 
             try
             {
@@ -255,10 +226,7 @@ namespace BLL.DisplayLogic
         {
             foreach (var food in checkoutOrder.Foods)
             {
-                tblBillInfo newBillInfo = new tblBillInfo();
-                newBillInfo.BillID = lastBillID;
-                newBillInfo.FoodID = food.Key.ID;
-                newBillInfo.Count = food.Value;
+                tblBillInfo newBillInfo = Initialize.BillInfo(lastBillID, food.Key.ID, food.Value);
 
                 try
                 {

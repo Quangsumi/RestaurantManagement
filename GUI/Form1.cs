@@ -122,7 +122,6 @@ namespace GUI
 
 
         #region Foods
-
         private void dgvFoods_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             _foodDisplayLogic.CellClick(sender, e);
@@ -180,8 +179,6 @@ namespace GUI
         {
             _tableDisplayLogic.ClickClearControlsContent();
         }
-
-
         #endregion
 
 
@@ -248,10 +245,6 @@ namespace GUI
         {
             _billInfoDisplayLogic.ClickClearControlsContent();
         }
-
-
-
-
         #endregion
 
 

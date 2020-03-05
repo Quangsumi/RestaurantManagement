@@ -15,7 +15,7 @@ namespace BLL.Helper
 
         private static bool ShowInvalidTextError()
         {
-            MessageBox.Show("Textbox must be not empty!");
+            MessageBox.Show("Textbox must be not empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -24,7 +24,7 @@ namespace BLL.Helper
 
         private static bool ShowNotANumberError()
         {
-            MessageBox.Show("Price/Total Price must be number only!");
+            MessageBox.Show("Price/Total Price must be number only!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -33,7 +33,7 @@ namespace BLL.Helper
 
         private static bool ShowNotADigitError()
         {
-            MessageBox.Show("Count/Discount must be digit only!");
+            MessageBox.Show("Count/Discount must be digit only!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -48,7 +48,7 @@ namespace BLL.Helper
 
         private static bool ShowNotOneAndZeroError()
         {
-            MessageBox.Show("Status/Count must be 1 or 0 only!");
+            MessageBox.Show("Status/Count must be 1 or 0 only!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -57,7 +57,7 @@ namespace BLL.Helper
 
         private static bool ShowInvalidIDError()
         {
-            MessageBox.Show("Invalid ID!");
+            MessageBox.Show("Invalid ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
     }
