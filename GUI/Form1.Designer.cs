@@ -28,6 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,11 +139,13 @@
             this.txtTableID = new System.Windows.Forms.TextBox();
             this.btnClearTable = new System.Windows.Forms.Button();
             this.btnDeleteTable = new System.Windows.Forms.Button();
-            this.btnAddTable = new System.Windows.Forms.Button();
             this.btnUpdateTable = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.btnAddTable = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
             this.splMain.Panel1.SuspendLayout();
@@ -169,6 +182,8 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aToolStripMenuItem,
             this.toolsToolStripMenuItem,
@@ -176,21 +191,21 @@
             this.toolsToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1009, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(63, 25);
             this.aToolStripMenuItem.Text = "Home";
             this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
             this.toolsToolStripMenuItem.Text = "Account";
             // 
             // managerToolStripMenuItem
@@ -202,72 +217,73 @@
             this.billToolStripMenuItem,
             this.billInfosToolStripMenuItem});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
-            this.managerToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.managerToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
             this.managerToolStripMenuItem.Text = "Manager";
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.categoriesToolStripMenuItem.Text = "Category";
             this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // foodsToolStripMenuItem
             // 
             this.foodsToolStripMenuItem.Name = "foodsToolStripMenuItem";
-            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.foodsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.foodsToolStripMenuItem.Text = "Foods";
             this.foodsToolStripMenuItem.Click += new System.EventHandler(this.foodsToolStripMenuItem_Click);
             // 
             // tablesToolStripMenuItem
             // 
             this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.tablesToolStripMenuItem.Text = "Tables";
             this.tablesToolStripMenuItem.Click += new System.EventHandler(this.tablesToolStripMenuItem_Click);
             // 
             // billToolStripMenuItem
             // 
             this.billToolStripMenuItem.Name = "billToolStripMenuItem";
-            this.billToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.billToolStripMenuItem.Text = "Bills";
             this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
             // 
             // billInfosToolStripMenuItem
             // 
             this.billInfosToolStripMenuItem.Name = "billInfosToolStripMenuItem";
-            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.billInfosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.billInfosToolStripMenuItem.Text = "BillInfos";
             this.billInfosToolStripMenuItem.Click += new System.EventHandler(this.billInfosToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem1
             // 
             this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
-            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(54, 25);
             this.toolsToolStripMenuItem1.Text = "Tools";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Location = new System.Drawing.Point(0, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1009, 43);
+            this.panel1.Size = new System.Drawing.Size(983, 82);
             this.panel1.TabIndex = 1;
             // 
             // pnlBody
             // 
             this.pnlBody.Controls.Add(this.splMain);
-            this.pnlBody.Controls.Add(this.splBills);
-            this.pnlBody.Controls.Add(this.splBillInfos);
-            this.pnlBody.Controls.Add(this.splCategory);
             this.pnlBody.Controls.Add(this.splFoods);
             this.pnlBody.Controls.Add(this.splTables);
+            this.pnlBody.Controls.Add(this.splCategory);
+            this.pnlBody.Controls.Add(this.splBillInfos);
+            this.pnlBody.Controls.Add(this.splBills);
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBody.Location = new System.Drawing.Point(0, 70);
+            this.pnlBody.Location = new System.Drawing.Point(0, 111);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(1009, 484);
+            this.pnlBody.Size = new System.Drawing.Size(983, 500);
             this.pnlBody.TabIndex = 2;
             // 
             // splMain
@@ -282,6 +298,7 @@
             // 
             // splMain.Panel2
             // 
+            this.splMain.Panel2.BackColor = System.Drawing.Color.White;
             this.splMain.Panel2.Controls.Add(this.btnMainAddFood);
             this.splMain.Panel2.Controls.Add(this.btnMainRemoveFood);
             this.splMain.Panel2.Controls.Add(this.btnCheckout);
@@ -294,117 +311,140 @@
             this.splMain.Panel2.Controls.Add(this.cboMainFoodName);
             this.splMain.Panel2.Controls.Add(this.cboMainCategoryName);
             this.splMain.Panel2.Controls.Add(this.lvwMainOrders);
-            this.splMain.Size = new System.Drawing.Size(1009, 484);
-            this.splMain.SplitterDistance = 507;
+            this.splMain.Size = new System.Drawing.Size(983, 500);
+            this.splMain.SplitterDistance = 404;
             this.splMain.TabIndex = 0;
             // 
             // flpMainTables
             // 
             this.flpMainTables.AutoScroll = true;
+            this.flpMainTables.BackColor = System.Drawing.Color.White;
             this.flpMainTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpMainTables.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpMainTables.Location = new System.Drawing.Point(0, 0);
+            this.flpMainTables.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.flpMainTables.Name = "flpMainTables";
-            this.flpMainTables.Size = new System.Drawing.Size(507, 484);
+            this.flpMainTables.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flpMainTables.Size = new System.Drawing.Size(404, 500);
             this.flpMainTables.TabIndex = 0;
             // 
             // btnMainAddFood
             // 
-            this.btnMainAddFood.Location = new System.Drawing.Point(298, 253);
+            this.btnMainAddFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnMainAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainAddFood.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnMainAddFood.ForeColor = System.Drawing.Color.White;
+            this.btnMainAddFood.Location = new System.Drawing.Point(417, 245);
             this.btnMainAddFood.Name = "btnMainAddFood";
-            this.btnMainAddFood.Size = new System.Drawing.Size(75, 53);
+            this.btnMainAddFood.Size = new System.Drawing.Size(136, 53);
             this.btnMainAddFood.TabIndex = 4;
             this.btnMainAddFood.Text = "Add Food";
-            this.btnMainAddFood.UseVisualStyleBackColor = true;
+            this.btnMainAddFood.UseVisualStyleBackColor = false;
             this.btnMainAddFood.Click += new System.EventHandler(this.btnMainAddFood_Click);
             // 
             // btnMainRemoveFood
             // 
-            this.btnMainRemoveFood.Location = new System.Drawing.Point(393, 253);
+            this.btnMainRemoveFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnMainRemoveFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainRemoveFood.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnMainRemoveFood.ForeColor = System.Drawing.Color.White;
+            this.btnMainRemoveFood.Location = new System.Drawing.Point(417, 317);
             this.btnMainRemoveFood.Name = "btnMainRemoveFood";
-            this.btnMainRemoveFood.Size = new System.Drawing.Size(75, 53);
+            this.btnMainRemoveFood.Size = new System.Drawing.Size(136, 53);
             this.btnMainRemoveFood.TabIndex = 4;
             this.btnMainRemoveFood.Text = "Remove Food";
-            this.btnMainRemoveFood.UseVisualStyleBackColor = true;
+            this.btnMainRemoveFood.UseVisualStyleBackColor = false;
             this.btnMainRemoveFood.Click += new System.EventHandler(this.btnMainRemoveFood_Click);
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(344, 321);
+            this.btnCheckout.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnCheckout.ForeColor = System.Drawing.Color.White;
+            this.btnCheckout.Location = new System.Drawing.Point(417, 390);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(75, 59);
+            this.btnCheckout.Size = new System.Drawing.Size(136, 59);
             this.btnCheckout.TabIndex = 4;
             this.btnCheckout.Text = "Checkout";
-            this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.UseVisualStyleBackColor = false;
             this.btnCheckout.Click += new System.EventHandler(this.btnMainCheckout_Click);
             // 
             // txtMainDiscount
             // 
-            this.txtMainDiscount.Location = new System.Drawing.Point(99, 324);
+            this.txtMainDiscount.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtMainDiscount.Location = new System.Drawing.Point(135, 359);
+            this.txtMainDiscount.Multiline = true;
             this.txtMainDiscount.Name = "txtMainDiscount";
-            this.txtMainDiscount.Size = new System.Drawing.Size(175, 20);
+            this.txtMainDiscount.Size = new System.Drawing.Size(246, 33);
             this.txtMainDiscount.TabIndex = 3;
             // 
             // txtMainTotalPrice
             // 
             this.txtMainTotalPrice.Enabled = false;
-            this.txtMainTotalPrice.Location = new System.Drawing.Point(99, 360);
+            this.txtMainTotalPrice.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtMainTotalPrice.Location = new System.Drawing.Point(135, 416);
             this.txtMainTotalPrice.Name = "txtMainTotalPrice";
             this.txtMainTotalPrice.ReadOnly = true;
-            this.txtMainTotalPrice.Size = new System.Drawing.Size(175, 20);
+            this.txtMainTotalPrice.Size = new System.Drawing.Size(246, 33);
             this.txtMainTotalPrice.TabIndex = 3;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(20, 364);
+            this.label24.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label24.Location = new System.Drawing.Point(24, 419);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(57, 13);
+            this.label24.Size = new System.Drawing.Size(93, 25);
             this.label24.TabIndex = 2;
             this.label24.Text = "Total price";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(20, 326);
+            this.label23.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label23.Location = new System.Drawing.Point(24, 358);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(49, 13);
+            this.label23.Size = new System.Drawing.Size(81, 25);
             this.label23.TabIndex = 2;
             this.label23.Text = "Discount";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(20, 288);
+            this.label22.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label22.Location = new System.Drawing.Point(24, 302);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 13);
+            this.label22.Size = new System.Drawing.Size(54, 25);
             this.label22.TabIndex = 2;
             this.label22.Text = "Food";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(20, 250);
+            this.label21.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(24, 249);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(49, 13);
+            this.label21.Size = new System.Drawing.Size(87, 25);
             this.label21.TabIndex = 2;
             this.label21.Text = "Category";
             // 
             // cboMainFoodName
             // 
-            this.cboMainFoodName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMainFoodName.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cboMainFoodName.FormattingEnabled = true;
-            this.cboMainFoodName.Location = new System.Drawing.Point(98, 281);
+            this.cboMainFoodName.Location = new System.Drawing.Point(134, 302);
             this.cboMainFoodName.Name = "cboMainFoodName";
-            this.cboMainFoodName.Size = new System.Drawing.Size(175, 21);
+            this.cboMainFoodName.Size = new System.Drawing.Size(246, 33);
             this.cboMainFoodName.TabIndex = 1;
             // 
             // cboMainCategoryName
             // 
-            this.cboMainCategoryName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMainCategoryName.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cboMainCategoryName.FormattingEnabled = true;
-            this.cboMainCategoryName.Location = new System.Drawing.Point(98, 244);
+            this.cboMainCategoryName.Location = new System.Drawing.Point(134, 245);
             this.cboMainCategoryName.Name = "cboMainCategoryName";
-            this.cboMainCategoryName.Size = new System.Drawing.Size(175, 21);
+            this.cboMainCategoryName.Size = new System.Drawing.Size(246, 33);
             this.cboMainCategoryName.TabIndex = 1;
             this.cboMainCategoryName.SelectedIndexChanged += new System.EventHandler(this.cboMainCategoryName_SelectedIndexChanged);
             // 
@@ -412,16 +452,18 @@
             // 
             this.lvwMainOrders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvwMainOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvwMainOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.lvwMainOrders.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvwMainOrders.FullRowSelect = true;
             this.lvwMainOrders.GridLines = true;
             this.lvwMainOrders.HideSelection = false;
             this.lvwMainOrders.Location = new System.Drawing.Point(11, 14);
             this.lvwMainOrders.Name = "lvwMainOrders";
-            this.lvwMainOrders.Size = new System.Drawing.Size(475, 176);
+            this.lvwMainOrders.Size = new System.Drawing.Size(661, 205);
             this.lvwMainOrders.TabIndex = 0;
             this.lvwMainOrders.UseCompatibleStateImageBehavior = false;
             this.lvwMainOrders.View = System.Windows.Forms.View.Details;
@@ -429,16 +471,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Food name";
-            this.columnHeader1.Width = 220;
+            this.columnHeader1.Width = 310;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Count";
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Unit price";
-            this.columnHeader3.Width = 100;
+            this.columnHeader3.Width = 120;
             // 
             // splBills
             // 
@@ -452,6 +495,7 @@
             // 
             // splBills.Panel2
             // 
+            this.splBills.Panel2.BackColor = System.Drawing.Color.White;
             this.splBills.Panel2.Controls.Add(this.cboBillTableID);
             this.splBills.Panel2.Controls.Add(this.dtpBillCheckOutDate);
             this.splBills.Panel2.Controls.Add(this.dtpBillCheckInDate);
@@ -471,8 +515,8 @@
             this.splBills.Panel2.Controls.Add(this.btnClearBill);
             this.splBills.Panel2.Controls.Add(this.btnAddBill);
             this.splBills.Panel2.Controls.Add(this.btnUpdateBill);
-            this.splBills.Size = new System.Drawing.Size(1009, 484);
-            this.splBills.SplitterDistance = 455;
+            this.splBills.Size = new System.Drawing.Size(983, 500);
+            this.splBills.SplitterDistance = 442;
             this.splBills.TabIndex = 3;
             // 
             // dgvBills
@@ -480,180 +524,239 @@
             this.dgvBills.AllowUserToAddRows = false;
             this.dgvBills.AllowUserToDeleteRows = false;
             this.dgvBills.AllowUserToOrderColumns = true;
+            this.dgvBills.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBills.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBills.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBills.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBills.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBills.GridColor = System.Drawing.Color.White;
             this.dgvBills.Location = new System.Drawing.Point(0, 0);
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBills.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBills.Size = new System.Drawing.Size(455, 484);
+            this.dgvBills.Size = new System.Drawing.Size(442, 500);
             this.dgvBills.TabIndex = 0;
             this.dgvBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellClick);
             // 
             // cboBillTableID
             // 
-            this.cboBillTableID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBillTableID.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
             this.cboBillTableID.FormattingEnabled = true;
-            this.cboBillTableID.Location = new System.Drawing.Point(150, 130);
+            this.cboBillTableID.Location = new System.Drawing.Point(194, 173);
             this.cboBillTableID.Name = "cboBillTableID";
-            this.cboBillTableID.Size = new System.Drawing.Size(89, 21);
+            this.cboBillTableID.Size = new System.Drawing.Size(116, 33);
             this.cboBillTableID.TabIndex = 4;
             this.cboBillTableID.SelectedIndexChanged += new System.EventHandler(this.cboBillTableID_SelectedIndexChanged);
             // 
             // dtpBillCheckOutDate
             // 
-            this.dtpBillCheckOutDate.Location = new System.Drawing.Point(150, 99);
+            this.dtpBillCheckOutDate.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.dtpBillCheckOutDate.Location = new System.Drawing.Point(194, 127);
             this.dtpBillCheckOutDate.Name = "dtpBillCheckOutDate";
-            this.dtpBillCheckOutDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpBillCheckOutDate.Size = new System.Drawing.Size(297, 33);
             this.dtpBillCheckOutDate.TabIndex = 3;
             // 
             // dtpBillCheckInDate
             // 
-            this.dtpBillCheckInDate.Location = new System.Drawing.Point(150, 68);
+            this.dtpBillCheckInDate.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.dtpBillCheckInDate.Location = new System.Drawing.Point(194, 81);
             this.dtpBillCheckInDate.Name = "dtpBillCheckInDate";
-            this.dtpBillCheckInDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpBillCheckInDate.Size = new System.Drawing.Size(297, 33);
             this.dtpBillCheckInDate.TabIndex = 3;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(58, 229);
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label16.Location = new System.Drawing.Point(42, 315);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 13);
+            this.label16.Size = new System.Drawing.Size(93, 25);
             this.label16.TabIndex = 2;
             this.label16.Text = "Total price";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(58, 198);
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label15.Location = new System.Drawing.Point(42, 269);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.Size = new System.Drawing.Size(81, 25);
             this.label15.TabIndex = 2;
             this.label15.Text = "Discount";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(58, 167);
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label14.Location = new System.Drawing.Point(42, 223);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.Size = new System.Drawing.Size(59, 25);
             this.label14.TabIndex = 2;
             this.label14.Text = "Status";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(58, 136);
+            this.label13.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label13.Location = new System.Drawing.Point(42, 177);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.Size = new System.Drawing.Size(75, 25);
             this.label13.TabIndex = 2;
             this.label13.Text = "Table ID";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(58, 105);
+            this.label12.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label12.Location = new System.Drawing.Point(42, 131);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 13);
+            this.label12.Size = new System.Drawing.Size(136, 25);
             this.label12.TabIndex = 2;
             this.label12.Text = "Check-out Date";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(58, 74);
+            this.label11.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label11.Location = new System.Drawing.Point(42, 85);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.Size = new System.Drawing.Size(123, 25);
             this.label11.TabIndex = 2;
             this.label11.Text = "Check-in Date";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(58, 43);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.label10.Location = new System.Drawing.Point(42, 39);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(18, 13);
+            this.label10.Size = new System.Drawing.Size(29, 25);
             this.label10.TabIndex = 2;
             this.label10.Text = "ID";
             // 
             // txtBillTotalPrice
             // 
-            this.txtBillTotalPrice.Location = new System.Drawing.Point(152, 224);
+            this.txtBillTotalPrice.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtBillTotalPrice.Location = new System.Drawing.Point(194, 311);
             this.txtBillTotalPrice.Name = "txtBillTotalPrice";
-            this.txtBillTotalPrice.Size = new System.Drawing.Size(200, 20);
+            this.txtBillTotalPrice.Size = new System.Drawing.Size(297, 33);
             this.txtBillTotalPrice.TabIndex = 1;
             // 
             // txtBillDiscount
             // 
-            this.txtBillDiscount.Location = new System.Drawing.Point(152, 193);
+            this.txtBillDiscount.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtBillDiscount.Location = new System.Drawing.Point(194, 265);
             this.txtBillDiscount.Name = "txtBillDiscount";
-            this.txtBillDiscount.Size = new System.Drawing.Size(200, 20);
+            this.txtBillDiscount.Size = new System.Drawing.Size(297, 33);
             this.txtBillDiscount.TabIndex = 1;
             // 
             // txtBillStatus
             // 
-            this.txtBillStatus.Location = new System.Drawing.Point(152, 162);
+            this.txtBillStatus.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtBillStatus.Location = new System.Drawing.Point(194, 219);
             this.txtBillStatus.Name = "txtBillStatus";
-            this.txtBillStatus.Size = new System.Drawing.Size(200, 20);
+            this.txtBillStatus.Size = new System.Drawing.Size(297, 33);
             this.txtBillStatus.TabIndex = 1;
             // 
             // txtBillTableName
             // 
             this.txtBillTableName.Enabled = false;
-            this.txtBillTableName.Location = new System.Drawing.Point(245, 130);
+            this.txtBillTableName.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtBillTableName.Location = new System.Drawing.Point(315, 173);
             this.txtBillTableName.Name = "txtBillTableName";
             this.txtBillTableName.ReadOnly = true;
-            this.txtBillTableName.Size = new System.Drawing.Size(107, 20);
+            this.txtBillTableName.Size = new System.Drawing.Size(176, 33);
             this.txtBillTableName.TabIndex = 1;
             // 
             // txtBillID
             // 
             this.txtBillID.Enabled = false;
-            this.txtBillID.Location = new System.Drawing.Point(149, 37);
+            this.txtBillID.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.txtBillID.Location = new System.Drawing.Point(194, 35);
+            this.txtBillID.Multiline = true;
             this.txtBillID.Name = "txtBillID";
             this.txtBillID.ReadOnly = true;
-            this.txtBillID.Size = new System.Drawing.Size(200, 20);
+            this.txtBillID.Size = new System.Drawing.Size(297, 33);
             this.txtBillID.TabIndex = 1;
             // 
             // btnDeleteBill
             // 
-            this.btnDeleteBill.Location = new System.Drawing.Point(152, 309);
+            this.btnDeleteBill.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteBill.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnDeleteBill.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteBill.Location = new System.Drawing.Point(150, 380);
             this.btnDeleteBill.Name = "btnDeleteBill";
-            this.btnDeleteBill.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBill.Size = new System.Drawing.Size(116, 59);
             this.btnDeleteBill.TabIndex = 0;
             this.btnDeleteBill.Text = "Delete";
-            this.btnDeleteBill.UseVisualStyleBackColor = true;
+            this.btnDeleteBill.UseVisualStyleBackColor = false;
             this.btnDeleteBill.Click += new System.EventHandler(this.btnDeleteBill_Click);
             // 
             // btnClearBill
             // 
-            this.btnClearBill.Location = new System.Drawing.Point(277, 309);
+            this.btnClearBill.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearBill.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnClearBill.ForeColor = System.Drawing.Color.White;
+            this.btnClearBill.Location = new System.Drawing.Point(19, 380);
             this.btnClearBill.Name = "btnClearBill";
-            this.btnClearBill.Size = new System.Drawing.Size(75, 23);
+            this.btnClearBill.Size = new System.Drawing.Size(116, 59);
             this.btnClearBill.TabIndex = 0;
             this.btnClearBill.Text = "Clear";
-            this.btnClearBill.UseVisualStyleBackColor = true;
+            this.btnClearBill.UseVisualStyleBackColor = false;
             this.btnClearBill.Click += new System.EventHandler(this.btnClearBill_Click);
             // 
             // btnAddBill
             // 
-            this.btnAddBill.Location = new System.Drawing.Point(277, 265);
+            this.btnAddBill.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBill.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.btnAddBill.ForeColor = System.Drawing.Color.White;
+            this.btnAddBill.Location = new System.Drawing.Point(412, 380);
             this.btnAddBill.Name = "btnAddBill";
-            this.btnAddBill.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBill.Size = new System.Drawing.Size(116, 59);
             this.btnAddBill.TabIndex = 0;
             this.btnAddBill.Text = "Add New";
-            this.btnAddBill.UseVisualStyleBackColor = true;
+            this.btnAddBill.UseVisualStyleBackColor = false;
             this.btnAddBill.Click += new System.EventHandler(this.btnAddBill_Click);
             // 
             // btnUpdateBill
             // 
-            this.btnUpdateBill.Location = new System.Drawing.Point(152, 265);
+            this.btnUpdateBill.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateBill.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateBill.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateBill.Location = new System.Drawing.Point(281, 380);
             this.btnUpdateBill.Name = "btnUpdateBill";
-            this.btnUpdateBill.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBill.Size = new System.Drawing.Size(116, 59);
             this.btnUpdateBill.TabIndex = 0;
             this.btnUpdateBill.Text = "Update";
-            this.btnUpdateBill.UseVisualStyleBackColor = true;
+            this.btnUpdateBill.UseVisualStyleBackColor = false;
             this.btnUpdateBill.Click += new System.EventHandler(this.btnUpdateBill_Click);
             // 
             // splBillInfos
@@ -668,6 +771,7 @@
             // 
             // splBillInfos.Panel2
             // 
+            this.splBillInfos.Panel2.BackColor = System.Drawing.Color.White;
             this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoBillID);
             this.splBillInfos.Panel2.Controls.Add(this.cboBillInfoFoodID);
             this.splBillInfos.Panel2.Controls.Add(this.label20);
@@ -681,142 +785,173 @@
             this.splBillInfos.Panel2.Controls.Add(this.btnClearBillInfo);
             this.splBillInfos.Panel2.Controls.Add(this.btnUpdateBillInfo);
             this.splBillInfos.Panel2.Controls.Add(this.btnAddBillInfo);
-            this.splBillInfos.Size = new System.Drawing.Size(1009, 484);
-            this.splBillInfos.SplitterDistance = 457;
+            this.splBillInfos.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splBillInfos.Size = new System.Drawing.Size(983, 500);
+            this.splBillInfos.SplitterDistance = 445;
             this.splBillInfos.TabIndex = 5;
             // 
             // dgvBillInfos
             // 
             this.dgvBillInfos.AllowUserToAddRows = false;
             this.dgvBillInfos.AllowUserToDeleteRows = false;
+            this.dgvBillInfos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBillInfos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBillInfos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBillInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBillInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBillInfos.GridColor = System.Drawing.Color.White;
             this.dgvBillInfos.Location = new System.Drawing.Point(0, 0);
             this.dgvBillInfos.Name = "dgvBillInfos";
             this.dgvBillInfos.ReadOnly = true;
             this.dgvBillInfos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBillInfos.Size = new System.Drawing.Size(457, 484);
+            this.dgvBillInfos.Size = new System.Drawing.Size(445, 500);
             this.dgvBillInfos.TabIndex = 0;
             this.dgvBillInfos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBillInfos_CellClick);
             // 
             // cboBillInfoBillID
             // 
-            this.cboBillInfoBillID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBillInfoBillID.FormattingEnabled = true;
-            this.cboBillInfoBillID.Location = new System.Drawing.Point(159, 70);
+            this.cboBillInfoBillID.Location = new System.Drawing.Point(162, 101);
             this.cboBillInfoBillID.Name = "cboBillInfoBillID";
-            this.cboBillInfoBillID.Size = new System.Drawing.Size(189, 21);
+            this.cboBillInfoBillID.Size = new System.Drawing.Size(308, 33);
             this.cboBillInfoBillID.TabIndex = 3;
             // 
             // cboBillInfoFoodID
             // 
-            this.cboBillInfoFoodID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBillInfoFoodID.FormattingEnabled = true;
-            this.cboBillInfoFoodID.Location = new System.Drawing.Point(159, 103);
+            this.cboBillInfoFoodID.Location = new System.Drawing.Point(162, 161);
             this.cboBillInfoFoodID.Name = "cboBillInfoFoodID";
-            this.cboBillInfoFoodID.Size = new System.Drawing.Size(78, 21);
+            this.cboBillInfoFoodID.Size = new System.Drawing.Size(105, 33);
             this.cboBillInfoFoodID.TabIndex = 3;
             this.cboBillInfoFoodID.SelectedIndexChanged += new System.EventHandler(this.cboBillInfoFoodID_SelectedIndexChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(87, 109);
+            this.label20.Location = new System.Drawing.Point(61, 165);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 13);
+            this.label20.Size = new System.Drawing.Size(76, 25);
             this.label20.TabIndex = 2;
             this.label20.Text = "Food ID";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(87, 142);
+            this.label19.Location = new System.Drawing.Point(61, 225);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.Size = new System.Drawing.Size(61, 25);
             this.label19.TabIndex = 2;
             this.label19.Text = "Count";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(87, 76);
+            this.label18.Location = new System.Drawing.Point(61, 105);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.Size = new System.Drawing.Size(56, 25);
             this.label18.TabIndex = 2;
             this.label18.Text = "Bill ID";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(87, 43);
+            this.label17.Location = new System.Drawing.Point(61, 45);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(18, 13);
+            this.label17.Size = new System.Drawing.Size(29, 25);
             this.label17.TabIndex = 2;
             this.label17.Text = "ID";
             // 
             // txtBillInfoCount
             // 
-            this.txtBillInfoCount.Location = new System.Drawing.Point(159, 136);
+            this.txtBillInfoCount.Location = new System.Drawing.Point(162, 221);
             this.txtBillInfoCount.Name = "txtBillInfoCount";
-            this.txtBillInfoCount.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoCount.Size = new System.Drawing.Size(308, 33);
             this.txtBillInfoCount.TabIndex = 1;
             // 
             // txtBillInfoFoodName
             // 
             this.txtBillInfoFoodName.Enabled = false;
-            this.txtBillInfoFoodName.Location = new System.Drawing.Point(249, 104);
+            this.txtBillInfoFoodName.Location = new System.Drawing.Point(279, 161);
             this.txtBillInfoFoodName.Name = "txtBillInfoFoodName";
             this.txtBillInfoFoodName.ReadOnly = true;
-            this.txtBillInfoFoodName.Size = new System.Drawing.Size(96, 20);
+            this.txtBillInfoFoodName.Size = new System.Drawing.Size(191, 33);
             this.txtBillInfoFoodName.TabIndex = 1;
             // 
             // txtBillInfoID
             // 
             this.txtBillInfoID.Enabled = false;
-            this.txtBillInfoID.Location = new System.Drawing.Point(159, 38);
+            this.txtBillInfoID.Location = new System.Drawing.Point(159, 41);
             this.txtBillInfoID.Name = "txtBillInfoID";
             this.txtBillInfoID.ReadOnly = true;
-            this.txtBillInfoID.Size = new System.Drawing.Size(189, 20);
+            this.txtBillInfoID.Size = new System.Drawing.Size(308, 33);
             this.txtBillInfoID.TabIndex = 1;
             // 
             // btnDeleteBillInfo
             // 
-            this.btnDeleteBillInfo.Location = new System.Drawing.Point(163, 227);
+            this.btnDeleteBillInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteBillInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteBillInfo.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteBillInfo.Location = new System.Drawing.Point(149, 285);
             this.btnDeleteBillInfo.Name = "btnDeleteBillInfo";
-            this.btnDeleteBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteBillInfo.Size = new System.Drawing.Size(116, 59);
             this.btnDeleteBillInfo.TabIndex = 0;
             this.btnDeleteBillInfo.Text = "Delete";
-            this.btnDeleteBillInfo.UseVisualStyleBackColor = true;
+            this.btnDeleteBillInfo.UseVisualStyleBackColor = false;
             this.btnDeleteBillInfo.Click += new System.EventHandler(this.btnDeleteBillInfo_Click);
             // 
             // btnClearBillInfo
             // 
-            this.btnClearBillInfo.Location = new System.Drawing.Point(275, 227);
+            this.btnClearBillInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearBillInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearBillInfo.ForeColor = System.Drawing.Color.White;
+            this.btnClearBillInfo.Location = new System.Drawing.Point(25, 285);
             this.btnClearBillInfo.Name = "btnClearBillInfo";
-            this.btnClearBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnClearBillInfo.Size = new System.Drawing.Size(116, 59);
             this.btnClearBillInfo.TabIndex = 0;
             this.btnClearBillInfo.Text = "Clear";
-            this.btnClearBillInfo.UseVisualStyleBackColor = true;
+            this.btnClearBillInfo.UseVisualStyleBackColor = false;
             this.btnClearBillInfo.Click += new System.EventHandler(this.btnClearBillInfo_Click);
             // 
             // btnUpdateBillInfo
             // 
-            this.btnUpdateBillInfo.Location = new System.Drawing.Point(163, 182);
+            this.btnUpdateBillInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateBillInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateBillInfo.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateBillInfo.Location = new System.Drawing.Point(273, 285);
             this.btnUpdateBillInfo.Name = "btnUpdateBillInfo";
-            this.btnUpdateBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateBillInfo.Size = new System.Drawing.Size(116, 59);
             this.btnUpdateBillInfo.TabIndex = 0;
             this.btnUpdateBillInfo.Text = "Update";
-            this.btnUpdateBillInfo.UseVisualStyleBackColor = true;
+            this.btnUpdateBillInfo.UseVisualStyleBackColor = false;
             this.btnUpdateBillInfo.Click += new System.EventHandler(this.btnUpdateBillInfo_Click);
             // 
             // btnAddBillInfo
             // 
-            this.btnAddBillInfo.Location = new System.Drawing.Point(275, 182);
+            this.btnAddBillInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddBillInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBillInfo.ForeColor = System.Drawing.Color.White;
+            this.btnAddBillInfo.Location = new System.Drawing.Point(397, 285);
             this.btnAddBillInfo.Name = "btnAddBillInfo";
-            this.btnAddBillInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBillInfo.Size = new System.Drawing.Size(116, 59);
             this.btnAddBillInfo.TabIndex = 0;
             this.btnAddBillInfo.Text = "Add New";
-            this.btnAddBillInfo.UseVisualStyleBackColor = true;
+            this.btnAddBillInfo.UseVisualStyleBackColor = false;
             this.btnAddBillInfo.Click += new System.EventHandler(this.btnAddBillInfo_Click);
             // 
             // splCategory
@@ -831,6 +966,7 @@
             // 
             // splCategory.Panel2
             // 
+            this.splCategory.Panel2.BackColor = System.Drawing.Color.White;
             this.splCategory.Panel2.Controls.Add(this.btnClearCategory);
             this.splCategory.Panel2.Controls.Add(this.btnDeleteCategory);
             this.splCategory.Panel2.Controls.Add(this.btnUpdateCategory);
@@ -839,8 +975,9 @@
             this.splCategory.Panel2.Controls.Add(this.txtCategoryID);
             this.splCategory.Panel2.Controls.Add(this.label1);
             this.splCategory.Panel2.Controls.Add(this.label2);
-            this.splCategory.Size = new System.Drawing.Size(1009, 484);
-            this.splCategory.SplitterDistance = 543;
+            this.splCategory.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splCategory.Size = new System.Drawing.Size(983, 500);
+            this.splCategory.SplitterDistance = 528;
             this.splCategory.TabIndex = 0;
             // 
             // dgvCategories
@@ -848,87 +985,119 @@
             this.dgvCategories.AllowUserToAddRows = false;
             this.dgvCategories.AllowUserToDeleteRows = false;
             this.dgvCategories.AllowUserToOrderColumns = true;
+            this.dgvCategories.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCategories.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCategories.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCategories.GridColor = System.Drawing.Color.White;
             this.dgvCategories.Location = new System.Drawing.Point(0, 0);
             this.dgvCategories.Name = "dgvCategories";
             this.dgvCategories.ReadOnly = true;
             this.dgvCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategories.Size = new System.Drawing.Size(543, 484);
+            this.dgvCategories.Size = new System.Drawing.Size(528, 500);
             this.dgvCategories.TabIndex = 0;
             this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
             // 
             // btnClearCategory
             // 
-            this.btnClearCategory.Location = new System.Drawing.Point(184, 138);
+            this.btnClearCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearCategory.ForeColor = System.Drawing.Color.White;
+            this.btnClearCategory.Location = new System.Drawing.Point(287, 260);
             this.btnClearCategory.Name = "btnClearCategory";
-            this.btnClearCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnClearCategory.Size = new System.Drawing.Size(116, 55);
             this.btnClearCategory.TabIndex = 2;
             this.btnClearCategory.Text = "Clear";
-            this.btnClearCategory.UseVisualStyleBackColor = true;
+            this.btnClearCategory.UseVisualStyleBackColor = false;
             this.btnClearCategory.Click += new System.EventHandler(this.btnClearCategory_Click);
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(76, 138);
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteCategory.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(143, 260);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCategory.Size = new System.Drawing.Size(116, 55);
             this.btnDeleteCategory.TabIndex = 2;
             this.btnDeleteCategory.Text = "Delete";
-            this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.UseVisualStyleBackColor = false;
             this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnUpdateCategory
             // 
-            this.btnUpdateCategory.Location = new System.Drawing.Point(76, 100);
+            this.btnUpdateCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateCategory.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCategory.Location = new System.Drawing.Point(143, 188);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCategory.Size = new System.Drawing.Size(116, 55);
             this.btnUpdateCategory.TabIndex = 2;
             this.btnUpdateCategory.Text = "Update";
-            this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.UseVisualStyleBackColor = false;
             this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(184, 100);
+            this.btnAddCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCategory.ForeColor = System.Drawing.Color.White;
+            this.btnAddCategory.Location = new System.Drawing.Point(287, 188);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCategory.Size = new System.Drawing.Size(116, 55);
             this.btnAddCategory.TabIndex = 2;
             this.btnAddCategory.Text = "Add New";
-            this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // txtCategoryName
             // 
-            this.txtCategoryName.Location = new System.Drawing.Point(76, 63);
+            this.txtCategoryName.Location = new System.Drawing.Point(142, 118);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(183, 20);
+            this.txtCategoryName.Size = new System.Drawing.Size(261, 33);
             this.txtCategoryName.TabIndex = 1;
             // 
             // txtCategoryID
             // 
             this.txtCategoryID.Enabled = false;
-            this.txtCategoryID.Location = new System.Drawing.Point(76, 25);
+            this.txtCategoryID.Location = new System.Drawing.Point(142, 66);
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.ReadOnly = true;
-            this.txtCategoryID.Size = new System.Drawing.Size(183, 20);
+            this.txtCategoryID.Size = new System.Drawing.Size(261, 33);
             this.txtCategoryID.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 66);
+            this.label1.Location = new System.Drawing.Point(40, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 28);
+            this.label2.Location = new System.Drawing.Point(40, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.Size = new System.Drawing.Size(29, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "ID";
             // 
@@ -944,6 +1113,7 @@
             // 
             // splFoods.Panel2
             // 
+            this.splFoods.Panel2.BackColor = System.Drawing.Color.White;
             this.splFoods.Panel2.Controls.Add(this.cboFoodCategoryID);
             this.splFoods.Panel2.Controls.Add(this.label6);
             this.splFoods.Panel2.Controls.Add(this.label5);
@@ -957,140 +1127,172 @@
             this.splFoods.Panel2.Controls.Add(this.btnDeleteFood);
             this.splFoods.Panel2.Controls.Add(this.btnUpdateFood);
             this.splFoods.Panel2.Controls.Add(this.btnAddFood);
-            this.splFoods.Size = new System.Drawing.Size(1009, 484);
-            this.splFoods.SplitterDistance = 495;
+            this.splFoods.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+            this.splFoods.Size = new System.Drawing.Size(983, 500);
+            this.splFoods.SplitterDistance = 482;
             this.splFoods.TabIndex = 3;
             // 
             // dgvFoods
             // 
             this.dgvFoods.AllowUserToAddRows = false;
             this.dgvFoods.AllowUserToDeleteRows = false;
+            this.dgvFoods.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFoods.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFoods.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFoods.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFoods.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFoods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFoods.GridColor = System.Drawing.Color.White;
             this.dgvFoods.Location = new System.Drawing.Point(0, 0);
             this.dgvFoods.Name = "dgvFoods";
             this.dgvFoods.ReadOnly = true;
             this.dgvFoods.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFoods.Size = new System.Drawing.Size(495, 484);
+            this.dgvFoods.Size = new System.Drawing.Size(482, 500);
             this.dgvFoods.TabIndex = 0;
             this.dgvFoods.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoods_CellClick);
             // 
             // cboFoodCategoryID
             // 
-            this.cboFoodCategoryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFoodCategoryID.FormattingEnabled = true;
-            this.cboFoodCategoryID.Location = new System.Drawing.Point(140, 106);
+            this.cboFoodCategoryID.Location = new System.Drawing.Point(140, 133);
             this.cboFoodCategoryID.Name = "cboFoodCategoryID";
-            this.cboFoodCategoryID.Size = new System.Drawing.Size(74, 21);
+            this.cboFoodCategoryID.Size = new System.Drawing.Size(98, 33);
             this.cboFoodCategoryID.TabIndex = 3;
             this.cboFoodCategoryID.SelectedIndexChanged += new System.EventHandler(this.cboFoodCategoryID_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(58, 145);
+            this.label6.Location = new System.Drawing.Point(16, 192);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.Size = new System.Drawing.Size(50, 25);
             this.label6.TabIndex = 2;
             this.label6.Text = "Price";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 108);
+            this.label5.Location = new System.Drawing.Point(16, 139);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.Size = new System.Drawing.Size(109, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Category ID";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 71);
+            this.label4.Location = new System.Drawing.Point(16, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(60, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 34);
+            this.label3.Location = new System.Drawing.Point(16, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 13);
+            this.label3.Size = new System.Drawing.Size(29, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "ID";
             // 
             // txtFoodPrice
             // 
-            this.txtFoodPrice.Location = new System.Drawing.Point(140, 140);
+            this.txtFoodPrice.Location = new System.Drawing.Point(140, 186);
             this.txtFoodPrice.Name = "txtFoodPrice";
-            this.txtFoodPrice.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodPrice.Size = new System.Drawing.Size(289, 33);
             this.txtFoodPrice.TabIndex = 1;
             // 
             // txtFoodName
             // 
-            this.txtFoodName.Location = new System.Drawing.Point(140, 66);
+            this.txtFoodName.Location = new System.Drawing.Point(140, 80);
             this.txtFoodName.Name = "txtFoodName";
-            this.txtFoodName.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodName.Size = new System.Drawing.Size(289, 33);
             this.txtFoodName.TabIndex = 1;
             // 
             // txtFoodCategoryName
             // 
             this.txtFoodCategoryName.Enabled = false;
-            this.txtFoodCategoryName.Location = new System.Drawing.Point(220, 107);
+            this.txtFoodCategoryName.Location = new System.Drawing.Point(258, 134);
             this.txtFoodCategoryName.Name = "txtFoodCategoryName";
             this.txtFoodCategoryName.ReadOnly = true;
-            this.txtFoodCategoryName.Size = new System.Drawing.Size(87, 20);
+            this.txtFoodCategoryName.Size = new System.Drawing.Size(171, 33);
             this.txtFoodCategoryName.TabIndex = 1;
             // 
             // txtFoodID
             // 
             this.txtFoodID.Enabled = false;
-            this.txtFoodID.Location = new System.Drawing.Point(140, 29);
+            this.txtFoodID.Location = new System.Drawing.Point(140, 27);
             this.txtFoodID.Name = "txtFoodID";
             this.txtFoodID.ReadOnly = true;
-            this.txtFoodID.Size = new System.Drawing.Size(167, 20);
+            this.txtFoodID.Size = new System.Drawing.Size(289, 33);
             this.txtFoodID.TabIndex = 1;
             // 
             // btnClearFood
             // 
-            this.btnClearFood.Location = new System.Drawing.Point(232, 225);
+            this.btnClearFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearFood.ForeColor = System.Drawing.Color.White;
+            this.btnClearFood.Location = new System.Drawing.Point(313, 321);
             this.btnClearFood.Name = "btnClearFood";
-            this.btnClearFood.Size = new System.Drawing.Size(75, 23);
+            this.btnClearFood.Size = new System.Drawing.Size(116, 54);
             this.btnClearFood.TabIndex = 0;
             this.btnClearFood.Text = "Clear";
-            this.btnClearFood.UseVisualStyleBackColor = true;
+            this.btnClearFood.UseVisualStyleBackColor = false;
             this.btnClearFood.Click += new System.EventHandler(this.btnClearFood_Click);
             // 
             // btnDeleteFood
             // 
-            this.btnDeleteFood.Location = new System.Drawing.Point(109, 225);
+            this.btnDeleteFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFood.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteFood.Location = new System.Drawing.Point(165, 320);
             this.btnDeleteFood.Name = "btnDeleteFood";
-            this.btnDeleteFood.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteFood.Size = new System.Drawing.Size(116, 54);
             this.btnDeleteFood.TabIndex = 0;
             this.btnDeleteFood.Text = "Delete";
-            this.btnDeleteFood.UseVisualStyleBackColor = true;
+            this.btnDeleteFood.UseVisualStyleBackColor = false;
             this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
             // 
             // btnUpdateFood
             // 
-            this.btnUpdateFood.Location = new System.Drawing.Point(109, 182);
+            this.btnUpdateFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateFood.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateFood.Location = new System.Drawing.Point(165, 247);
             this.btnUpdateFood.Name = "btnUpdateFood";
-            this.btnUpdateFood.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateFood.Size = new System.Drawing.Size(116, 54);
             this.btnUpdateFood.TabIndex = 0;
             this.btnUpdateFood.Text = "Update";
-            this.btnUpdateFood.UseVisualStyleBackColor = true;
+            this.btnUpdateFood.UseVisualStyleBackColor = false;
             this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(232, 182);
+            this.btnAddFood.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFood.ForeColor = System.Drawing.Color.White;
+            this.btnAddFood.Location = new System.Drawing.Point(313, 246);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFood.Size = new System.Drawing.Size(116, 54);
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Add New";
-            this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.UseVisualStyleBackColor = false;
             this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // splTables
@@ -1105,6 +1307,7 @@
             // 
             // splTables.Panel2
             // 
+            this.splTables.Panel2.BackColor = System.Drawing.Color.White;
             this.splTables.Panel2.Controls.Add(this.label9);
             this.splTables.Panel2.Controls.Add(this.label8);
             this.splTables.Panel2.Controls.Add(this.label7);
@@ -1115,122 +1318,142 @@
             this.splTables.Panel2.Controls.Add(this.btnDeleteTable);
             this.splTables.Panel2.Controls.Add(this.btnAddTable);
             this.splTables.Panel2.Controls.Add(this.btnUpdateTable);
-            this.splTables.Size = new System.Drawing.Size(1009, 484);
-            this.splTables.SplitterDistance = 470;
+            this.splTables.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splTables.Size = new System.Drawing.Size(983, 500);
+            this.splTables.SplitterDistance = 457;
             this.splTables.TabIndex = 4;
             // 
             // dgvTables
             // 
             this.dgvTables.AllowUserToAddRows = false;
             this.dgvTables.AllowUserToDeleteRows = false;
+            this.dgvTables.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTables.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTables.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTables.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTables.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTables.GridColor = System.Drawing.Color.White;
             this.dgvTables.Location = new System.Drawing.Point(0, 0);
             this.dgvTables.Name = "dgvTables";
             this.dgvTables.ReadOnly = true;
             this.dgvTables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTables.Size = new System.Drawing.Size(470, 484);
+            this.dgvTables.Size = new System.Drawing.Size(457, 500);
             this.dgvTables.TabIndex = 0;
             this.dgvTables.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTables_CellClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(66, 117);
+            this.label9.Location = new System.Drawing.Point(62, 160);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.Size = new System.Drawing.Size(59, 25);
             this.label9.TabIndex = 2;
             this.label9.Text = "Status";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(66, 83);
+            this.label8.Location = new System.Drawing.Point(62, 105);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(60, 25);
             this.label8.TabIndex = 2;
             this.label8.Text = "Name";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(66, 47);
+            this.label7.Location = new System.Drawing.Point(62, 47);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 13);
+            this.label7.Size = new System.Drawing.Size(29, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "ID";
             // 
             // txtTableStatus
             // 
-            this.txtTableStatus.Location = new System.Drawing.Point(134, 114);
+            this.txtTableStatus.Location = new System.Drawing.Point(141, 157);
             this.txtTableStatus.Name = "txtTableStatus";
-            this.txtTableStatus.Size = new System.Drawing.Size(177, 20);
+            this.txtTableStatus.Size = new System.Drawing.Size(263, 33);
             this.txtTableStatus.TabIndex = 1;
             // 
             // txtTableName
             // 
-            this.txtTableName.Location = new System.Drawing.Point(134, 80);
+            this.txtTableName.Location = new System.Drawing.Point(141, 102);
             this.txtTableName.Name = "txtTableName";
-            this.txtTableName.Size = new System.Drawing.Size(177, 20);
+            this.txtTableName.Size = new System.Drawing.Size(263, 33);
             this.txtTableName.TabIndex = 1;
             // 
             // txtTableID
             // 
             this.txtTableID.Enabled = false;
-            this.txtTableID.Location = new System.Drawing.Point(134, 44);
+            this.txtTableID.Location = new System.Drawing.Point(141, 44);
             this.txtTableID.Name = "txtTableID";
             this.txtTableID.ReadOnly = true;
-            this.txtTableID.Size = new System.Drawing.Size(177, 20);
+            this.txtTableID.Size = new System.Drawing.Size(263, 33);
             this.txtTableID.TabIndex = 1;
             // 
             // btnClearTable
             // 
-            this.btnClearTable.Location = new System.Drawing.Point(236, 196);
+            this.btnClearTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearTable.ForeColor = System.Drawing.Color.White;
+            this.btnClearTable.Location = new System.Drawing.Point(283, 291);
             this.btnClearTable.Name = "btnClearTable";
-            this.btnClearTable.Size = new System.Drawing.Size(75, 23);
+            this.btnClearTable.Size = new System.Drawing.Size(121, 52);
             this.btnClearTable.TabIndex = 0;
             this.btnClearTable.Text = "Clear";
-            this.btnClearTable.UseVisualStyleBackColor = true;
+            this.btnClearTable.UseVisualStyleBackColor = false;
             this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
             // 
             // btnDeleteTable
             // 
-            this.btnDeleteTable.Location = new System.Drawing.Point(134, 196);
+            this.btnDeleteTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTable.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteTable.Location = new System.Drawing.Point(142, 291);
             this.btnDeleteTable.Name = "btnDeleteTable";
-            this.btnDeleteTable.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteTable.Size = new System.Drawing.Size(121, 52);
             this.btnDeleteTable.TabIndex = 0;
             this.btnDeleteTable.Text = "Delete";
-            this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.UseVisualStyleBackColor = false;
             this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
-            // 
-            // btnAddTable
-            // 
-            this.btnAddTable.Location = new System.Drawing.Point(236, 153);
-            this.btnAddTable.Name = "btnAddTable";
-            this.btnAddTable.Size = new System.Drawing.Size(75, 23);
-            this.btnAddTable.TabIndex = 0;
-            this.btnAddTable.Text = "Add New";
-            this.btnAddTable.UseVisualStyleBackColor = true;
-            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // btnUpdateTable
             // 
-            this.btnUpdateTable.Location = new System.Drawing.Point(134, 153);
+            this.btnUpdateTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTable.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateTable.Location = new System.Drawing.Point(142, 218);
             this.btnUpdateTable.Name = "btnUpdateTable";
-            this.btnUpdateTable.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateTable.Size = new System.Drawing.Size(121, 52);
             this.btnUpdateTable.TabIndex = 0;
             this.btnUpdateTable.Text = "Update";
-            this.btnUpdateTable.UseVisualStyleBackColor = true;
+            this.btnUpdateTable.UseVisualStyleBackColor = false;
             this.btnUpdateTable.Click += new System.EventHandler(this.btnUpdateTable_Click);
             // 
             // pnlHeader
             // 
-            this.pnlHeader.Controls.Add(this.menuStrip1);
             this.pnlHeader.Controls.Add(this.panel1);
+            this.pnlHeader.Controls.Add(this.menuStrip1);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1009, 70);
+            this.pnlHeader.Size = new System.Drawing.Size(983, 111);
             this.pnlHeader.TabIndex = 3;
             // 
             // pnlMain
@@ -1240,20 +1463,49 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1009, 554);
+            this.pnlMain.Size = new System.Drawing.Size(983, 611);
             this.pnlMain.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.White;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label25.Location = new System.Drawing.Point(330, 10);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(373, 50);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Restaurant Manager";
+            // 
+            // btnAddTable
+            // 
+            this.btnAddTable.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTable.ForeColor = System.Drawing.Color.White;
+            this.btnAddTable.Location = new System.Drawing.Point(283, 218);
+            this.btnAddTable.Name = "btnAddTable";
+            this.btnAddTable.Size = new System.Drawing.Size(121, 52);
+            this.btnAddTable.TabIndex = 0;
+            this.btnAddTable.Text = "Add New";
+            this.btnAddTable.UseVisualStyleBackColor = false;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 554);
+            this.ClientSize = new System.Drawing.Size(983, 611);
             this.Controls.Add(this.pnlMain);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Restaurant Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.splMain.Panel1.ResumeLayout(false);
             this.splMain.Panel2.ResumeLayout(false);
@@ -1343,7 +1595,6 @@
         private System.Windows.Forms.TextBox txtTableID;
         private System.Windows.Forms.Button btnClearTable;
         private System.Windows.Forms.Button btnDeleteTable;
-        private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.Button btnUpdateTable;
         private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem billToolStripMenuItem;
@@ -1403,6 +1654,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnAddTable;
     }
 }
 

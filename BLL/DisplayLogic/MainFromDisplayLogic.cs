@@ -83,8 +83,12 @@ namespace BLL.DisplayLogic
             {
                 Button btnTable = new Button();
                 btnTable.Text = table.Name;
-                btnTable.Width = 75;
-                btnTable.Height = 55;
+                btnTable.Width = 110;
+                btnTable.Height = 110;
+                btnTable.BackColor = System.Drawing.Color.DodgerBlue;
+                btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnTable.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+                btnTable.ForeColor = System.Drawing.Color.White;
                 btnTable.Tag = new Order();
                 (btnTable.Tag as Order).Table = table;
                 btnTable.Click += Table_Click;
