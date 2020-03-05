@@ -66,5 +66,16 @@ namespace BLL.DataLogic
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public int AddBillUsingSP(tblBill newBill)
+        {
+            try
+            {
+                int lastID = (_dataAccess as BillDataAccess).AddBillUsingSP(newBill);
+                
+                return lastID; 
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

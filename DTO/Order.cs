@@ -9,8 +9,11 @@ namespace DTO
 {
     public class Order
     {
-        public Dictionary<tblFood, int> Foods { get; set; } = new Dictionary<tblFood, int>();
+        public Dictionary<tblFood, int> Foods { get; set; }
         public tblTable Table { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
+        public int Status { get; set; }
         public int Discount { get; set; }
         public double TotalPrice
         {
@@ -22,7 +25,7 @@ namespace DTO
                 {
                     totalPrice += item.Key.Price * item.Value;
                 }
-                return totalPrice;
+                return totalPrice - (totalPrice * Discount/100);
             }
         }
     }

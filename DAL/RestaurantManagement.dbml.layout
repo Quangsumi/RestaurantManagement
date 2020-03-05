@@ -38,28 +38,28 @@
         <elementListCompartment Id="7dbef8c9-cdbf-442b-a172-58d3aad99fd9" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 6.1819482421875); (6.46875 : 6.1819482421875); (6.46875 : 2.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 6.1819482421875); (6.46875 : 6.1819482421875); (6.46875 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/RestaurantManagementDataContext/tblBill/tblBill_tblBillInfo" />
       <nodes>
         <classShapeMoniker Id="e835a407-0df5-4532-88b8-c1d10b2cfe68" />
         <classShapeMoniker Id="69c5ee72-980c-45a0-8415-d1b1535a23a8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.69314697265625); (3.5 : 5.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.69314697265625); (3.5 : 5.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/RestaurantManagementDataContext/tblTable/tblTable_tblBill" />
       <nodes>
         <classShapeMoniker Id="f09adc16-a0a0-4b27-88f5-d97597b3db00" />
         <classShapeMoniker Id="e835a407-0df5-4532-88b8-c1d10b2cfe68" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 1.66429768880208); (6.25 : 1.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 1.66429768880208); (6.25 : 1.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/RestaurantManagementDataContext/tblFood/tblFood_tblBillInfo" />
       <nodes>
         <classShapeMoniker Id="a4a7ace1-6baf-4add-be6e-26cb346fc9ef" />
         <classShapeMoniker Id="69c5ee72-980c-45a0-8415-d1b1535a23a8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/RestaurantManagementDataContext/tblCategory/tblCategory_tblFood" />
       <nodes>
         <classShapeMoniker Id="b2ad0bfc-128f-41fc-b6b9-91930b46e2a0" />

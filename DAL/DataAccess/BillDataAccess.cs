@@ -89,5 +89,18 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public int AddBillUsingSP(tblBill newBill)
+        {
+            try
+            {
+                spAddBillResult sp = _dataContext.spAddBill(newBill.CheckOutDate, newBill.CheckInDate, newBill.TableID, newBill.Discount, newBill.TotalPrice, newBill.Status).FirstOrDefault();
+
+                int lastID = Int32.Parse(sp.Column1.Value.ToString());
+                
+                return lastID;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

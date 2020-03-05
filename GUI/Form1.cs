@@ -50,7 +50,7 @@ namespace GUI
             _tableDisplayLogic.LoadRecordsFromDataLogic();
             _billDisplayLogic.LoadRecordsFromDataLogic();
             _billInfoDisplayLogic.LoadRecordsFromDataLogic();
-            _mainFormDisplayLogic.InitializeData();
+            _mainFormDisplayLogic.LoadTablesAndCategory();
 
         }
 
@@ -64,26 +64,31 @@ namespace GUI
         private void foodsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splFoods.BringToFront();
+            _foodDisplayLogic.LoadRecordsFromDataLogic();
         }
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splCategory.BringToFront();
+            _categoryDisplayLogic.LoadRecordsFromDataLogic();
         }
 
         private void tablesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splTables.BringToFront();
+            _tableDisplayLogic.LoadRecordsFromDataLogic();
         }
 
         private void billToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splBills.BringToFront();
+            _billDisplayLogic.LoadRecordsFromDataLogic();
         }
 
         private void billInfosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splBillInfos.BringToFront();
+            _billInfoDisplayLogic.LoadRecordsFromDataLogic();
         }
         #endregion
 

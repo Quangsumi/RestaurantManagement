@@ -129,4 +129,15 @@
     <Parameter Name="price" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.spAddBill" Method="spAddBill">
+    <Parameter Name="checkoutdate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="checkindate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="tableid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="discount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="totalprice" Type="System.Double" DbType="Float" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spAddBillResult">
+      <Column Name="" Member="Column1" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
