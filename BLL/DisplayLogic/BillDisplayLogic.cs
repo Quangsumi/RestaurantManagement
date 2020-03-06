@@ -55,22 +55,16 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => Validate.IsValidID(_txtBillID) 
-            && Validate.IsNumber(_txtTotalPrice) 
-            && Validate.IsDigit(_txtDiscount) 
-            && Validate.IsOneAndZero(_txtBillStatus);
+            => ValidateInput.IsValidID(_txtBillID) 
+            && ValidateInput.IsNumber(_txtTotalPrice) 
+            && ValidateInput.IsDigit(_txtDiscount) 
+            && ValidateInput.IsOneAndZero(_txtBillStatus);
 
         public override void ClickAddRecord()
         {
             if (!IsInputValid()) return;
 
-            tblBill newBill = new tblBill();
-            newBill.CheckInDate = _dtpCheckInDate.Value;
-            newBill.CheckOutDate = _dtpCheckOutDate.Value;
-            newBill.TableID = Convert.ToInt32(_cboBillTableID.Text);
-            newBill.Status = Convert.ToInt32(_txtBillStatus.Text);
-            newBill.Discount = Convert.ToInt32(_txtDiscount.Text);
-            newBill.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
+            tblBill newBill = Initialize.NewBill(_txtBillID, _dtpCheckInDate, _dtpCheckOutDate, _cboBillTableID, _txtBillStatus, _txtDiscount, _txtTotalPrice);
 
             try
             {
@@ -111,7 +105,7 @@ namespace BLL.DisplayLogic
 
         protected override void ClearControlsContent()
         {
-            _txtBillID.Text = "";
+            _txtBillID.Text = "0";
             _dtpCheckInDate.Value = DateTime.Now;
             _dtpCheckOutDate.Value = DateTime.Now;
             _cboBillTableID.Text = "";
@@ -146,14 +140,7 @@ namespace BLL.DisplayLogic
         {
             if (!IsInputValid()) return;
 
-            tblBill billToUpdate = new tblBill();
-            billToUpdate.ID = Convert.ToInt32(_txtBillID.Text);
-            billToUpdate.CheckInDate = _dtpCheckInDate.Value;
-            billToUpdate.CheckOutDate = _dtpCheckOutDate.Value;
-            billToUpdate.TableID = Convert.ToInt32(_cboBillTableID.Text);
-            billToUpdate.Status = Convert.ToInt32(_txtBillStatus.Text);
-            billToUpdate.Discount = Convert.ToInt32(_txtDiscount.Text);
-            billToUpdate.TotalPrice = Convert.ToDouble(_txtTotalPrice.Text);
+            tblBill billToUpdate = Initialize.NewBill(_txtBillID, _dtpCheckInDate, _dtpCheckOutDate, _cboBillTableID, _txtBillStatus, _txtDiscount, _txtTotalPrice);
 
             try
             {

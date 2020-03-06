@@ -81,7 +81,7 @@ namespace BLL.DisplayLogic
 
             foreach (tblTable table in _tables)
             {
-                Button btnTable = Initialize.BtnTable(table);
+                Button btnTable = Initialize.NewBtnTable(table);
                 btnTable.Click += Table_Click;
 
                 _flpMainTable.Controls.Add(btnTable);
@@ -118,14 +118,14 @@ namespace BLL.DisplayLogic
 
         public void ClickAddFood()
         {
-            if (!IsSelectedTable()) return;
+            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
             Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
 
-            if (!IsSelectedTableInitialized())
+            if (!ValidateObj.IsSelectedTableInitialized(_orderOfSelectedBtnTable))
                 InitializeSelectedTable();
 
-            if (IsSelectedFoodInSelectedTable())
+            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, _selectedFoodOnCbo))
             {
                 int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo];
                 _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo] = ++numberOfExistingFood;
@@ -137,12 +137,6 @@ namespace BLL.DisplayLogic
 
             DisplayOrderToLvw(_orderOfSelectedBtnTable);
         }
-
-        private bool IsSelectedTable()
-            => _selectedBtnTable != null;
-
-        private bool IsSelectedTableInitialized()
-            => _orderOfSelectedBtnTable.Foods != null;
 
         private void Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo()
         {
@@ -158,16 +152,13 @@ namespace BLL.DisplayLogic
             _orderOfSelectedBtnTable.Foods = new Dictionary<tblFood, int>();
         }
 
-        private bool IsSelectedFoodInSelectedTable()
-            => _orderOfSelectedBtnTable.Foods != null && _orderOfSelectedBtnTable.Foods.ContainsKey(_selectedFoodOnCbo);
-
         public void ClickClearFood()
         {
-            if (!IsSelectedTable()) return;
+            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
             Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
 
-            if (IsSelectedFoodInSelectedTable())
+            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, _selectedFoodOnCbo))
             {
                 int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo];
                 if (numberOfExistingFood > 1)
@@ -183,12 +174,13 @@ namespace BLL.DisplayLogic
             DisplayOrderToLvw(_orderOfSelectedBtnTable);
         }
 
-        private bool IsCheckoutValid() 
-         => Validate.IsDigit(_txtMainDiscount) && _orderOfSelectedBtnTable.Foods != null;
+        private bool IsCheckoutValid()
+            => ValidateInput.IsDigit(_txtMainDiscount) 
+            && ValidateObj.IsSelectedTableInitialized(_orderOfSelectedBtnTable);
 
         public void ClickCheckout()
         {
-            if (!IsSelectedTable()) return;
+            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
             Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
 
@@ -199,7 +191,7 @@ namespace BLL.DisplayLogic
 
         private void ShowCheckoutInfomation(Order checkoutOrder)
         {
-            string msg = Initialize.CheckoutInfo(checkoutOrder, _txtMainDiscount);
+            string msg = Initialize.NewCheckoutInfo(checkoutOrder, _txtMainDiscount);
 
             DialogResult dialogResult = MessageBox.Show(msg, checkoutOrder.Table.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -209,7 +201,7 @@ namespace BLL.DisplayLogic
 
         private void AddOrderToBill(Order checkoutOrder)
         {
-            tblBill newBill = Initialize.Bill(checkoutOrder, _txtMainDiscount);
+            tblBill newBill = Initialize.NewCheckoutBill(checkoutOrder, _txtMainDiscount);
 
             try
             {
@@ -226,7 +218,7 @@ namespace BLL.DisplayLogic
         {
             foreach (var food in checkoutOrder.Foods)
             {
-                tblBillInfo newBillInfo = Initialize.BillInfo(lastBillID, food.Key.ID, food.Value);
+                tblBillInfo newBillInfo = Initialize.NewCheckoutBillInfo(lastBillID, food.Key.ID, food.Value);
 
                 try
                 {

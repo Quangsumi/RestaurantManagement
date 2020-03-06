@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace BLL.Helper
 {
-    public static class Validate
+    public static class ValidateInput
     {
         public static bool IsValidText(TextBox txtInput)
             => (!String.IsNullOrWhiteSpace(txtInput.Text) 
@@ -57,7 +57,7 @@ namespace BLL.Helper
 
         private static bool ShowInvalidIDError()
         {
-            MessageBox.Show("Invalid ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Invalid ID!\r\nMake sure to click Clear first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
     }

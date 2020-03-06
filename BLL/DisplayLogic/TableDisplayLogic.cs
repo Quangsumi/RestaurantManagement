@@ -41,9 +41,9 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => Validate.IsValidID(_txtTableID)
-            && Validate.IsOneAndZero(_txtTableStatus) 
-            && Validate.IsValidText(_txtTableName);
+            => ValidateInput.IsValidID(_txtTableID)
+            && ValidateInput.IsOneAndZero(_txtTableStatus) 
+            && ValidateInput.IsValidText(_txtTableName);
 
         public override void ClickAddRecord()
         {
@@ -85,7 +85,7 @@ namespace BLL.DisplayLogic
 
         protected override void ClearControlsContent()
         {
-            _txtTableID.Text = "";
+            _txtTableID.Text = "0";
             _txtTableName.Text = "";
             _txtTableStatus.Text = "";
         }
@@ -116,10 +116,7 @@ namespace BLL.DisplayLogic
         {
             if (!IsInputValid()) return;
 
-            tblTable tableToUpdate = new tblTable();
-            tableToUpdate.ID = Convert.ToInt32(_txtTableID.Text);
-            tableToUpdate.Name = _txtTableName.Text;
-            tableToUpdate.Status = Convert.ToInt32(_txtTableStatus.Text);
+            tblTable tableToUpdate = Initialize.NewTable(_txtTableID, _txtTableName, _txtTableStatus);
 
             try
             {

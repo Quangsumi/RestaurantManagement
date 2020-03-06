@@ -38,15 +38,14 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => Validate.IsValidID(_txtCategoryID)
-            && Validate.IsValidText(_txtCategoryName);
+            => ValidateInput.IsValidID(_txtCategoryID)
+            && ValidateInput.IsValidText(_txtCategoryName);
 
         public override void ClickAddRecord()
         {
             if (!IsInputValid()) return;
 
-            tblCategory newCategory = new tblCategory();
-            newCategory.Name = _txtCategoryName.Text;
+            tblCategory newCategory = Initialize.NewCategory(_txtCategoryID, _txtCategoryName);
 
             try
             {
@@ -80,7 +79,7 @@ namespace BLL.DisplayLogic
 
         protected override void ClearControlsContent()
         {
-            _txtCategoryID.Text = "";
+            _txtCategoryID.Text = "0";
             _txtCategoryName.Text = "";
         }
 
@@ -110,9 +109,7 @@ namespace BLL.DisplayLogic
         {
             if (!IsInputValid()) return;
 
-            tblCategory categoryToUpdate = new tblCategory();
-            categoryToUpdate.ID = Convert.ToInt32(_txtCategoryID.Text);
-            categoryToUpdate.Name = _txtCategoryName.Text;
+            tblCategory categoryToUpdate = Initialize.NewCategory(_txtCategoryID, _txtCategoryName);
 
             try
             {

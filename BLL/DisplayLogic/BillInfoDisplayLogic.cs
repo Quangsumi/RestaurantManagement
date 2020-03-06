@@ -46,17 +46,14 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => Validate.IsValidID(_txtBillInfoID)
-            && Validate.IsDigit(_txtCount);
+            => ValidateInput.IsValidID(_txtBillInfoID)
+            && ValidateInput.IsDigit(_txtCount);
 
         public override void ClickAddRecord()
         {
             if (!IsInputValid()) return;
 
-            tblBillInfo newBillInfo = new tblBillInfo();
-            newBillInfo.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
-            newBillInfo.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
-            newBillInfo.Count = Convert.ToInt32(_txtCount.Text);
+            tblBillInfo newBillInfo = Initialize.NewBillInfo(_txtBillInfoID, _cboBillInfoBillID, _cboBillInfoFoodID, _txtCount);
 
             try
             {
@@ -104,7 +101,7 @@ namespace BLL.DisplayLogic
 
         protected override void ClearControlsContent()
         {
-            _txtBillInfoID.Text = "";
+            _txtBillInfoID.Text = "0";
             _cboBillInfoBillID.Text = "";
             _cboBillInfoFoodID.Text = "";
             _txtCount.Text = "";
@@ -136,11 +133,7 @@ namespace BLL.DisplayLogic
         {
             if (!IsInputValid()) return;
 
-            tblBillInfo billInfoToUpdate = new tblBillInfo();
-            billInfoToUpdate.ID = Convert.ToInt32(_txtBillInfoID.Text);
-            billInfoToUpdate.BillID = Convert.ToInt32(_cboBillInfoBillID.Text);
-            billInfoToUpdate.FoodID = Convert.ToInt32(_cboBillInfoFoodID.Text);
-            billInfoToUpdate.Count = Convert.ToInt32(_txtCount.Text);
+            tblBillInfo billInfoToUpdate = Initialize.NewBillInfo(_txtBillInfoID, _cboBillInfoBillID, _cboBillInfoFoodID, _txtCount);
 
             try
             {

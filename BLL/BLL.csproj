@@ -43,12 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLogic\AccountDataLogic.cs" />
     <Compile Include="DataLogic\BillDataLogic.cs" />
     <Compile Include="DataLogic\BillInfoDataLogic.cs" />
     <Compile Include="DataLogic\CategoryDataLogic.cs" />
     <Compile Include="DataLogic\DataLogic.cs" />
     <Compile Include="DataLogic\FoodDataLogic.cs" />
     <Compile Include="DataLogic\TableDataLogic.cs" />
+    <Compile Include="DisplayLogic\AccountDisplayLogic.cs" />
+    <Compile Include="DisplayLogic\LoginDisplayLogic.cs" />
     <Compile Include="DisplayLogic\BillDisplayLogic.cs" />
     <Compile Include="DisplayLogic\BillInfoDisplayLogic.cs" />
     <Compile Include="DisplayLogic\CategoryDisplayLogic.cs" />
@@ -57,8 +60,9 @@
     <Compile Include="DisplayLogic\MainFromDisplayLogic.cs" />
     <Compile Include="DisplayLogic\TableDisplayLogic.cs" />
     <Compile Include="Helper\Initialize.cs" />
+    <Compile Include="Helper\ValidateObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\Validate.cs" />
+    <Compile Include="Helper\ValidateInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

@@ -46,18 +46,15 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => Validate.IsValidID(_txtFoodID)
-            && Validate.IsValidText(_txtFoodName) 
-            && Validate.IsNumber(_txtFoodPrice);
+            => ValidateInput.IsValidID(_txtFoodID)
+            && ValidateInput.IsValidText(_txtFoodName) 
+            && ValidateInput.IsNumber(_txtFoodPrice);
 
         public override void ClickAddRecord()
         {
             if (!IsInputValid()) return;
 
-            tblFood newFood = new tblFood();
-            newFood.Name = _txtFoodName.Text;
-            newFood.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
-            newFood.Price = Convert.ToDouble(_txtFoodPrice.Text);
+            tblFood newFood = Initialize.NewFood(_txtFoodID, _txtFoodName, _cboFoodCategoryID, _txtFoodPrice);
 
             try
             {
@@ -98,7 +95,7 @@ namespace BLL.DisplayLogic
 
         protected override void ClearControlsContent()
         {
-            _txtFoodID.Text = "";
+            _txtFoodID.Text = "0";
             _txtFoodName.Text = "";
             _cboFoodCategoryID.Text = "";
             _txtFoodPrice.Text = "";
@@ -130,11 +127,7 @@ namespace BLL.DisplayLogic
         {
             if (!IsInputValid()) return;
 
-            tblFood foodToUpdate = new tblFood();
-            foodToUpdate.ID = Convert.ToInt32(_txtFoodID.Text);
-            foodToUpdate.Name = _txtFoodName.Text;
-            foodToUpdate.CategoryID = Convert.ToInt32(_cboFoodCategoryID.Text);
-            foodToUpdate.Price = Convert.ToDouble(_txtFoodPrice.Text);
+            tblFood foodToUpdate = Initialize.NewFood(_txtFoodID, _txtFoodName, _cboFoodCategoryID, _txtFoodPrice);
 
             try
             {

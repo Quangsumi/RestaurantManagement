@@ -20,6 +20,9 @@ namespace GUI
         BillDisplayLogic _billDisplayLogic;
         BillInfoDisplayLogic _billInfoDisplayLogic;
         MainFromDisplayLogic _mainFormDisplayLogic;
+        LoginDisplayLogic _loginDisplayLogic;
+        AccountDisplayLogic _acountDisplayLogic;
+        
 
         public frmMain()
         {
@@ -41,6 +44,10 @@ namespace GUI
             _billInfoDisplayLogic = new BillInfoDisplayLogic(dgvBillInfos, txtBillInfoID, cboBillInfoBillID, cboBillInfoFoodID, txtBillInfoFoodName, txtBillInfoCount);
 
             _mainFormDisplayLogic = new MainFromDisplayLogic(flpMainTables, lvwMainOrders, cboMainCategoryName, cboMainFoodName, txtMainDiscount, txtMainTotalPrice);
+
+            _loginDisplayLogic = new LoginDisplayLogic(txtLoginUsername, txtLoginPassword, mnsMenu, splMain, pnlLogin);
+
+            _acountDisplayLogic = new AccountDisplayLogic(dgvAccounts, txtAccountID, txtAccountUsername, txtAccountDisplayName, txtAccountPassword, cboAccountType);
         }
 
         private void LoadDataByBLL()
@@ -51,7 +58,7 @@ namespace GUI
             _billDisplayLogic.LoadRecordsFromDataLogic();
             _billInfoDisplayLogic.LoadRecordsFromDataLogic();
             _mainFormDisplayLogic.LoadTablesAndCategory();
-
+            _acountDisplayLogic.LoadRecordsFromDataLogic();
         }
 
 
@@ -59,6 +66,17 @@ namespace GUI
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splMain.BringToFront();
+        }
+
+        private void tsmiAccountManager_Click(object sender, EventArgs e)
+        {
+            splAccounts.BringToFront();
+        }
+
+        private void tsmiAccountProfile_Click(object sender, EventArgs e)
+        {
+            pnlProfile.BringToFront();
+            _loginDisplayLogic.ClickDisplayProfile(txtProfileID, txtProfileUsername, txtProfileDisplayName, txtProfileType);
         }
 
         private void foodsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,6 +285,47 @@ namespace GUI
         private void btnMainCheckout_Click(object sender, EventArgs e)
         {
             _mainFormDisplayLogic.ClickCheckout();
+        }
+        #endregion
+
+
+        #region Login
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            _loginDisplayLogic.ClickBtnLogin();
+        }
+
+        private void tsmiLogout_Click(object sender, EventArgs e)
+        {
+            _loginDisplayLogic.ClickTsmiLogout();
+        }
+        #endregion
+
+
+        #region Accounts
+        private void dgvAccounts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _acountDisplayLogic.CellClick(sender, e);
+        }
+
+        private void btnAccountAddNew_Click(object sender, EventArgs e)
+        {
+            _acountDisplayLogic.ClickAddRecord();
+        }
+
+        private void btnAccountUpdate_Click(object sender, EventArgs e)
+        {
+            _acountDisplayLogic.ClickUpdateRecord();
+        }
+
+        private void btnAccountDelete_Click(object sender, EventArgs e)
+        {
+            _acountDisplayLogic.ClickDeleteRecord();
+        }
+
+        private void btnAccountClear_Click(object sender, EventArgs e)
+        {
+            _acountDisplayLogic.ClickClearControlsContent();
         }
         #endregion
     }
