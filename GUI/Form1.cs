@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace GUI
         MainFromDisplayLogic _mainFormDisplayLogic;
         LoginDisplayLogic _loginDisplayLogic;
         AccountDisplayLogic _acountDisplayLogic;
+        ToolDisplayLogic _toolDisplayLogic;
         
 
         public frmMain()
@@ -48,6 +50,8 @@ namespace GUI
             _loginDisplayLogic = new LoginDisplayLogic(txtLoginUsername, txtLoginPassword, mnsMenu, splMain, pnlLogin);
 
             _acountDisplayLogic = new AccountDisplayLogic(dgvAccounts, txtAccountID, txtAccountUsername, txtAccountDisplayName, txtAccountPassword, cboAccountType);
+
+            _toolDisplayLogic = new ToolDisplayLogic();
         }
 
         private void LoadDataByBLL()
@@ -107,6 +111,16 @@ namespace GUI
         {
             splBillInfos.BringToFront();
             _billInfoDisplayLogic.LoadRecordsFromDataLogic();
+        }
+
+        private void recipitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _toolDisplayLogic.ClickShowReceipts();
+        }
+
+        private void exportToExcelAllTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _toolDisplayLogic.ClickExtractToExcelAllTimes();
         }
         #endregion
 
@@ -327,6 +341,9 @@ namespace GUI
         {
             _acountDisplayLogic.ClickClearControlsContent();
         }
+
         #endregion
+
+        
     }
 }

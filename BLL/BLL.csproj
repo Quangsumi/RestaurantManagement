@@ -59,7 +59,9 @@
     <Compile Include="DisplayLogic\FoodDisplayLogic.cs" />
     <Compile Include="DisplayLogic\MainFromDisplayLogic.cs" />
     <Compile Include="DisplayLogic\TableDisplayLogic.cs" />
+    <Compile Include="DisplayLogic\ToolDisplayLogic.cs" />
     <Compile Include="Helper\Initialize.cs" />
+    <Compile Include="Helper\Tools.cs" />
     <Compile Include="Helper\ValidateObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\ValidateInput.cs" />

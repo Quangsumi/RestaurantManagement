@@ -13,7 +13,6 @@ namespace DTO
         public tblTable Table { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
-        public int Status { get; set; }
         public int Discount { get; set; }
         public double TotalPrice
         {

@@ -231,6 +231,7 @@ namespace BLL.DisplayLogic
                 }
             }
 
+            Tools.SaveCheckoutInfoToFile(checkoutOrder, lastBillID, _txtMainDiscount);
             ClearCheckedOutTable();
         }
 

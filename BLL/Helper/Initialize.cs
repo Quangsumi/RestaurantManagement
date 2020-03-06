@@ -33,18 +33,17 @@ namespace BLL.Helper
         {
             string msg = "";
 
-            msg += "[" + checkoutOrder.Table.ID.ToString().ToUpper() + "] " + checkoutOrder.Table.Name.ToUpper() + "\r\n\n";
-            msg += "1/ Checkin Date: " + checkoutOrder.CheckInDate.ToString() + "\r\n";
-            msg += "2/ Checkout Date: " + DateTime.Now.ToString() + "\r\n";
-            msg += "3/ Status: " + checkoutOrder.Status + "\r\n";
-            msg += "4/ Orders: " + "\r\n";
+            msg += "[" + checkoutOrder.Table.ID.ToString().ToUpper() + "] " + checkoutOrder.Table.Name.ToUpper();
+            msg += "\r\n\n1/ Checkin Date: " + checkoutOrder.CheckInDate.ToString();
+            msg += "\r\n2/ Checkout Date: " + DateTime.Now.ToString();
+            msg += "\r\n3/ Orders: ";
             foreach (var food in checkoutOrder.Foods)
             {
-                msg += "+ Food name: " + food.Key.Name + " - x" + food.Value + "\r\n";
+                msg += "\r\n + " + food.Key.Name + " - x" + food.Value;
             }
             checkoutOrder.Discount = Int32.Parse(txtMainDiscount.Text);
-            msg += "\r\n5/ Discount: " + checkoutOrder.Discount + "%\r\n";
-            msg += "6/ Totol Price: $" + checkoutOrder.TotalPrice;
+            msg += "\r\n4/ Discount: " + checkoutOrder.Discount + "%";
+            msg += "\r\n5/ Totol Price: $" + checkoutOrder.TotalPrice;
 
             return msg;
         }

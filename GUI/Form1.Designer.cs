@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.tsmiHome = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAccount = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,25 +54,30 @@
             this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billInfosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.recipitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extractToExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.splAccounts = new System.Windows.Forms.SplitContainer();
-            this.dgvAccounts = new System.Windows.Forms.DataGridView();
-            this.cboAccountType = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.txtAccountPassword = new System.Windows.Forms.TextBox();
-            this.txtAccountDisplayName = new System.Windows.Forms.TextBox();
-            this.txtAccountUsername = new System.Windows.Forms.TextBox();
-            this.txtAccountID = new System.Windows.Forms.TextBox();
-            this.btnAccountClear = new System.Windows.Forms.Button();
-            this.btnAccountDelete = new System.Windows.Forms.Button();
-            this.btnAccountAddNew = new System.Windows.Forms.Button();
-            this.btnAccountUpdate = new System.Windows.Forms.Button();
+            this.pnlLogin = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtLoginPassword = new System.Windows.Forms.TextBox();
+            this.txtLoginUsername = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.pnlProfile = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtProfileType = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtProfileDisplayName = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txtProfileUsername = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtProfileID = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.splMain = new System.Windows.Forms.SplitContainer();
             this.flpMainTables = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMainAddFood = new System.Windows.Forms.Button();
@@ -90,23 +95,22 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pnlLogin = new System.Windows.Forms.Panel();
-            this.pnlProfile = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.txtProfileType = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.txtProfileDisplayName = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.txtProfileUsername = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.txtProfileID = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtLoginPassword = new System.Windows.Forms.TextBox();
-            this.txtLoginUsername = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.splAccounts = new System.Windows.Forms.SplitContainer();
+            this.dgvAccounts = new System.Windows.Forms.DataGridView();
+            this.cboAccountType = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtAccountPassword = new System.Windows.Forms.TextBox();
+            this.txtAccountDisplayName = new System.Windows.Forms.TextBox();
+            this.txtAccountUsername = new System.Windows.Forms.TextBox();
+            this.txtAccountID = new System.Windows.Forms.TextBox();
+            this.btnAccountClear = new System.Windows.Forms.Button();
+            this.btnAccountDelete = new System.Windows.Forms.Button();
+            this.btnAccountAddNew = new System.Windows.Forms.Button();
+            this.btnAccountUpdate = new System.Windows.Forms.Button();
             this.splFoods = new System.Windows.Forms.SplitContainer();
             this.dgvFoods = new System.Windows.Forms.DataGridView();
             this.cboFoodCategoryID = new System.Windows.Forms.ComboBox();
@@ -185,17 +189,17 @@
             this.mnsMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlLogin.SuspendLayout();
+            this.pnlProfile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
+            this.splMain.Panel1.SuspendLayout();
+            this.splMain.Panel2.SuspendLayout();
+            this.splMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splAccounts)).BeginInit();
             this.splAccounts.Panel1.SuspendLayout();
             this.splAccounts.Panel2.SuspendLayout();
             this.splAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splMain)).BeginInit();
-            this.splMain.Panel1.SuspendLayout();
-            this.splMain.Panel2.SuspendLayout();
-            this.splMain.SuspendLayout();
-            this.pnlLogin.SuspendLayout();
-            this.pnlProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splFoods)).BeginInit();
             this.splFoods.Panel1.SuspendLayout();
             this.splFoods.Panel2.SuspendLayout();
@@ -268,7 +272,7 @@
             // tsmiAccountManager
             // 
             this.tsmiAccountManager.Name = "tsmiAccountManager";
-            this.tsmiAccountManager.Size = new System.Drawing.Size(180, 26);
+            this.tsmiAccountManager.Size = new System.Drawing.Size(140, 26);
             this.tsmiAccountManager.Text = "Manager";
             this.tsmiAccountManager.Click += new System.EventHandler(this.tsmiAccountManager_Click);
             // 
@@ -328,9 +332,41 @@
             // 
             // tsmiTools
             // 
+            this.tsmiTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recipitsToolStripMenuItem,
+            this.extractToExcelToolStripMenuItem});
             this.tsmiTools.Name = "tsmiTools";
             this.tsmiTools.Size = new System.Drawing.Size(54, 25);
             this.tsmiTools.Text = "Tools";
+            // 
+            // recipitsToolStripMenuItem
+            // 
+            this.recipitsToolStripMenuItem.Name = "recipitsToolStripMenuItem";
+            this.recipitsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.recipitsToolStripMenuItem.Text = "Show Receipts";
+            this.recipitsToolStripMenuItem.Click += new System.EventHandler(this.recipitsToolStripMenuItem_Click);
+            // 
+            // extractToExcelToolStripMenuItem
+            // 
+            this.extractToExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.billsToolStripMenuItem,
+            this.allTimeToolStripMenuItem});
+            this.extractToExcelToolStripMenuItem.Name = "extractToExcelToolStripMenuItem";
+            this.extractToExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.extractToExcelToolStripMenuItem.Text = "Export to Excel";
+            // 
+            // billsToolStripMenuItem
+            // 
+            this.billsToolStripMenuItem.Name = "billsToolStripMenuItem";
+            this.billsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.billsToolStripMenuItem.Text = "This Month";
+            // 
+            // allTimeToolStripMenuItem
+            // 
+            this.allTimeToolStripMenuItem.Name = "allTimeToolStripMenuItem";
+            this.allTimeToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.allTimeToolStripMenuItem.Text = "All Times";
+            this.allTimeToolStripMenuItem.Click += new System.EventHandler(this.exportToExcelAllTimeToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -373,206 +409,193 @@
             this.pnlBody.Size = new System.Drawing.Size(983, 500);
             this.pnlBody.TabIndex = 2;
             // 
-            // splAccounts
+            // pnlLogin
             // 
-            this.splAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splAccounts.Location = new System.Drawing.Point(0, 0);
-            this.splAccounts.Name = "splAccounts";
+            this.pnlLogin.BackColor = System.Drawing.Color.White;
+            this.pnlLogin.Controls.Add(this.btnLogin);
+            this.pnlLogin.Controls.Add(this.txtLoginPassword);
+            this.pnlLogin.Controls.Add(this.txtLoginUsername);
+            this.pnlLogin.Controls.Add(this.label28);
+            this.pnlLogin.Controls.Add(this.label27);
+            this.pnlLogin.Controls.Add(this.label26);
+            this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLogin.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlLogin.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Size = new System.Drawing.Size(983, 500);
+            this.pnlLogin.TabIndex = 0;
             // 
-            // splAccounts.Panel1
+            // btnLogin
             // 
-            this.splAccounts.Panel1.Controls.Add(this.dgvAccounts);
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(578, 244);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(91, 52);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // splAccounts.Panel2
+            // txtLoginPassword
             // 
-            this.splAccounts.Panel2.BackColor = System.Drawing.Color.White;
-            this.splAccounts.Panel2.Controls.Add(this.cboAccountType);
-            this.splAccounts.Panel2.Controls.Add(this.label38);
-            this.splAccounts.Panel2.Controls.Add(this.label37);
-            this.splAccounts.Panel2.Controls.Add(this.label34);
-            this.splAccounts.Panel2.Controls.Add(this.label35);
-            this.splAccounts.Panel2.Controls.Add(this.label36);
-            this.splAccounts.Panel2.Controls.Add(this.txtAccountPassword);
-            this.splAccounts.Panel2.Controls.Add(this.txtAccountDisplayName);
-            this.splAccounts.Panel2.Controls.Add(this.txtAccountUsername);
-            this.splAccounts.Panel2.Controls.Add(this.txtAccountID);
-            this.splAccounts.Panel2.Controls.Add(this.btnAccountClear);
-            this.splAccounts.Panel2.Controls.Add(this.btnAccountDelete);
-            this.splAccounts.Panel2.Controls.Add(this.btnAccountAddNew);
-            this.splAccounts.Panel2.Controls.Add(this.btnAccountUpdate);
-            this.splAccounts.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splAccounts.Size = new System.Drawing.Size(983, 500);
-            this.splAccounts.SplitterDistance = 457;
-            this.splAccounts.TabIndex = 6;
+            this.txtLoginPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtLoginPassword.Location = new System.Drawing.Point(448, 188);
+            this.txtLoginPassword.Name = "txtLoginPassword";
+            this.txtLoginPassword.PasswordChar = '*';
+            this.txtLoginPassword.Size = new System.Drawing.Size(221, 33);
+            this.txtLoginPassword.TabIndex = 5;
             // 
-            // dgvAccounts
+            // txtLoginUsername
             // 
-            this.dgvAccounts.AllowUserToAddRows = false;
-            this.dgvAccounts.AllowUserToDeleteRows = false;
-            this.dgvAccounts.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAccounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            this.dgvAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAccounts.DefaultCellStyle = dataGridViewCellStyle41;
-            this.dgvAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAccounts.GridColor = System.Drawing.Color.White;
-            this.dgvAccounts.Location = new System.Drawing.Point(0, 0);
-            this.dgvAccounts.Name = "dgvAccounts";
-            this.dgvAccounts.ReadOnly = true;
-            this.dgvAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccounts.Size = new System.Drawing.Size(457, 500);
-            this.dgvAccounts.TabIndex = 0;
-            this.dgvAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccounts_CellClick);
+            this.txtLoginUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtLoginUsername.Location = new System.Drawing.Point(448, 132);
+            this.txtLoginUsername.Name = "txtLoginUsername";
+            this.txtLoginUsername.Size = new System.Drawing.Size(221, 33);
+            this.txtLoginUsername.TabIndex = 4;
             // 
-            // cboAccountType
+            // label28
             // 
-            this.cboAccountType.FormattingEnabled = true;
-            this.cboAccountType.Location = new System.Drawing.Point(190, 258);
-            this.cboAccountType.Name = "cboAccountType";
-            this.cboAccountType.Size = new System.Drawing.Size(263, 33);
-            this.cboAccountType.TabIndex = 3;
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(337, 196);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(85, 25);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "Password";
             // 
-            // label38
+            // label27
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(62, 262);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(50, 25);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "Type";
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(337, 136);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(92, 25);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Username";
             // 
-            // label37
+            // label26
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(62, 209);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(85, 25);
-            this.label37.TabIndex = 2;
-            this.label37.Text = "Password";
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.White;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label26.Location = new System.Drawing.Point(458, 68);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(99, 37);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "LOGIN";
             // 
-            // label34
+            // pnlProfile
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(62, 156);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(119, 25);
-            this.label34.TabIndex = 2;
-            this.label34.Text = "Display name";
+            this.pnlProfile.BackColor = System.Drawing.Color.White;
+            this.pnlProfile.Controls.Add(this.label30);
+            this.pnlProfile.Controls.Add(this.txtProfileType);
+            this.pnlProfile.Controls.Add(this.label33);
+            this.pnlProfile.Controls.Add(this.txtProfileDisplayName);
+            this.pnlProfile.Controls.Add(this.label32);
+            this.pnlProfile.Controls.Add(this.txtProfileUsername);
+            this.pnlProfile.Controls.Add(this.label31);
+            this.pnlProfile.Controls.Add(this.txtProfileID);
+            this.pnlProfile.Controls.Add(this.label29);
+            this.pnlProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlProfile.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlProfile.Location = new System.Drawing.Point(0, 0);
+            this.pnlProfile.Name = "pnlProfile";
+            this.pnlProfile.Size = new System.Drawing.Size(983, 500);
+            this.pnlProfile.TabIndex = 7;
             // 
-            // label35
+            // label30
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(62, 103);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(92, 25);
-            this.label35.TabIndex = 2;
-            this.label35.Text = "Username";
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.White;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label30.Location = new System.Drawing.Point(424, 47);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(123, 37);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "PROFILE";
             // 
-            // label36
+            // txtProfileType
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(62, 50);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(29, 25);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "ID";
+            this.txtProfileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtProfileType.Enabled = false;
+            this.txtProfileType.Location = new System.Drawing.Point(451, 294);
+            this.txtProfileType.Name = "txtProfileType";
+            this.txtProfileType.Size = new System.Drawing.Size(223, 33);
+            this.txtProfileType.TabIndex = 1;
             // 
-            // txtAccountPassword
+            // label33
             // 
-            this.txtAccountPassword.Location = new System.Drawing.Point(190, 206);
-            this.txtAccountPassword.Name = "txtAccountPassword";
-            this.txtAccountPassword.Size = new System.Drawing.Size(263, 33);
-            this.txtAccountPassword.TabIndex = 1;
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(309, 294);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(50, 25);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Type";
             // 
-            // txtAccountDisplayName
+            // txtProfileDisplayName
             // 
-            this.txtAccountDisplayName.Location = new System.Drawing.Point(190, 153);
-            this.txtAccountDisplayName.Name = "txtAccountDisplayName";
-            this.txtAccountDisplayName.Size = new System.Drawing.Size(263, 33);
-            this.txtAccountDisplayName.TabIndex = 1;
+            this.txtProfileDisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtProfileDisplayName.Enabled = false;
+            this.txtProfileDisplayName.Location = new System.Drawing.Point(451, 230);
+            this.txtProfileDisplayName.Name = "txtProfileDisplayName";
+            this.txtProfileDisplayName.Size = new System.Drawing.Size(223, 33);
+            this.txtProfileDisplayName.TabIndex = 1;
             // 
-            // txtAccountUsername
+            // label32
             // 
-            this.txtAccountUsername.Location = new System.Drawing.Point(190, 100);
-            this.txtAccountUsername.Name = "txtAccountUsername";
-            this.txtAccountUsername.Size = new System.Drawing.Size(263, 33);
-            this.txtAccountUsername.TabIndex = 1;
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(309, 230);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(119, 25);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "Display name";
             // 
-            // txtAccountID
+            // txtProfileUsername
             // 
-            this.txtAccountID.Enabled = false;
-            this.txtAccountID.Location = new System.Drawing.Point(190, 47);
-            this.txtAccountID.Name = "txtAccountID";
-            this.txtAccountID.ReadOnly = true;
-            this.txtAccountID.Size = new System.Drawing.Size(263, 33);
-            this.txtAccountID.TabIndex = 1;
+            this.txtProfileUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtProfileUsername.Enabled = false;
+            this.txtProfileUsername.Location = new System.Drawing.Point(451, 170);
+            this.txtProfileUsername.Name = "txtProfileUsername";
+            this.txtProfileUsername.Size = new System.Drawing.Size(223, 33);
+            this.txtProfileUsername.TabIndex = 1;
             // 
-            // btnAccountClear
+            // label31
             // 
-            this.btnAccountClear.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAccountClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccountClear.ForeColor = System.Drawing.Color.White;
-            this.btnAccountClear.Location = new System.Drawing.Point(332, 384);
-            this.btnAccountClear.Name = "btnAccountClear";
-            this.btnAccountClear.Size = new System.Drawing.Size(121, 52);
-            this.btnAccountClear.TabIndex = 0;
-            this.btnAccountClear.Text = "Clear";
-            this.btnAccountClear.UseVisualStyleBackColor = false;
-            this.btnAccountClear.Click += new System.EventHandler(this.btnAccountClear_Click);
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(309, 170);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(92, 25);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Username";
             // 
-            // btnAccountDelete
+            // txtProfileID
             // 
-            this.btnAccountDelete.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAccountDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccountDelete.ForeColor = System.Drawing.Color.White;
-            this.btnAccountDelete.Location = new System.Drawing.Point(191, 384);
-            this.btnAccountDelete.Name = "btnAccountDelete";
-            this.btnAccountDelete.Size = new System.Drawing.Size(121, 52);
-            this.btnAccountDelete.TabIndex = 0;
-            this.btnAccountDelete.Text = "Delete";
-            this.btnAccountDelete.UseVisualStyleBackColor = false;
-            this.btnAccountDelete.Click += new System.EventHandler(this.btnAccountDelete_Click);
+            this.txtProfileID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtProfileID.Enabled = false;
+            this.txtProfileID.Location = new System.Drawing.Point(451, 105);
+            this.txtProfileID.Name = "txtProfileID";
+            this.txtProfileID.Size = new System.Drawing.Size(223, 33);
+            this.txtProfileID.TabIndex = 1;
             // 
-            // btnAccountAddNew
+            // label29
             // 
-            this.btnAccountAddNew.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAccountAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccountAddNew.ForeColor = System.Drawing.Color.White;
-            this.btnAccountAddNew.Location = new System.Drawing.Point(332, 311);
-            this.btnAccountAddNew.Name = "btnAccountAddNew";
-            this.btnAccountAddNew.Size = new System.Drawing.Size(121, 52);
-            this.btnAccountAddNew.TabIndex = 0;
-            this.btnAccountAddNew.Text = "Add New";
-            this.btnAccountAddNew.UseVisualStyleBackColor = false;
-            this.btnAccountAddNew.Click += new System.EventHandler(this.btnAccountAddNew_Click);
-            // 
-            // btnAccountUpdate
-            // 
-            this.btnAccountUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAccountUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccountUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnAccountUpdate.Location = new System.Drawing.Point(191, 311);
-            this.btnAccountUpdate.Name = "btnAccountUpdate";
-            this.btnAccountUpdate.Size = new System.Drawing.Size(121, 52);
-            this.btnAccountUpdate.TabIndex = 0;
-            this.btnAccountUpdate.Text = "Update";
-            this.btnAccountUpdate.UseVisualStyleBackColor = false;
-            this.btnAccountUpdate.Click += new System.EventHandler(this.btnAccountUpdate_Click);
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(309, 105);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(29, 25);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "ID";
             // 
             // splMain
             // 
@@ -771,193 +794,206 @@
             this.columnHeader3.Text = "Unit price";
             this.columnHeader3.Width = 120;
             // 
-            // pnlLogin
+            // splAccounts
             // 
-            this.pnlLogin.BackColor = System.Drawing.Color.White;
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Controls.Add(this.txtLoginPassword);
-            this.pnlLogin.Controls.Add(this.txtLoginUsername);
-            this.pnlLogin.Controls.Add(this.label28);
-            this.pnlLogin.Controls.Add(this.label27);
-            this.pnlLogin.Controls.Add(this.label26);
-            this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLogin.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlLogin.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(983, 500);
-            this.pnlLogin.TabIndex = 0;
+            this.splAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splAccounts.Location = new System.Drawing.Point(0, 0);
+            this.splAccounts.Name = "splAccounts";
             // 
-            // pnlProfile
+            // splAccounts.Panel1
             // 
-            this.pnlProfile.BackColor = System.Drawing.Color.White;
-            this.pnlProfile.Controls.Add(this.label30);
-            this.pnlProfile.Controls.Add(this.txtProfileType);
-            this.pnlProfile.Controls.Add(this.label33);
-            this.pnlProfile.Controls.Add(this.txtProfileDisplayName);
-            this.pnlProfile.Controls.Add(this.label32);
-            this.pnlProfile.Controls.Add(this.txtProfileUsername);
-            this.pnlProfile.Controls.Add(this.label31);
-            this.pnlProfile.Controls.Add(this.txtProfileID);
-            this.pnlProfile.Controls.Add(this.label29);
-            this.pnlProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlProfile.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlProfile.Location = new System.Drawing.Point(0, 0);
-            this.pnlProfile.Name = "pnlProfile";
-            this.pnlProfile.Size = new System.Drawing.Size(983, 500);
-            this.pnlProfile.TabIndex = 7;
+            this.splAccounts.Panel1.Controls.Add(this.dgvAccounts);
             // 
-            // label30
+            // splAccounts.Panel2
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.White;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label30.Location = new System.Drawing.Point(424, 47);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(123, 37);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "PROFILE";
+            this.splAccounts.Panel2.BackColor = System.Drawing.Color.White;
+            this.splAccounts.Panel2.Controls.Add(this.cboAccountType);
+            this.splAccounts.Panel2.Controls.Add(this.label38);
+            this.splAccounts.Panel2.Controls.Add(this.label37);
+            this.splAccounts.Panel2.Controls.Add(this.label34);
+            this.splAccounts.Panel2.Controls.Add(this.label35);
+            this.splAccounts.Panel2.Controls.Add(this.label36);
+            this.splAccounts.Panel2.Controls.Add(this.txtAccountPassword);
+            this.splAccounts.Panel2.Controls.Add(this.txtAccountDisplayName);
+            this.splAccounts.Panel2.Controls.Add(this.txtAccountUsername);
+            this.splAccounts.Panel2.Controls.Add(this.txtAccountID);
+            this.splAccounts.Panel2.Controls.Add(this.btnAccountClear);
+            this.splAccounts.Panel2.Controls.Add(this.btnAccountDelete);
+            this.splAccounts.Panel2.Controls.Add(this.btnAccountAddNew);
+            this.splAccounts.Panel2.Controls.Add(this.btnAccountUpdate);
+            this.splAccounts.Panel2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splAccounts.Size = new System.Drawing.Size(983, 500);
+            this.splAccounts.SplitterDistance = 457;
+            this.splAccounts.TabIndex = 6;
             // 
-            // txtProfileType
+            // dgvAccounts
             // 
-            this.txtProfileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtProfileType.Enabled = false;
-            this.txtProfileType.Location = new System.Drawing.Point(451, 294);
-            this.txtProfileType.Name = "txtProfileType";
-            this.txtProfileType.Size = new System.Drawing.Size(223, 33);
-            this.txtProfileType.TabIndex = 1;
+            this.dgvAccounts.AllowUserToAddRows = false;
+            this.dgvAccounts.AllowUserToDeleteRows = false;
+            this.dgvAccounts.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAccounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAccounts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccounts.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAccounts.GridColor = System.Drawing.Color.White;
+            this.dgvAccounts.Location = new System.Drawing.Point(0, 0);
+            this.dgvAccounts.Name = "dgvAccounts";
+            this.dgvAccounts.ReadOnly = true;
+            this.dgvAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAccounts.Size = new System.Drawing.Size(457, 500);
+            this.dgvAccounts.TabIndex = 0;
+            this.dgvAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccounts_CellClick);
             // 
-            // label33
+            // cboAccountType
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(309, 294);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(50, 25);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Type";
+            this.cboAccountType.FormattingEnabled = true;
+            this.cboAccountType.Location = new System.Drawing.Point(190, 258);
+            this.cboAccountType.Name = "cboAccountType";
+            this.cboAccountType.Size = new System.Drawing.Size(263, 33);
+            this.cboAccountType.TabIndex = 3;
             // 
-            // txtProfileDisplayName
+            // label38
             // 
-            this.txtProfileDisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtProfileDisplayName.Enabled = false;
-            this.txtProfileDisplayName.Location = new System.Drawing.Point(451, 230);
-            this.txtProfileDisplayName.Name = "txtProfileDisplayName";
-            this.txtProfileDisplayName.Size = new System.Drawing.Size(223, 33);
-            this.txtProfileDisplayName.TabIndex = 1;
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(62, 262);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(50, 25);
+            this.label38.TabIndex = 2;
+            this.label38.Text = "Type";
             // 
-            // label32
+            // label37
             // 
-            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(309, 230);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(119, 25);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "Display name";
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(62, 209);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(85, 25);
+            this.label37.TabIndex = 2;
+            this.label37.Text = "Password";
             // 
-            // txtProfileUsername
+            // label34
             // 
-            this.txtProfileUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtProfileUsername.Enabled = false;
-            this.txtProfileUsername.Location = new System.Drawing.Point(451, 170);
-            this.txtProfileUsername.Name = "txtProfileUsername";
-            this.txtProfileUsername.Size = new System.Drawing.Size(223, 33);
-            this.txtProfileUsername.TabIndex = 1;
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(62, 156);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(119, 25);
+            this.label34.TabIndex = 2;
+            this.label34.Text = "Display name";
             // 
-            // label31
+            // label35
             // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(309, 170);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(92, 25);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Username";
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(62, 103);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(92, 25);
+            this.label35.TabIndex = 2;
+            this.label35.Text = "Username";
             // 
-            // txtProfileID
+            // label36
             // 
-            this.txtProfileID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtProfileID.Enabled = false;
-            this.txtProfileID.Location = new System.Drawing.Point(451, 105);
-            this.txtProfileID.Name = "txtProfileID";
-            this.txtProfileID.Size = new System.Drawing.Size(223, 33);
-            this.txtProfileID.TabIndex = 1;
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(62, 50);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(29, 25);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "ID";
             // 
-            // label29
+            // txtAccountPassword
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(309, 105);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(29, 25);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "ID";
+            this.txtAccountPassword.Location = new System.Drawing.Point(190, 206);
+            this.txtAccountPassword.Name = "txtAccountPassword";
+            this.txtAccountPassword.Size = new System.Drawing.Size(263, 33);
+            this.txtAccountPassword.TabIndex = 1;
             // 
-            // btnLogin
+            // txtAccountDisplayName
             // 
-            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(578, 244);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(91, 52);
-            this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.txtAccountDisplayName.Location = new System.Drawing.Point(190, 153);
+            this.txtAccountDisplayName.Name = "txtAccountDisplayName";
+            this.txtAccountDisplayName.Size = new System.Drawing.Size(263, 33);
+            this.txtAccountDisplayName.TabIndex = 1;
             // 
-            // txtLoginPassword
+            // txtAccountUsername
             // 
-            this.txtLoginPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtLoginPassword.Location = new System.Drawing.Point(448, 188);
-            this.txtLoginPassword.Name = "txtLoginPassword";
-            this.txtLoginPassword.PasswordChar = '*';
-            this.txtLoginPassword.Size = new System.Drawing.Size(221, 33);
-            this.txtLoginPassword.TabIndex = 5;
+            this.txtAccountUsername.Location = new System.Drawing.Point(190, 100);
+            this.txtAccountUsername.Name = "txtAccountUsername";
+            this.txtAccountUsername.Size = new System.Drawing.Size(263, 33);
+            this.txtAccountUsername.TabIndex = 1;
             // 
-            // txtLoginUsername
+            // txtAccountID
             // 
-            this.txtLoginUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtLoginUsername.Location = new System.Drawing.Point(448, 132);
-            this.txtLoginUsername.Name = "txtLoginUsername";
-            this.txtLoginUsername.Size = new System.Drawing.Size(221, 33);
-            this.txtLoginUsername.TabIndex = 4;
+            this.txtAccountID.Enabled = false;
+            this.txtAccountID.Location = new System.Drawing.Point(190, 47);
+            this.txtAccountID.Name = "txtAccountID";
+            this.txtAccountID.ReadOnly = true;
+            this.txtAccountID.Size = new System.Drawing.Size(263, 33);
+            this.txtAccountID.TabIndex = 1;
             // 
-            // label28
+            // btnAccountClear
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(337, 196);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(85, 25);
-            this.label28.TabIndex = 3;
-            this.label28.Text = "Password";
+            this.btnAccountClear.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAccountClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountClear.ForeColor = System.Drawing.Color.White;
+            this.btnAccountClear.Location = new System.Drawing.Point(332, 384);
+            this.btnAccountClear.Name = "btnAccountClear";
+            this.btnAccountClear.Size = new System.Drawing.Size(121, 52);
+            this.btnAccountClear.TabIndex = 0;
+            this.btnAccountClear.Text = "Clear";
+            this.btnAccountClear.UseVisualStyleBackColor = false;
+            this.btnAccountClear.Click += new System.EventHandler(this.btnAccountClear_Click);
             // 
-            // label27
+            // btnAccountDelete
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(337, 136);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(92, 25);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "Username";
+            this.btnAccountDelete.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAccountDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountDelete.ForeColor = System.Drawing.Color.White;
+            this.btnAccountDelete.Location = new System.Drawing.Point(191, 384);
+            this.btnAccountDelete.Name = "btnAccountDelete";
+            this.btnAccountDelete.Size = new System.Drawing.Size(121, 52);
+            this.btnAccountDelete.TabIndex = 0;
+            this.btnAccountDelete.Text = "Delete";
+            this.btnAccountDelete.UseVisualStyleBackColor = false;
+            this.btnAccountDelete.Click += new System.EventHandler(this.btnAccountDelete_Click);
             // 
-            // label26
+            // btnAccountAddNew
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.White;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label26.Location = new System.Drawing.Point(458, 68);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(99, 37);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "LOGIN";
+            this.btnAccountAddNew.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAccountAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountAddNew.ForeColor = System.Drawing.Color.White;
+            this.btnAccountAddNew.Location = new System.Drawing.Point(332, 311);
+            this.btnAccountAddNew.Name = "btnAccountAddNew";
+            this.btnAccountAddNew.Size = new System.Drawing.Size(121, 52);
+            this.btnAccountAddNew.TabIndex = 0;
+            this.btnAccountAddNew.Text = "Add New";
+            this.btnAccountAddNew.UseVisualStyleBackColor = false;
+            this.btnAccountAddNew.Click += new System.EventHandler(this.btnAccountAddNew_Click);
+            // 
+            // btnAccountUpdate
+            // 
+            this.btnAccountUpdate.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAccountUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnAccountUpdate.Location = new System.Drawing.Point(191, 311);
+            this.btnAccountUpdate.Name = "btnAccountUpdate";
+            this.btnAccountUpdate.Size = new System.Drawing.Size(121, 52);
+            this.btnAccountUpdate.TabIndex = 0;
+            this.btnAccountUpdate.Text = "Update";
+            this.btnAccountUpdate.UseVisualStyleBackColor = false;
+            this.btnAccountUpdate.Click += new System.EventHandler(this.btnAccountUpdate_Click);
             // 
             // splFoods
             // 
@@ -997,23 +1033,23 @@
             this.dgvFoods.BackgroundColor = System.Drawing.Color.White;
             this.dgvFoods.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFoods.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFoods.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFoods.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFoods.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFoods.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFoods.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFoods.GridColor = System.Drawing.Color.White;
             this.dgvFoods.Location = new System.Drawing.Point(0, 0);
@@ -1188,23 +1224,23 @@
             this.dgvTables.BackgroundColor = System.Drawing.Color.White;
             this.dgvTables.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTables.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTables.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTables.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTables.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTables.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTables.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTables.GridColor = System.Drawing.Color.White;
             this.dgvTables.Location = new System.Drawing.Point(0, 0);
@@ -1351,23 +1387,23 @@
             this.dgvCategories.BackgroundColor = System.Drawing.Color.White;
             this.dgvCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCategories.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCategories.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCategories.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCategories.GridColor = System.Drawing.Color.White;
             this.dgvCategories.Location = new System.Drawing.Point(0, 0);
@@ -1502,23 +1538,23 @@
             this.dgvBillInfos.BackgroundColor = System.Drawing.Color.White;
             this.dgvBillInfos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBillInfos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBillInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBillInfos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBillInfos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillInfos.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillInfos.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBillInfos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBillInfos.GridColor = System.Drawing.Color.White;
             this.dgvBillInfos.Location = new System.Drawing.Point(0, 0);
@@ -1703,36 +1739,36 @@
             this.dgvBills.BackgroundColor = System.Drawing.Color.White;
             this.dgvBills.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBills.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBills.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBills.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Light", 9.75F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBills.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBills.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBills.GridColor = System.Drawing.Color.White;
             this.dgvBills.Location = new System.Drawing.Point(0, 0);
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBills.RowHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBills.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvBills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBills.Size = new System.Drawing.Size(442, 500);
             this.dgvBills.TabIndex = 0;
@@ -1970,21 +2006,21 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlBody.ResumeLayout(false);
+            this.pnlLogin.ResumeLayout(false);
+            this.pnlLogin.PerformLayout();
+            this.pnlProfile.ResumeLayout(false);
+            this.pnlProfile.PerformLayout();
+            this.splMain.Panel1.ResumeLayout(false);
+            this.splMain.Panel2.ResumeLayout(false);
+            this.splMain.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
+            this.splMain.ResumeLayout(false);
             this.splAccounts.Panel1.ResumeLayout(false);
             this.splAccounts.Panel2.ResumeLayout(false);
             this.splAccounts.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splAccounts)).EndInit();
             this.splAccounts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).EndInit();
-            this.splMain.Panel1.ResumeLayout(false);
-            this.splMain.Panel2.ResumeLayout(false);
-            this.splMain.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splMain)).EndInit();
-            this.splMain.ResumeLayout(false);
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
-            this.pnlProfile.ResumeLayout(false);
-            this.pnlProfile.PerformLayout();
             this.splFoods.Panel1.ResumeLayout(false);
             this.splFoods.Panel2.ResumeLayout(false);
             this.splFoods.Panel2.PerformLayout();
@@ -2165,6 +2201,10 @@
         private System.Windows.Forms.Button btnAccountDelete;
         private System.Windows.Forms.Button btnAccountAddNew;
         private System.Windows.Forms.Button btnAccountUpdate;
+        private System.Windows.Forms.ToolStripMenuItem recipitsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extractToExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allTimeToolStripMenuItem;
     }
 }
 
