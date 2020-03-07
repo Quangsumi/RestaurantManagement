@@ -118,9 +118,9 @@ namespace GUI
             _toolDisplayLogic.ClickShowReceipts();
         }
 
-        private void exportToExcelAllTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportToExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _toolDisplayLogic.ClickExtractToExcelAllTimes();
+            _toolDisplayLogic.ClickExportToExcel();
         }
         #endregion
 
@@ -342,8 +342,7 @@ namespace GUI
             _acountDisplayLogic.ClickClearControlsContent();
         }
 
-        #endregion
 
-        
+        #endregion
     }
 }
