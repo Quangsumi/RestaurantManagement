@@ -341,8 +341,6 @@ namespace GUI
         {
             _acountDisplayLogic.ClickClearControlsContent();
         }
-
-
         #endregion
     }
 }

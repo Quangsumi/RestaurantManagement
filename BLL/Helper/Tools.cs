@@ -10,6 +10,8 @@ using DAL;
 using DTO;
 using System.Reflection;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BLL.Helper
 {
@@ -17,8 +19,11 @@ namespace BLL.Helper
     {
         public static readonly string receiptsDirPath = Directory.GetCurrentDirectory() + "\\Bills\\";
         public static readonly string excelFileDirPath = Directory.GetCurrentDirectory() + "\\Excel Files\\";
+        public static readonly string tempFilePath = Directory.GetCurrentDirectory() + "\\Temp\\temp.dat";
         static DataSet _dataSet = new DataSet();
 
+
+        #region Save checkout info to file text
         public static void SaveCheckoutInfoToFile(Order checkoutOrder, int lastBillID, TextBox txtMainDiscount)
         {
             string content = GetCheckoutContent(checkoutOrder, lastBillID, txtMainDiscount);
@@ -26,6 +31,30 @@ namespace BLL.Helper
 
             SaveToFile(path, content);
         }
+
+        private static string GetCheckoutContent(Order checkoutOrder, int lastBillID, TextBox txtMainDiscount)
+        {
+            string content = "";
+
+            content += "=================== #" + lastBillID.ToString() + " ===================";
+            content += "\r\n\n1/ Table: " + checkoutOrder.Table.ID.ToString() + "-" + checkoutOrder.Table.Name;
+            content += "\r\n2/ Checkin Date: " + checkoutOrder.CheckInDate.ToString();
+            content += "\r\n3/ Checkout Date: " + DateTime.Now.ToString();
+            content += "\r\n\n4/ Orders: ";
+            foreach (var food in checkoutOrder.Foods)
+            {
+                content += "\r\n + " + food.Key.Name + " - $" + food.Key.Price + " - x" + food.Value;
+            }
+            checkoutOrder.Discount = Int32.Parse(txtMainDiscount.Text);
+            content += "\r\n\n5/ Discount: " + checkoutOrder.Discount + "%";
+            content += "\r\n6/ Totol Price: $" + checkoutOrder.TotalPrice;
+            content += "\r\n7/ Status: Checkouted";
+
+            return content;
+        }
+
+        private static string GetNewTextPath(int lastBillID)
+            => receiptsDirPath + "#" + lastBillID.ToString() + ".txt";
 
         private static void SaveToFile(string path, string content)
         {
@@ -47,31 +76,10 @@ namespace BLL.Helper
                     textOut.Close(); // Close the StreamWriter obj and the associated FileStream obj
             }
         }
+        #endregion
 
-        private static string GetCheckoutContent(Order checkoutOrder, int lastBillID, TextBox txtMainDiscount)
-        {
-            string content = "";
 
-            content += "=================== #" + lastBillID.ToString() + " ===================";
-            content += "\r\n\n1/ Table: " + checkoutOrder.Table.ID.ToString() + "-" + checkoutOrder.Table.Name;
-            content += "\r\n2/ Checkin Date: " + checkoutOrder.CheckInDate.ToString();
-            content += "\r\n3/ Checkout Date: " + DateTime.Now.ToString();
-            content += "\r\n\n4/ Orders: ";
-            foreach (var food in checkoutOrder.Foods)
-            {
-                content += "\r\n + " + food.Key.Name + " - x" + food.Value;
-            }
-            checkoutOrder.Discount = Int32.Parse(txtMainDiscount.Text);
-            content += "\r\n\n5/ Discount: " + checkoutOrder.Discount + "%";
-            content += "\r\n6/ Totol Price: $" + checkoutOrder.TotalPrice;
-            content += "\r\n7/ Status: Checkouted";
-
-            return content;
-        }
-
-        private static string GetNewTextPath(int lastBillID)
-            => receiptsDirPath + "#" + lastBillID.ToString() + ".txt";
-
+        #region Export to excel
         private static string GetNewExcelPath(string name)
             => excelFileDirPath + "#" + name + ".xlsx";
 
@@ -96,7 +104,7 @@ namespace BLL.Helper
 
                     GenerateExcel(path);
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -142,7 +150,7 @@ namespace BLL.Helper
             Excel.Workbook excelWorkBook = excelApp.Workbooks.Add();
             Excel._Worksheet xlWorksheet = excelWorkBook.Sheets[1];
             Excel.Range xlRange = xlWorksheet.UsedRange;
-            
+
             foreach (DataTable table in _dataSet.Tables)
             {
                 //Add a new worksheet to workbook with the Datatable name
@@ -167,5 +175,75 @@ namespace BLL.Helper
             excelWorkBook.Close();
             excelApp.Quit();
         }
+        #endregion
+
+
+        #region Blackout funtions
+        public static bool HasTempData()
+            => File.Exists(tempFilePath);
+
+        public static List<TempBtnTable> GetTempBtnTableFromFile()
+        {
+            return DeserializeBtnTables();
+        }
+
+        public static void SerializeBtnTables(List<Button> btnTables)
+        {
+            List<TempBtnTable> tempBtnTables = new List<TempBtnTable>();
+
+            foreach (var btnTable in btnTables)
+            {
+                TempBtnTable tempBtnTable = new TempBtnTable();
+                tempBtnTable.Text = btnTable.Text;
+
+                if ((btnTable.Tag as Order) != null) 
+                {
+                    Order order = btnTable.Tag as Order;
+                    tempBtnTable.Table.ID = order.Table.ID;
+                    tempBtnTable.Table.Name = order.Table.Name;
+                    tempBtnTable.Table.Status = order.Table.Status;
+                    tempBtnTable.CheckInDate = order.CheckInDate;
+                    tempBtnTable.CheckOutDate = order.CheckOutDate;
+                    tempBtnTable.Discount = order.Discount;
+                    tempBtnTable.TotalPrice = order.TotalPrice;
+
+                    if(order.Foods != null)
+                    {
+                        tempBtnTable.Foods = new TempFoods[order.Foods.Count];
+                        
+                        int i = 0;
+                        foreach (var food in order.Foods)
+                        {
+                            tempBtnTable.Foods[i] = new TempFoods();
+                            tempBtnTable.Foods[i].Count = food.Value;
+
+                            tempBtnTable.Foods[i].TempFood = new TempFood();
+                            tempBtnTable.Foods[i].TempFood.ID = food.Key.ID;
+                            tempBtnTable.Foods[i].TempFood.Name = food.Key.Name;
+                            tempBtnTable.Foods[i].TempFood.CategoryID = food.Key.CategoryID;
+                            tempBtnTable.Foods[i].TempFood.Price = food.Key.Price;
+                            i++;
+                        }
+                    }
+                }
+
+                tempBtnTables.Add(tempBtnTable);
+            }
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write);
+            formatter.Serialize(stream, tempBtnTables);
+            stream.Close();
+        }
+
+        public static List<TempBtnTable> DeserializeBtnTables()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(tempFilePath, FileMode.Open, FileAccess.Read);
+            List<TempBtnTable> tempBtnTables = (List<TempBtnTable>)formatter.Deserialize(stream);
+
+            return tempBtnTables;
+        }
+        #endregion
     }
 }

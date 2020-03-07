@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TempBtnTable.cs" />
+    <Compile Include="TempFood.cs" />
+    <Compile Include="TempFoods.cs" />
+    <Compile Include="TempTable.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

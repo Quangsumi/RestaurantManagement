@@ -27,11 +27,10 @@ namespace BLL.DisplayLogic
         TextBox _txtMainDiscount;
         TextBox _txtMainTotalPrice;
 
-        List<tblTable> _tables;
+        List<Button> _btnTables = new List<Button>();
 
         Button _selectedBtnTable;
         Order _orderOfSelectedBtnTable;
-        tblFood _selectedFoodOnCbo;
 
         public MainFromDisplayLogic() { }
 
@@ -62,7 +61,11 @@ namespace BLL.DisplayLogic
         public void LoadTablesAndCategory()
         {
             LoadCategoryToCbo();
-            LoadTableToFlp();
+            
+            if (Tools.HasTempData())
+                LoadTableFromFileToFlp();
+            else
+                LoadTableFromDbToFlp();
         }
 
         private void LoadCategoryToCbo()
@@ -75,33 +78,104 @@ namespace BLL.DisplayLogic
         private List<tblCategory> GetCategory() 
             => _categoryDataLogic.GetRecords();
 
-        private void LoadTableToFlp()
+        private void LoadTableFromFileToFlp()
         {
-            _tables = _tableDataLogic.GetRecords();
+            List<TempBtnTable> tempBtnTables = Tools.GetTempBtnTableFromFile();
 
-            foreach (tblTable table in _tables)
+            foreach (TempBtnTable tempBtnTable in tempBtnTables)
+            {
+                Button btnTable = new Button();
+                btnTable.Text = tempBtnTable.Text;
+                btnTable.Width = 110;
+                btnTable.Height = 110;
+                
+                btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                btnTable.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
+                btnTable.ForeColor = System.Drawing.Color.White;
+
+                Order orderOfBtnTable = new Order();
+                orderOfBtnTable.CheckInDate = tempBtnTable.CheckInDate;
+                orderOfBtnTable.CheckOutDate = tempBtnTable.CheckOutDate;
+                orderOfBtnTable.Discount = tempBtnTable.Discount;
+                orderOfBtnTable.TotalPrice = tempBtnTable.TotalPrice;
+
+                if(tempBtnTable.Table != null)
+                {
+                    orderOfBtnTable.Table = new tblTable();
+                    orderOfBtnTable.Table.ID = tempBtnTable.Table.ID;
+                    orderOfBtnTable.Table.Name = tempBtnTable.Table.Name;
+                    orderOfBtnTable.Table.Status = tempBtnTable.Table.Status;
+                }
+
+                if(tempBtnTable.Foods != null)
+                {
+                    orderOfBtnTable.Foods = new Dictionary<tblFood, int>();
+
+                    for (int i = 0; i < tempBtnTable.Foods.Length; i++)
+                    {
+                        tblFood food = new tblFood();
+
+                        if(tempBtnTable.Foods[i].TempFood != null)
+                        {
+                            food.ID = tempBtnTable.Foods[i].TempFood.ID;
+                            food.Name = tempBtnTable.Foods[i].TempFood.Name;
+                            food.CategoryID = tempBtnTable.Foods[i].TempFood.CategoryID;
+                            food.Price = tempBtnTable.Foods[i].TempFood.Price;
+                        }
+
+                        orderOfBtnTable.Foods.Add(food, tempBtnTable.Foods[i].Count);
+                    }
+                }
+
+                btnTable.Tag = orderOfBtnTable;
+                //(btnTable.Tag as Order).Table = tempTable.Tag.Table;
+
+                if((btnTable.Tag as Order).Foods != null)
+                {
+                    btnTable.BackColor = System.Drawing.Color.Chocolate;
+                }
+                else
+                {
+                    btnTable.BackColor = System.Drawing.Color.DodgerBlue;
+                }
+
+                btnTable.Click += Table_Click;
+
+                _flpMainTable.Controls.Add(btnTable);
+                _btnTables.Add(btnTable);
+            }
+        }
+
+        private void LoadTableFromDbToFlp()
+        {
+            List<tblTable> tables = _tableDataLogic.GetRecords();
+
+            foreach (tblTable table in tables)
             {
                 Button btnTable = Initialize.NewBtnTable(table);
                 btnTable.Click += Table_Click;
 
                 _flpMainTable.Controls.Add(btnTable);
+                _btnTables.Add(btnTable);
             }
         }
 
         private void Table_Click(object sender, EventArgs e)
         {
             _selectedBtnTable = sender as Button;
-            Order orderOfSelectedBtnTable = _selectedBtnTable.Tag as Order;
-            DisplayOrderToLvw(orderOfSelectedBtnTable);
+            _orderOfSelectedBtnTable = _selectedBtnTable.Tag as Order;
+            DisplayOrderOfSelectedBtnTableToLvw();
         }
 
-        private void DisplayOrderToLvw(Order order)
+        private void DisplayOrderOfSelectedBtnTableToLvw()
         {
             _lvwMainOrders.Items.Clear();
 
-            if (order.Foods == null) return;
+            if (ValidateObj.IsBtnTableSelected(_selectedBtnTable)
+                && _orderOfSelectedBtnTable.Foods == null) return;
+                
 
-            foreach (var food in order.Foods)
+            foreach (var food in _orderOfSelectedBtnTable.Foods)
             {
                 ListViewItem item = new ListViewItem(food.Key.Name);
                 item.SubItems.Add(food.Value.ToString());
@@ -110,45 +184,39 @@ namespace BLL.DisplayLogic
                 _lvwMainOrders.Items.Add(item);
             }
 
-            DisplayTotalPrice(order);
+            DisplayTotalPriceOfSelectedBtnTable();
         }
 
-        private void DisplayTotalPrice(Order order)
-            => _txtMainTotalPrice.Text = order.TotalPrice.ToString();
+        private void DisplayTotalPriceOfSelectedBtnTable()
+            => _txtMainTotalPrice.Text = _orderOfSelectedBtnTable.TotalPrice.ToString();
 
         public void ClickAddFood()
         {
             if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
-            Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
+            if (!ValidateObj.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable))
+                InitializeOrderOfSelectedTable();
 
-            if (!ValidateObj.IsSelectedTableInitialized(_orderOfSelectedBtnTable))
-                InitializeSelectedTable();
+            tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, _selectedFoodOnCbo))
+            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
             {
-                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo];
-                _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo] = ++numberOfExistingFood;
+                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
+                _orderOfSelectedBtnTable.Foods[selectedFood] = ++numberOfExistingFood;
             }
             else
             {
-                _orderOfSelectedBtnTable.Foods.Add(_selectedFoodOnCbo, 1);
+                _orderOfSelectedBtnTable.Foods.Add(selectedFood, 1);
             }
 
-            DisplayOrderToLvw(_orderOfSelectedBtnTable);
+            Tools.SerializeBtnTables(_btnTables);
+            DisplayOrderOfSelectedBtnTableToLvw();
         }
 
-        private void Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo()
+        private void InitializeOrderOfSelectedTable()
         {
-            _orderOfSelectedBtnTable = _selectedBtnTable.Tag as Order;
-            _selectedFoodOnCbo = _cboMainFoodName.SelectedItem as tblFood;
-        }
-
-        private void InitializeSelectedTable()
-        {
-            _orderOfSelectedBtnTable.Table.Status = 1;
+            TurnTableOn(true);
             _orderOfSelectedBtnTable.CheckInDate = DateTime.Now;
-            _orderOfSelectedBtnTable.Discount = 0;
             _orderOfSelectedBtnTable.Foods = new Dictionary<tblFood, int>();
         }
 
@@ -156,61 +224,61 @@ namespace BLL.DisplayLogic
         {
             if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
-            Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
+            tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, _selectedFoodOnCbo))
+            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
             {
-                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo];
+                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
                 if (numberOfExistingFood > 1)
-                    _orderOfSelectedBtnTable.Foods[_selectedFoodOnCbo] = --numberOfExistingFood;
+                    _orderOfSelectedBtnTable.Foods[selectedFood] = --numberOfExistingFood;
                 else
-                    _orderOfSelectedBtnTable.Foods.Remove(_selectedFoodOnCbo);
+                    _orderOfSelectedBtnTable.Foods.Remove(selectedFood);
             }
             else
             {
-                MessageBox.Show($"Table haven't ordered this food yet!");
+                MessageBox.Show($"This table haven't ordered this food yet!");
             }
 
-            DisplayOrderToLvw(_orderOfSelectedBtnTable);
+            Tools.SerializeBtnTables(_btnTables);
+            DisplayOrderOfSelectedBtnTableToLvw();
         }
 
         private bool IsCheckoutValid()
             => ValidateInput.IsDigit(_txtMainDiscount) 
-            && ValidateObj.IsSelectedTableInitialized(_orderOfSelectedBtnTable);
+            && ValidateObj.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable);
 
         public void ClickCheckout()
         {
             if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
 
-            Assign_OrderOfSelectedBtnTable_And_SelectedFoodOnCbo();
-
             if (!IsCheckoutValid()) return;
 
-            ShowCheckoutInfomation(_orderOfSelectedBtnTable);
+            ShowCheckoutInfomation();
         }
 
-        private void ShowCheckoutInfomation(Order checkoutOrder)
+        private void ShowCheckoutInfomation()
         {
-            string msg = Initialize.NewCheckoutInfo(checkoutOrder, _txtMainDiscount);
+            string msg = Initialize.NewCheckoutInfo(_orderOfSelectedBtnTable, _txtMainDiscount);
 
-            DialogResult dialogResult = MessageBox.Show(msg, checkoutOrder.Table.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show(msg, _orderOfSelectedBtnTable.Table.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialogResult == DialogResult.Yes)
-                AddOrderToBill(_orderOfSelectedBtnTable);
+                AddOrderToBill();
         }
 
-        private void AddOrderToBill(Order checkoutOrder)
+        private void AddOrderToBill()
         {
-            tblBill newBill = Initialize.NewCheckoutBill(checkoutOrder, _txtMainDiscount);
+            tblBill newBill = Initialize.NewCheckoutBill(_orderOfSelectedBtnTable, _txtMainDiscount);
 
             try
             {
                 int lastBillID = _billDataLogic.AddBillUsingSP(newBill);
-                AddOrderDetailsToBillInfo(checkoutOrder, lastBillID);
+                AddOrderDetailsToBillInfo(_orderOfSelectedBtnTable, lastBillID);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                newBill.Status = 0;
             }
         }
 
@@ -224,11 +292,7 @@ namespace BLL.DisplayLogic
                 {
                     _billInfoDataLogic.AddRecord(newBillInfo);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
+                catch (Exception ex) { throw ex;}
             }
 
             Tools.SaveCheckoutInfoToFile(checkoutOrder, lastBillID, _txtMainDiscount);
@@ -237,13 +301,40 @@ namespace BLL.DisplayLogic
 
         private void ClearCheckedOutTable()
         {
-            _orderOfSelectedBtnTable.Table.Status = 0;
-            _orderOfSelectedBtnTable.CheckInDate = DateTime.Now;
+            TurnTableOn(false);
+
             _orderOfSelectedBtnTable.Discount = 0;
             _orderOfSelectedBtnTable.Foods = null;
+            _txtMainDiscount.Text = "0";
+            _txtMainTotalPrice.Text = "0";
 
-            DisplayOrderToLvw(_orderOfSelectedBtnTable);
+            Tools.SerializeBtnTables(_btnTables);
+            DisplayOrderOfSelectedBtnTableToLvw();
+            
+            _orderOfSelectedBtnTable = null;
             _selectedBtnTable = null;
+        }
+
+        private void TurnTableOn(bool flag)
+        {
+            foreach (Button button in _btnTables)
+            {
+                Order order = button.Tag as Order;
+                
+                if(_orderOfSelectedBtnTable == order)
+                {
+                    if(flag)
+                    {
+                        button.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + "Full)";
+                        button.BackColor = System.Drawing.Color.Chocolate;
+                    }
+                    else
+                    {
+                        button.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + "None)";
+                        button.BackColor = System.Drawing.Color.DodgerBlue;
+                    }
+                }
+            }
         }
     }
 }

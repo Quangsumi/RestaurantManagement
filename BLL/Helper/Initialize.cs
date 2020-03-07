@@ -15,7 +15,7 @@ namespace BLL.Helper
         public static Button NewBtnTable(tblTable table)
         {
             Button btnTable = new Button();
-            btnTable.Text = table.Name;
+            btnTable.Text = table.Name + "\r\n(" + (table.Status == 0 ? "None" : "Full") + ")";
             btnTable.Width = 110;
             btnTable.Height = 110;
             btnTable.BackColor = System.Drawing.Color.DodgerBlue;
@@ -39,7 +39,7 @@ namespace BLL.Helper
             msg += "\r\n3/ Orders: ";
             foreach (var food in checkoutOrder.Foods)
             {
-                msg += "\r\n + " + food.Key.Name + " - x" + food.Value;
+                msg += "\r\n + " + food.Key.Name + " - $" + food.Key.Price + " - x" + food.Value;
             }
             checkoutOrder.Discount = Int32.Parse(txtMainDiscount.Text);
             msg += "\r\n4/ Discount: " + checkoutOrder.Discount + "%";

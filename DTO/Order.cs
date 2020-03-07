@@ -14,18 +14,31 @@ namespace DTO
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
         public int Discount { get; set; }
+
+
+        private double totalPrice;
+
         public double TotalPrice
         {
-            get
+            get 
             {
                 double totalPrice = 0;
 
-                foreach (var item in Foods)
+                if (Foods != null)
                 {
-                    totalPrice += item.Key.Price * item.Value;
+                    foreach (var item in Foods)
+                        totalPrice += item.Key.Price * item.Value;
+
+                    totalPrice = totalPrice - (totalPrice * Discount / 100);
                 }
-                return totalPrice - (totalPrice * Discount/100);
+
+                return totalPrice;
+            }
+            set 
+            { 
+                totalPrice = value; 
             }
         }
+
     }
 }

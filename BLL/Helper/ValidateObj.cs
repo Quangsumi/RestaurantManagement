@@ -23,10 +23,12 @@ namespace BLL.Helper
         public static bool IsBtnTableSelected(Button btnTable) 
             => btnTable != null;
 
-        public static bool IsSelectedTableInitialized(Order orderOfSelectedBtnTable)
+        public static bool IsOrderOfSelectedTableInitialized(Order orderOfSelectedBtnTable)
             => orderOfSelectedBtnTable.Foods != null;
 
         public static bool IsSelectedFoodInSelectedTable(Order orderOfSelectedBtnTable, tblFood selectedFoodOnCbo)
-            => orderOfSelectedBtnTable.Foods != null && orderOfSelectedBtnTable.Foods.ContainsKey(selectedFoodOnCbo);
+            => orderOfSelectedBtnTable != null
+            && orderOfSelectedBtnTable.Foods != null 
+            && orderOfSelectedBtnTable.Foods.ContainsKey(selectedFoodOnCbo);
     }
 }
