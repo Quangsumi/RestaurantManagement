@@ -1,5 +1,5 @@
 ﻿using BLL.DataLogic;
-using BLL.Helper;
+using BLL.Helper.Validate;
 using DAL;
 using System;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ namespace BLL.DisplayLogic
 
         private void CheckAccount()
         {
-            if (!ValidateObj.IsAccountNull(_loginAccount))
+            if (!Validate.IsAccountNull(_loginAccount))
             {
                 if (_loginAccount.Type == 1)
                     EnableAdminMenuItems(true);

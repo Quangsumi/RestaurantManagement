@@ -7,9 +7,9 @@ using System.Windows.Forms;
 using DAL;
 using DTO;
 
-namespace BLL.Helper
+namespace BLL.Helper.Validate
 {
-    public static class ValidateObj
+    public static partial class Validate
     {
         public static bool IsAccountNull(tblAccount account)
             => account == null ? ShowNullAccountError() : false;
@@ -28,7 +28,7 @@ namespace BLL.Helper
 
         public static bool IsSelectedFoodInSelectedTable(Order orderOfSelectedBtnTable, tblFood selectedFoodOnCbo)
             => orderOfSelectedBtnTable != null
-            && orderOfSelectedBtnTable.Foods != null 
+            && orderOfSelectedBtnTable.Foods != null
             && orderOfSelectedBtnTable.Foods.ContainsKey(selectedFoodOnCbo);
     }
 }

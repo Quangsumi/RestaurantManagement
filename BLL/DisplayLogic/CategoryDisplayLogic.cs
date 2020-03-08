@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
-using BLL.Helper;
+using BLL.Helper.Validate;
+using BLL.Helper.Initialize;
 
 namespace BLL.DisplayLogic
 {
@@ -38,8 +39,8 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => ValidateInput.IsValidID(_txtCategoryID)
-            && ValidateInput.IsValidText(_txtCategoryName);
+            => Validate.IsValidID(_txtCategoryID)
+            && Validate.IsValidText(_txtCategoryName);
 
         public override void ClickAddRecord()
         {

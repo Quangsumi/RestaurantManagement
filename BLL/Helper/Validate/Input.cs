@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BLL.Helper
+namespace BLL.Helper.Validate
 {
-    public static class ValidateInput
+    public static partial class Validate
     {
         public static bool IsValidText(TextBox txtInput)
             => (!String.IsNullOrWhiteSpace(txtInput.Text) 

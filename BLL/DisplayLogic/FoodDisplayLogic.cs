@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
-using BLL.Helper;
+using BLL.Helper.Validate;
+using BLL.Helper.Initialize;
 
 namespace BLL.DisplayLogic
 {
@@ -46,9 +47,9 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-            => ValidateInput.IsValidID(_txtFoodID)
-            && ValidateInput.IsValidText(_txtFoodName) 
-            && ValidateInput.IsNumber(_txtFoodPrice);
+            => Validate.IsValidID(_txtFoodID)
+            && Validate.IsValidText(_txtFoodName) 
+            && Validate.IsNumber(_txtFoodPrice);
 
         public override void ClickAddRecord()
         {

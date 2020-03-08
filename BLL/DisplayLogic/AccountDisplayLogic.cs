@@ -1,5 +1,5 @@
 ﻿using BLL.DataLogic;
-using BLL.Helper;
+using BLL.Helper.Initialize;
 using DAL;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Helper.Validate;
 
 namespace BLL.DisplayLogic
 {
@@ -47,10 +48,10 @@ namespace BLL.DisplayLogic
         }
 
         protected override bool IsInputValid()
-             => ValidateInput.IsValidID(_txtAccountID)
-            && ValidateInput.IsValidText(_txtAccountUsername)
-            && ValidateInput.IsValidText(_txtAccountDisplayName)
-            && ValidateInput.IsValidText(_txtAccountPassword);
+             => Validate.IsValidID(_txtAccountID)
+            && Validate.IsValidText(_txtAccountUsername)
+            && Validate.IsValidText(_txtAccountDisplayName)
+            && Validate.IsValidText(_txtAccountPassword);
 
         public override void ClickAddRecord()
         {

@@ -7,7 +7,9 @@ using System.Windows.Forms;
 using DAL;
 using BLL.DataLogic;
 using DTO;
-using BLL.Helper;
+using BLL.Helper.Initialize;
+using BLL.Helper.Validate;
+using BLL.Helper.Tools;
 
 namespace BLL.DisplayLogic
 {
@@ -63,7 +65,7 @@ namespace BLL.DisplayLogic
             LoadCategoryToCbo();
             
             if (Tools.HasTempData())
-                LoadTableFromFileToFlp();
+                LoadTableFromFileTempToFlp();
             else
                 LoadTableFromDbToFlp();
         }
@@ -78,67 +80,13 @@ namespace BLL.DisplayLogic
         private List<tblCategory> GetCategory() 
             => _categoryDataLogic.GetRecords();
 
-        private void LoadTableFromFileToFlp()
+        private void LoadTableFromFileTempToFlp()
         {
             List<TempBtnTable> tempBtnTables = Tools.GetTempBtnTableFromFile();
 
             foreach (TempBtnTable tempBtnTable in tempBtnTables)
             {
-                Button btnTable = new Button();
-                btnTable.Text = tempBtnTable.Text;
-                btnTable.Width = 110;
-                btnTable.Height = 110;
-                
-                btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                btnTable.Font = new System.Drawing.Font("Segoe UI Light", 14.25F);
-                btnTable.ForeColor = System.Drawing.Color.White;
-
-                Order orderOfBtnTable = new Order();
-                orderOfBtnTable.CheckInDate = tempBtnTable.CheckInDate;
-                orderOfBtnTable.CheckOutDate = tempBtnTable.CheckOutDate;
-                orderOfBtnTable.Discount = tempBtnTable.Discount;
-                orderOfBtnTable.TotalPrice = tempBtnTable.TotalPrice;
-
-                if(tempBtnTable.Table != null)
-                {
-                    orderOfBtnTable.Table = new tblTable();
-                    orderOfBtnTable.Table.ID = tempBtnTable.Table.ID;
-                    orderOfBtnTable.Table.Name = tempBtnTable.Table.Name;
-                    orderOfBtnTable.Table.Status = tempBtnTable.Table.Status;
-                }
-
-                if(tempBtnTable.Foods != null)
-                {
-                    orderOfBtnTable.Foods = new Dictionary<tblFood, int>();
-
-                    for (int i = 0; i < tempBtnTable.Foods.Length; i++)
-                    {
-                        tblFood food = new tblFood();
-
-                        if(tempBtnTable.Foods[i].TempFood != null)
-                        {
-                            food.ID = tempBtnTable.Foods[i].TempFood.ID;
-                            food.Name = tempBtnTable.Foods[i].TempFood.Name;
-                            food.CategoryID = tempBtnTable.Foods[i].TempFood.CategoryID;
-                            food.Price = tempBtnTable.Foods[i].TempFood.Price;
-                        }
-
-                        orderOfBtnTable.Foods.Add(food, tempBtnTable.Foods[i].Count);
-                    }
-                }
-
-                btnTable.Tag = orderOfBtnTable;
-                //(btnTable.Tag as Order).Table = tempTable.Tag.Table;
-
-                if((btnTable.Tag as Order).Foods != null)
-                {
-                    btnTable.BackColor = System.Drawing.Color.Chocolate;
-                }
-                else
-                {
-                    btnTable.BackColor = System.Drawing.Color.DodgerBlue;
-                }
-
+                Button btnTable = Initialize.NewBtnTable(tempBtnTable);
                 btnTable.Click += Table_Click;
 
                 _flpMainTable.Controls.Add(btnTable);
@@ -171,7 +119,7 @@ namespace BLL.DisplayLogic
         {
             _lvwMainOrders.Items.Clear();
 
-            if (ValidateObj.IsBtnTableSelected(_selectedBtnTable)
+            if (Validate.IsBtnTableSelected(_selectedBtnTable)
                 && _orderOfSelectedBtnTable.Foods == null) return;
                 
 
@@ -192,14 +140,14 @@ namespace BLL.DisplayLogic
 
         public void ClickAddFood()
         {
-            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
+            if (!Validate.IsBtnTableSelected(_selectedBtnTable)) return;
 
-            if (!ValidateObj.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable))
+            if (!Validate.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable))
                 InitializeOrderOfSelectedTable();
 
             tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
+            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
             {
                 int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
                 _orderOfSelectedBtnTable.Foods[selectedFood] = ++numberOfExistingFood;
@@ -222,11 +170,11 @@ namespace BLL.DisplayLogic
 
         public void ClickClearFood()
         {
-            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
+            if (!Validate.IsBtnTableSelected(_selectedBtnTable)) return;
 
             tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (ValidateObj.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
+            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
             {
                 int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
                 if (numberOfExistingFood > 1)
@@ -244,12 +192,12 @@ namespace BLL.DisplayLogic
         }
 
         private bool IsCheckoutValid()
-            => ValidateInput.IsDigit(_txtMainDiscount) 
-            && ValidateObj.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable);
+            => Validate.IsDigit(_txtMainDiscount) 
+            && Validate.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable);
 
         public void ClickCheckout()
         {
-            if (!ValidateObj.IsBtnTableSelected(_selectedBtnTable)) return;
+            if (!Validate.IsBtnTableSelected(_selectedBtnTable)) return;
 
             if (!IsCheckoutValid()) return;
 
@@ -308,7 +256,11 @@ namespace BLL.DisplayLogic
             _txtMainDiscount.Text = "0";
             _txtMainTotalPrice.Text = "0";
 
-            Tools.SerializeBtnTables(_btnTables);
+            if (AnyFullTable())
+                Tools.SerializeBtnTables(_btnTables);
+            else
+                Tools.DeleteTemp();
+
             DisplayOrderOfSelectedBtnTableToLvw();
             
             _orderOfSelectedBtnTable = null;
@@ -324,17 +276,30 @@ namespace BLL.DisplayLogic
                 if(_orderOfSelectedBtnTable == order)
                 {
                     if(flag)
-                    {
-                        button.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + "Full)";
-                        button.BackColor = System.Drawing.Color.Chocolate;
-                    }
+                        DecorateBtnTable(button, "Full", System.Drawing.Color.Chocolate);
                     else
-                    {
-                        button.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + "None)";
-                        button.BackColor = System.Drawing.Color.DodgerBlue;
-                    }
+                        DecorateBtnTable(button, "None", System.Drawing.Color.DodgerBlue);
                 }
             }
+        }
+
+        private void DecorateBtnTable(Button btnTable, string text, System.Drawing.Color color)
+        {
+            btnTable.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + text + ")";
+            btnTable.BackColor = color;
+        }
+
+        private bool AnyFullTable()
+        {
+            foreach (var btnTable in _btnTables)
+            {
+                Order orderOfBtnTablt = btnTable.Tag as Order;
+                
+                if (orderOfBtnTablt.Foods != null)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

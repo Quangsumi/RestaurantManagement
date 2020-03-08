@@ -64,11 +64,15 @@
     <Compile Include="DisplayLogic\MainFromDisplayLogic.cs" />
     <Compile Include="DisplayLogic\TableDisplayLogic.cs" />
     <Compile Include="DisplayLogic\ToolDisplayLogic.cs" />
-    <Compile Include="Helper\Initialize.cs" />
-    <Compile Include="Helper\Tools.cs" />
-    <Compile Include="Helper\ValidateObj.cs" />
+    <Compile Include="Helper\Initialize\Checkout.cs" />
+    <Compile Include="Helper\Initialize\Serialize.cs" />
+    <Compile Include="Helper\Initialize\CRUD.cs" />
+    <Compile Include="Helper\Tools\Serialize.cs" />
+    <Compile Include="Helper\Tools\Excel.cs" />
+    <Compile Include="Helper\Tools\Text.cs" />
+    <Compile Include="Helper\Validate\Obj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\ValidateInput.cs" />
+    <Compile Include="Helper\Validate\Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
