@@ -95,5 +95,14 @@ namespace DAL.DataAccess
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public tblFood GetFoodByID(int id)
+        {
+            try
+            {
+                return _dataContext.tblFoods.FirstOrDefault(f => f.ID == id);
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

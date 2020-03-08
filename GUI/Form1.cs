@@ -283,7 +283,12 @@ namespace GUI
         #region MainForm
         private void cboMainCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _mainFormDisplayLogic.cboMainCategoryNameIndexChanged();
+            _mainFormDisplayLogic.LoadFoodByCategoryID();
+        }
+
+        private void lvwMainOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _mainFormDisplayLogic.SynccboCategoryAndcboFood();
         }
 
         private void btnMainAddFood_Click(object sender, EventArgs e)

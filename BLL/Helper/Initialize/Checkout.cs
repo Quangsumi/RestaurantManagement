@@ -70,6 +70,12 @@ namespace BLL.Helper.Initialize
 
             return newBillInfo;
         }
+
+        public static void DecorateBtnTable(Order order, Button btnTable, string text, System.Drawing.Color color)
+        {
+            btnTable.Text = order.Table.Name + "\r\n(" + text + ")";
+            btnTable.BackColor = color;
+        }
         #endregion
     }
 }

@@ -29,6 +29,29 @@ namespace BLL.Helper.Validate
         public static bool IsSelectedFoodInSelectedTable(Order orderOfSelectedBtnTable, tblFood selectedFoodOnCbo)
             => orderOfSelectedBtnTable != null
             && orderOfSelectedBtnTable.Foods != null
-            && orderOfSelectedBtnTable.Foods.ContainsKey(selectedFoodOnCbo);
+            && ContainsKey(orderOfSelectedBtnTable.Foods, selectedFoodOnCbo);
+
+        private static bool ContainsKey(Dictionary<tblFood, int> foods, tblFood selectedFoodOnCbo)
+        {
+            foreach (tblFood food in foods.Keys)
+            {
+                if (food.ID == selectedFoodOnCbo.ID)
+                    return true;
+            }
+            return false;
+        }
+
+        public static bool AnyFullTable(List<Button> btnTables)
+        {
+            foreach (var btnTable in btnTables)
+            {
+                Order orderOfBtnTablt = btnTable.Tag as Order;
+
+                if (orderOfBtnTablt.Foods != null)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

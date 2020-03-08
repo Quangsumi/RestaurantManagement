@@ -47,15 +47,24 @@ namespace BLL.DisplayLogic
         }
         #endregion
 
-        public void cboMainCategoryNameIndexChanged()
+        public void SynccboCategoryAndcboFood()
         {
-            tblCategory selectedCategory = _cboMainCategoryName.SelectedItem as tblCategory;
-            LoadFoodByCategoryID(selectedCategory.ID);
+            if (_lvwMainOrders.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedRow = _lvwMainOrders.SelectedItems[0];
+                int foodID = Convert.ToInt32(selectedRow.SubItems[0].Text);
+                tblFood food = _foodDataLogic.GetFoodByID(foodID);
+
+                _cboMainFoodName.Text = food.Name;
+                _cboMainCategoryName.Text = _foodDataLogic.GetCatagoryNameByCategoryID(food.CategoryID.ToString());
+            }
         }
 
-        private void LoadFoodByCategoryID(int categoryID)
+        public void LoadFoodByCategoryID()
         {
-            _cboMainFoodName.DataSource = _foodDataLogic.GetFoodByCategoryID(categoryID);
+            tblCategory selectedCategory = _cboMainCategoryName.SelectedItem as tblCategory;
+
+            _cboMainFoodName.DataSource = _foodDataLogic.GetFoodByCategoryID(selectedCategory.ID);
             _cboMainFoodName.DisplayMember = "Name";
             _cboMainFoodName.ValueMember = "ID";
         }
@@ -65,22 +74,19 @@ namespace BLL.DisplayLogic
             LoadCategoryToCbo();
             
             if (Tools.HasTempData())
-                LoadTableFromFileTempToFlp();
+                LoadTableFromTempToFlp();
             else
                 LoadTableFromDbToFlp();
         }
 
         private void LoadCategoryToCbo()
         {
-            _cboMainCategoryName.DataSource = GetCategory();
+            _cboMainCategoryName.DataSource = _categoryDataLogic.GetRecords();
             _cboMainCategoryName.DisplayMember = "Name";
             _cboMainCategoryName.ValueMember = "ID";
         }
 
-        private List<tblCategory> GetCategory() 
-            => _categoryDataLogic.GetRecords();
-
-        private void LoadTableFromFileTempToFlp()
+        private void LoadTableFromTempToFlp()
         {
             List<TempBtnTable> tempBtnTables = Tools.GetTempBtnTableFromFile();
 
@@ -118,14 +124,13 @@ namespace BLL.DisplayLogic
         private void DisplayOrderOfSelectedBtnTableToLvw()
         {
             _lvwMainOrders.Items.Clear();
-
-            if (Validate.IsBtnTableSelected(_selectedBtnTable)
-                && _orderOfSelectedBtnTable.Foods == null) return;
+            
+            if (_orderOfSelectedBtnTable?.Foods == null) return;
                 
-
             foreach (var food in _orderOfSelectedBtnTable.Foods)
             {
-                ListViewItem item = new ListViewItem(food.Key.Name);
+                ListViewItem item = new ListViewItem(food.Key.ID.ToString());
+                item.SubItems.Add(food.Key.Name);
                 item.SubItems.Add(food.Value.ToString());
                 item.SubItems.Add(food.Key.Price.ToString());
 
@@ -145,16 +150,21 @@ namespace BLL.DisplayLogic
             if (!Validate.IsOrderOfSelectedTableInitialized(_orderOfSelectedBtnTable))
                 InitializeOrderOfSelectedTable();
 
-            tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
+            tblFood selectedFoodOnCbo = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
+            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFoodOnCbo))
             {
-                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
-                _orderOfSelectedBtnTable.Foods[selectedFood] = ++numberOfExistingFood;
+                foreach (tblFood foodOnOrder in _orderOfSelectedBtnTable.Foods.Keys)
+                {
+                    if (foodOnOrder.ID == selectedFoodOnCbo.ID)
+                        selectedFoodOnCbo = foodOnOrder;
+                }
+                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFoodOnCbo];
+                _orderOfSelectedBtnTable.Foods[selectedFoodOnCbo] = ++numberOfExistingFood;
             }
             else
             {
-                _orderOfSelectedBtnTable.Foods.Add(selectedFood, 1);
+                _orderOfSelectedBtnTable.Foods.Add(selectedFoodOnCbo, 1);
             }
 
             Tools.SerializeBtnTables(_btnTables);
@@ -172,15 +182,20 @@ namespace BLL.DisplayLogic
         {
             if (!Validate.IsBtnTableSelected(_selectedBtnTable)) return;
 
-            tblFood selectedFood = _cboMainFoodName.SelectedItem as tblFood;
+            tblFood selectedFoodOnCbo = _cboMainFoodName.SelectedItem as tblFood;
 
-            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFood))
+            if (Validate.IsSelectedFoodInSelectedTable(_orderOfSelectedBtnTable, selectedFoodOnCbo))
             {
-                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFood];
+                foreach (tblFood foodOnOrder in _orderOfSelectedBtnTable.Foods.Keys)
+                {
+                    if (foodOnOrder.ID == selectedFoodOnCbo.ID)
+                        selectedFoodOnCbo = foodOnOrder;
+                }
+                int numberOfExistingFood = _orderOfSelectedBtnTable.Foods[selectedFoodOnCbo];
                 if (numberOfExistingFood > 1)
-                    _orderOfSelectedBtnTable.Foods[selectedFood] = --numberOfExistingFood;
+                    _orderOfSelectedBtnTable.Foods[selectedFoodOnCbo] = --numberOfExistingFood;
                 else
-                    _orderOfSelectedBtnTable.Foods.Remove(selectedFood);
+                    _orderOfSelectedBtnTable.Foods.Remove(selectedFoodOnCbo);
             }
             else
             {
@@ -189,6 +204,9 @@ namespace BLL.DisplayLogic
 
             Tools.SerializeBtnTables(_btnTables);
             DisplayOrderOfSelectedBtnTableToLvw();
+
+            if (_orderOfSelectedBtnTable.Foods.Count == 0)
+                ClearCheckedOutTable();
         }
 
         private bool IsCheckoutValid()
@@ -197,9 +215,7 @@ namespace BLL.DisplayLogic
 
         public void ClickCheckout()
         {
-            if (!Validate.IsBtnTableSelected(_selectedBtnTable)) return;
-
-            if (!IsCheckoutValid()) return;
+            if (!Validate.IsBtnTableSelected(_selectedBtnTable) || !IsCheckoutValid()) return;
 
             ShowCheckoutInfomation();
         }
@@ -221,18 +237,19 @@ namespace BLL.DisplayLogic
             try
             {
                 int lastBillID = _billDataLogic.AddBillUsingSP(newBill);
-                AddOrderDetailsToBillInfo(_orderOfSelectedBtnTable, lastBillID);
+                AddOrderDetailsToBillInfo(lastBillID);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                newBill.Status = 0;
+                //newBill.Status = 0;
+                //rollback
             }
         }
 
-        private void AddOrderDetailsToBillInfo(Order checkoutOrder, int lastBillID)
+        private void AddOrderDetailsToBillInfo(int lastBillID)
         {
-            foreach (var food in checkoutOrder.Foods)
+            foreach (var food in _orderOfSelectedBtnTable.Foods)
             {
                 tblBillInfo newBillInfo = Initialize.NewCheckoutBillInfo(lastBillID, food.Key.ID, food.Value);
 
@@ -243,7 +260,7 @@ namespace BLL.DisplayLogic
                 catch (Exception ex) { throw ex;}
             }
 
-            Tools.SaveCheckoutInfoToFile(checkoutOrder, lastBillID, _txtMainDiscount);
+            Tools.SaveCheckoutInfoToFile(_orderOfSelectedBtnTable, lastBillID, _txtMainDiscount);
             ClearCheckedOutTable();
         }
 
@@ -256,7 +273,7 @@ namespace BLL.DisplayLogic
             _txtMainDiscount.Text = "0";
             _txtMainTotalPrice.Text = "0";
 
-            if (AnyFullTable())
+            if (Validate.AnyFullTable(_btnTables))
                 Tools.SerializeBtnTables(_btnTables);
             else
                 Tools.DeleteTemp();
@@ -267,7 +284,7 @@ namespace BLL.DisplayLogic
             _selectedBtnTable = null;
         }
 
-        private void TurnTableOn(bool flag)
+        private void TurnTableOn(bool isFull)
         {
             foreach (Button button in _btnTables)
             {
@@ -275,31 +292,12 @@ namespace BLL.DisplayLogic
                 
                 if(_orderOfSelectedBtnTable == order)
                 {
-                    if(flag)
-                        DecorateBtnTable(button, "Full", System.Drawing.Color.Chocolate);
+                    if(isFull)
+                        Initialize.DecorateBtnTable(_orderOfSelectedBtnTable, button, "Full", System.Drawing.Color.Chocolate);
                     else
-                        DecorateBtnTable(button, "None", System.Drawing.Color.DodgerBlue);
+                        Initialize.DecorateBtnTable(_orderOfSelectedBtnTable, button, "None", System.Drawing.Color.DodgerBlue);
                 }
             }
-        }
-
-        private void DecorateBtnTable(Button btnTable, string text, System.Drawing.Color color)
-        {
-            btnTable.Text = _orderOfSelectedBtnTable.Table.Name + "\r\n(" + text + ")";
-            btnTable.BackColor = color;
-        }
-
-        private bool AnyFullTable()
-        {
-            foreach (var btnTable in _btnTables)
-            {
-                Order orderOfBtnTablt = btnTable.Tag as Order;
-                
-                if (orderOfBtnTablt.Foods != null)
-                    return true;
-            }
-
-            return false;
         }
     }
 }
