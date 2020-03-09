@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.DisplayLogic;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,6 +61,20 @@ namespace BLL.Helper.Validate
         {
             MessageBox.Show("Invalid ID!\r\nMake sure to click Clear first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
+        }
+
+        public static bool IsTableValidToDelte(int idTable)
+        {
+            List<Button> btnTables = MainFromDisplayLogic._btnTables;
+            foreach (Button btnTable in btnTables)
+            {
+                if ((btnTable.Tag as Order).Table.ID == idTable && (btnTable.Tag as Order).Foods != null)
+                {
+                    MessageBox.Show($"{(btnTable.Tag as Order).Table.Name} is having orders, you should checkout it first!", "Can not delete table", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

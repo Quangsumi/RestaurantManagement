@@ -8,6 +8,7 @@ using DAL;
 using BLL.DataLogic;
 using BLL.Helper.Validate;
 using BLL.Helper.Initialize;
+using DTO;
 
 namespace BLL.DisplayLogic
 {
@@ -43,7 +44,7 @@ namespace BLL.DisplayLogic
 
         protected override bool IsInputValid()
             => Validate.IsValidID(_txtTableID)
-            && Validate.IsOneAndZero(_txtTableStatus) 
+            && Validate.IsOneAndZero(_txtTableStatus)
             && Validate.IsValidText(_txtTableName);
 
         public override void ClickAddRecord()
@@ -93,7 +94,8 @@ namespace BLL.DisplayLogic
 
         public override void ClickDeleteRecord()
         {
-            if (!IsInputValid()) return;
+            if (!IsInputValid() 
+                || !Validate.IsTableValidToDelte(Convert.ToInt32(_txtTableID.Text))) return;
 
             try
             {
@@ -112,6 +114,8 @@ namespace BLL.DisplayLogic
                 ClearControlsContent();
             }
         }
+
+        
 
         public override void ClickUpdateRecord()
         {

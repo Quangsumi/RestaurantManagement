@@ -29,7 +29,7 @@ namespace BLL.DisplayLogic
         TextBox _txtMainDiscount;
         TextBox _txtMainTotalPrice;
 
-        List<Button> _btnTables = new List<Button>();
+        public static List<Button> _btnTables = new List<Button>();
 
         Button _selectedBtnTable;
         Order _orderOfSelectedBtnTable;
@@ -205,8 +205,8 @@ namespace BLL.DisplayLogic
             Tools.SerializeBtnTables(_btnTables);
             DisplayOrderOfSelectedBtnTableToLvw();
 
-            if (_orderOfSelectedBtnTable.Foods.Count == 0)
-                ClearCheckedOutTable();
+            if (_orderOfSelectedBtnTable?.Foods?.Count == 0)
+                ClearTable();
         }
 
         private bool IsCheckoutValid()
@@ -261,10 +261,10 @@ namespace BLL.DisplayLogic
             }
 
             Tools.SaveCheckoutInfoToFile(_orderOfSelectedBtnTable, lastBillID, _txtMainDiscount);
-            ClearCheckedOutTable();
+            ClearTable();
         }
 
-        private void ClearCheckedOutTable()
+        private void ClearTable()
         {
             TurnTableOn(false);
 
